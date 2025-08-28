@@ -49,15 +49,16 @@ body {
   text-align: center;
 }
 .profile-photo {
-  width: 180px;   /* CHANGED: Increased from 140px */
-  height: 180px;  /* CHANGED: Increased from 140px */
+  width: 240px;   /* CHANGED: Increased for a medium size */
+  height: 240px;  /* CHANGED: Increased for a medium size */
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 20px; /* CHANGED: From 50% to create a rounded rectangle */
   display: block;
   margin: 0 auto;
   border: 1px solid #eee;
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
 .links {
   margin-top: 20px;
   line-height: 1.8;
