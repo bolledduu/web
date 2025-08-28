@@ -1,3 +1,4 @@
+see this is my full code 
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,7 +17,7 @@
       justify-content: center; /* centers the name */
       padding: 12px 20px;
     }
-    /* Research link anchored to right corner (now anchors to internal section to avoid 404) */
+    /* Research link anchored to right corner */
     .research-link {
       position: absolute;
       right: 20px;
@@ -79,79 +80,14 @@
         padding: 10px;
       }
     }
-
-    /* === Custom paragraph styles requested === */
-    .para1 {
-      font-family: Arial, Helvetica, sans-serif;
-      line-height: 1.5;
-      margin-bottom: 1rem;
-      margin-right: 6%;
-    }
-
-    .para2 {
-      /* different serif font so paragraph looks distinct from para1 */
-      font-family: "Georgia", "Times New Roman", serif;
-      /* start from middle (shift right) so paragraph begins visually from mid page */
-      margin-left: 25%;
-      line-height: 1.6;
-      margin-top: 0.6rem;
-      text-indent: 0;
-    }
-
-    /* Make the first letter ("D" of "During") slightly larger and visually distinct */
-    .para2::first-letter {
-      font-size: 1.6em;
-      font-weight: 700;
-      line-height: 1;
-      margin-right: 0.08em;
-      vertical-align: baseline;
-    }
-
-    /* Research section styles (internal list of blogs) */
-    #research {
-      padding: 18px 8px;
-      border-left: 3px solid rgba(0,0,0,0.06);
-      margin: 1.4rem 0;
-      background: rgba(0,0,0,0.01);
-    }
-    #research h2 {
-      margin-top: 0;
-    }
-    #research ul {
-      margin: 0;
-      padding-left: 1.2rem;
-    }
-    #research ul li {
-      margin: 0.45rem 0;
-    }
-
-    /* Placeholder blog article styles */
-    .blog-article {
-      margin: 1rem 0 2rem 0;
-      padding: 12px;
-      border: 1px dashed rgba(0,0,0,0.06);
-      background: rgba(255,255,255,0.02);
-    }
-
-    /* ensure anchored sections don't get hidden under header */
-    :target {
-      scroll-margin-top: 80px;
-    }
-
-    /* small responsive tweak so the shifted para doesn't overflow on very small screens */
-    @media (max-width: 720px) {
-      .para2 {
-        margin-left: 10%;
-      }
-    }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <h1 class="name">Pradeep Bolleddu</h1>
-      <!-- Changed to internal anchor so this never returns a 404 -->
-      <a class="research-link" href="#research" target="_self" rel="noopener">Research blogs</a>
+      <!-- Link stays pretty: /research/ -->
+      <a class="research-link" href="./research/" target="_self" rel="noopener">Research blogs</a>
     </div>
   </header>
   <main class="container">
@@ -169,9 +105,35 @@
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
+       <style>
+  .para1 {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  .para2 {
+    font-family: "Georgia", "Times New Roman", serif;
+    /* start from middle (shift right) so paragraph begins visually from mid page */
+    margin-left: 25%;
+    line-height: 1.6;
+  }
+
+  /* Make the first letter ("D" of "During") slightly larger */
+  .para2::first-letter {
+    font-size: 1.4em;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .highlight-name {
+    color: inherit;
+    text-decoration: underline;
+  }
+</style>
 
 <p class="para1">
-  Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology. My journey so far has been exciting. I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with <a class="highlight-name" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" title="link" target="_blank" rel="noopener">Dr.Ekta Singla</a> on Autonomous WardBot.
+  Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology. My journey so far has been exciting. I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with Dr.Ekta Singla on Autonomous WardBot.
 </p>
 
 <p class="para2">
@@ -179,46 +141,6 @@
 </p>
 
       </section>
-
-      <!-- Research section (internal) - clicking "Research blogs" scrolls here (no 404) -->
-      <section id="research" class="research-section" aria-labelledby="research-heading">
-        <h2 id="research-heading">Research Blogs</h2>
-        <p>These are temporary duplicate blog entries (placeholders). I'll update titles and links later — for now they live on this page so you won't see a 404.</p>
-        <ul>
-          <li><a href="#blog-llm-opt">AI Blog — LLM Optimization Techniques (duplicate)</a></li>
-          <li><a href="#blog-3d-cv">AI Blog — 3D Computer Vision & NeRFs (duplicate)</a></li>
-          <li><a href="#blog-med-imaging">AI Blog — Medical Imaging Pipelines (duplicate)</a></li>
-          <li><a href="#blog-llm-opt-2">AI Blog — LLM Optimization Techniques (duplicate #2)</a></li>
-          <li><a href="#blog-3d-cv-2">AI Blog — 3D Computer Vision & NeRFs (duplicate #2)</a></li>
-        </ul>
-
-        <!-- Placeholder articles so the anchor links above actually go somewhere on the page -->
-        <article id="blog-llm-opt" class="blog-article" aria-labelledby="blog-llm-opt-title">
-          <h3 id="blog-llm-opt-title">AI Blog — LLM Optimization Techniques</h3>
-          <p>Placeholder content. Replace this with your full blog post later.</p>
-        </article>
-
-        <article id="blog-3d-cv" class="blog-article" aria-labelledby="blog-3d-cv-title">
-          <h3 id="blog-3d-cv-title">AI Blog — 3D Computer Vision & NeRFs</h3>
-          <p>Placeholder content. Replace this with your full blog post later.</p>
-        </article>
-
-        <article id="blog-med-imaging" class="blog-article" aria-labelledby="blog-med-imaging-title">
-          <h3 id="blog-med-imaging-title">AI Blog — Medical Imaging Pipelines</h3>
-          <p>Placeholder content. Replace this with your full blog post later.</p>
-        </article>
-
-        <article id="blog-llm-opt-2" class="blog-article" aria-labelledby="blog-llm-opt-2-title">
-          <h3 id="blog-llm-opt-2-title">AI Blog — LLM Optimization Techniques (duplicate #2)</h3>
-          <p>Placeholder content. Replace this with your full blog post later.</p>
-        </article>
-
-        <article id="blog-3d-cv-2" class="blog-article" aria-labelledby="blog-3d-cv-2-title">
-          <h3 id="blog-3d-cv-2-title">AI Blog — 3D Computer Vision & NeRFs (duplicate #2)</h3>
-          <p>Placeholder content. Replace this with your full blog post later.</p>
-        </article>
-      </section>
-
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
@@ -305,4 +227,4 @@
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
-</html>
+</html> 
