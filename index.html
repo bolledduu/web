@@ -16,7 +16,6 @@
       justify-content: center; /* centers the name */
       padding: 12px 20px;
     }
-
     /* Research link anchored to right corner */
     .research-link {
       position: absolute;
@@ -34,7 +33,6 @@
     .research-link:hover {
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
     }
-
     /* Font for highlighted professor names */
     .highlight-name {
       font-family: 'Merriweather', Georgia, serif;
@@ -44,7 +42,6 @@
       padding: 0 2px;
       border-bottom: 1px dashed rgba(0,0,0,0.12);
     }
-
     /* Project small links next to bullets */
     .proj-links {
       font-size: 0.9rem;
@@ -54,7 +51,6 @@
       text-decoration: none;
       margin: 0 4px;
     }
-
     /* Different font (monospaced) + bold for numericals in work experience */
     .experience .num {
       font-family: 'Roboto Mono', monospace;
@@ -64,18 +60,15 @@
       /* keep same color; remove if you want distinct color */
       color: inherit;
     }
-
     /* Small accessibility/visual tweaks */
     .pub .pub-body .pub-links a {
       text-decoration: none;
     }
-
     /* Ensure header name doesn't wrap awkwardly on small screens */
     .name {
       margin: 0;
       text-align: center;
     }
-
     @media (max-width: 520px) {
       .research-link {
         right: 12px;
@@ -92,11 +85,10 @@
   <header class="site-header">
     <div class="header-inner">
       <h1 class="name">Pradeep Bolleddu</h1>
-      <!-- Changed to a relative link so it points to /<current-site>/research/ -->
-      <a class="research-link" href="research/" target="_self" rel="noopener">Research blogs</a>
+      <!-- Link stays pretty: /research/ -->
+      <a class="research-link" href="./research/" target="_self" rel="noopener">Research blogs</a>
     </div>
   </header>
-
   <main class="container">
     <!-- LEFT COLUMN -->
     <aside class="left-col">
@@ -105,11 +97,10 @@
       </div>
       <nav class="links" aria-label="quick links">
         <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a> |
-        <a href="linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank" rel="noopener">LinkedIn</a> <br>
+        <a href="https://linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank" rel="noopener">LinkedIn</a> <br>
         <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a> 
       </nav>
     </aside>
-
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
@@ -119,7 +110,6 @@ I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massac
 During my master’s at UMass, I defended my project under <a class="highlight-name" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" title="link" target="_blank" rel="noopener">Prof Julia Fang’s</a> guidance & at UMass, I was fortunate to have <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Vijaya Chalivendra </a>  through on-campus work at University of Massachusetts.
         </p>
       </section>
-
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
@@ -143,7 +133,6 @@ During my master’s at UMass, I defended my project under <a class="highlight-n
           </li>
         </ul>
       </section>
-
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
@@ -157,7 +146,6 @@ During my master’s at UMass, I defended my project under <a class="highlight-n
             </div>
           </div>
         </div>
-
         <div class="pub">
           <img src="assests/hadoooop.png" alt="publication thumbnail" />
           <div class="pub-body">
@@ -170,10 +158,8 @@ During my master’s at UMass, I defended my project under <a class="highlight-n
           </div>
         </div>
       </section>
-
       <section class="experience">
         <h2>Work Experience</h2>
-
         <article class="job">
           <h3>Applied Scientist — Oliv AI</h3>
           <p class="job-time">Sep 2024 — Present</p>
@@ -184,7 +170,6 @@ During my master’s at UMass, I defended my project under <a class="highlight-n
             <li>Now I’m building Churn & Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
           </ul>
         </article>
-
         <article class="job">
           <h3>Machine learning Researcher</h3>
           <p class="job-time">2023 — 2024</p>
@@ -194,24 +179,19 @@ During my master’s at UMass, I defended my project under <a class="highlight-n
             <li>We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = <span class="num">0.987</span> (≈<span class="num">18%</span> fewer false positives) and enabled personalized treatment plans for <span class="num">20K+</span> patients/year.</li>
           </ul>
         </article>
-
       </section>
-
       <section class="skills">
         <h2>Technical Skills</h2>
         <p>Python · PyTorch · TensorFlow · Computer Vision · 3D Reconstruction · CUDA · Docker · Git</p>
       </section>
-
       <section class="contact-cta">
         <p>If you'd like to collaborate, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
       </section>
     </section>
   </main>
-
   <footer class="site-footer">
     © <span id="year"></span> Pradeep Bolleddu
   </footer>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
