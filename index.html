@@ -5,11 +5,69 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css" />
+  <!-- Font for highlighted professor names -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Minimal overrides for requested changes */
+    .highlight-name {
+      font-family: 'Merriweather', Georgia, serif;
+      font-weight: 700;
+      text-decoration: none;
+      color: inherit; /* let existing CSS control color; remove if you want a distinct color */
+      padding: 0 2px;
+      border-bottom: 1px dashed rgba(0,0,0,0.12);
+    }
+
+    /* Project small links next to bullets */
+    .proj-links {
+      font-size: 0.9rem;
+      margin-left: 8px;
+    }
+    .proj-links a {
+      text-decoration: none;
+      margin: 0 4px;
+    }
+
+    /* Research blogs button beside name */
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .name-and-btn {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: nowrap;
+    }
+    .research-btn {
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.2);
+      padding: 8px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+    }
+    .research-btn:hover {
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    }
+
+    /* Small tweak to ensure small elements don't break layout */
+    .pub .pub-body .pub-links a {
+      text-decoration: none;
+    }
+  </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <h1 class="name">Pradeep Bolleddu</h1>
+      <div class="name-and-btn">
+        <h1 class="name">Pradeep Bolleddu</h1>
+        <!-- Update the URL below to your real research-blogs page -->
+        <button class="research-btn" type="button" onclick="window.open('https://your-website.com/research-blogs', '_blank', 'noopener')">Research blogs</button>
+      </div>
       <div class="email">
         email: <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>
       </div>
@@ -22,10 +80,9 @@
         <img class="profile-photo" src="assests/website photo.jpg" alt="Pradeep Bolleddu" />
       </div>
       <nav class="links" aria-label="quick links">
-        <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank">CV</a> |
-        <a href="linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank">LinkedIn</a> <br>
-        <a href="https://github.com/bolleddu15" target="_blank">GitHub</a> 
-
+        <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a> |
+        <a href="linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank" rel="noopener">LinkedIn</a> <br>
+        <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a> 
       </nav>
     </aside>
     <!-- RIGHT COLUMN -->
@@ -33,16 +90,31 @@
       <section class="bio">
         <p>
 Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology.  My journey so far has been exciting. 
-I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the  University of Massachusetts graduated with a Masters degree and IIT Ropar with a Bachelors degree. Back in my bachelor’s days at IIT Ropar, I worked with Prof Ekta singla  on Autonomous WardBot. 
-During my master’s at UMass, I defended my project under Prof Julia fang’s guidance & At UMass, I was fortunate to have Prof. Scott Field  as my advisor while collaborating with  Prof Vijaya chalivendra  through on-campus work at University of Massachusetts . 
+I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with <a class="highlight-name" href="#" title="link to be provided for Prof. Ekta Singla" target="_blank" rel="noopener">Prof. Ekta Singla</a> on Autonomous WardBot. 
+During my master’s at UMass, I defended my project under Prof Julia Fang’s guidance & at UMass, I was fortunate to have <a class="highlight-name" href="#" title="link to be provided for Prof. Scott Field" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with Prof. Vijaya Chalivendra through on-campus work at University of Massachusetts.
         </p>
       </section>
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
-          <li>Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences</li>
-          <li>3D Image Models and Building Large Language Models with Object Detection</li>
-          <li>Neural Radiance Fields with PyTorch implementation </li>
+          <li>
+            Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences
+            <small class="proj-links">
+              <a href="#" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
+            </small>
+          </li>
+          <li>
+            3D Image Models and Building Large Language Models with Object Detection
+            <small class="proj-links">
+              <a href="#" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
+            </small>
+          </li>
+          <li>
+            Neural Radiance Fields with PyTorch implementation
+            <small class="proj-links">
+              <a href="#" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
+            </small>
+          </li>
         </ul>
       </section>
       <section class="selected-publications">
@@ -50,22 +122,22 @@ During my master’s at UMass, I defended my project under Prof Julia fang’s g
         <div class="pub">
           <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" />
           <div class="pub-body">
-            <a class="pub-title" href="#" target="_blank">An Analysis of Clustering Techniques</a>
+            <a class="pub-title" href="#" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>, ...</div>
             <div class="pub-meta">IJSRCSEIT 2025</div>
             <div class="pub-links">
-              <a href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques">project page</a> | <a href="https://ijsrcseit.com/paper/CSEIT22821.pdf">pdf</a> | <a href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p">code</a>
+              <a href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
             </div>
           </div>
         </div>
         <div class="pub">
           <img src="assests/hadoooop.png" alt="publication thumbnail" />
           <div class="pub-body">
-            <a class="pub-title" href="#" target="_blank">Hadoop- An Overview of Data Security </a>
+            <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security </a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*</div>
             <div class="pub-meta">IJSR 2024</div>
             <div class="pub-links">
-              <a href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security">project page</a> | <a href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf ">pdf</a> | <a href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit">code</a>
+              <a href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
             </div>
           </div>
         </div>
@@ -76,12 +148,14 @@ During my master’s at UMass, I defended my project under Prof Julia fang’s g
           <h3>Applied Scientist — Oliv AI</h3>
           <p class="job-time">Sep 2024 — Present</p>
           <ul>
-            <li> When I joined, the first project I worked on was Transaction monitoring - we built a model that cut false positives by 62% while maintaining 98% recall and sped deployment from 6 weeks → 9 days. Later I moved to Cross-domain LLM (RAG), which solved 70% of previously unresolved queries and delivered 89% first-contact resolution (+49% YoY), reducing handle time by 40% (~$500K/year). I also led LLM A/B testing & search optimization (~200 experiments), making search the platform’s most engaging surface.</li>
+            <li>
+              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by 62% while maintaining 98% recall and sped deployment from 6 weeks → 9 days. Later I moved to Cross-domain LLM (RAG), which solved 70% of previously unresolved queries and delivered 89% first-contact resolution (+49% YoY), reducing handle time by 40% (~$500K/year). I also led LLM A/B testing & search optimization (~200 experiments), making search the platform’s most engaging surface.
+            </li>
             <li>Now I’m building Churn & Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
           </ul>
         </article>
         <article class="job">
-          <h3>Machine learning Researcher</h3>
+          <h3> UMass chan Medical School  — Machine learning Researcher</h3>
           <p class="job-time">2023 — 2024</p>
           <ul>
             <li>Advisor: Prof. Hua Fang</li>
@@ -95,7 +169,7 @@ During my master’s at UMass, I defended my project under Prof Julia fang’s g
         <p>Python · PyTorch · TensorFlow · Computer Vision · 3D Reconstruction · CUDA · Docker · Git</p>
       </section>
       <section class="contact-cta">
-        <p>If you'd like to collaborate or intern, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
+        <p>If you'd like to collaborate , email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
       </section>
     </section>
   </main>
