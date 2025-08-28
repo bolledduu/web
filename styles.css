@@ -49,8 +49,8 @@ body {
   text-align: center;
 }
 .profile-photo {
-  width: 140px;   /* Smaller profile picture */
-  height: 140px;
+  width: 180px;   /* CHANGED: Increased from 140px */
+  height: 180px;  /* CHANGED: Increased from 140px */
   object-fit: cover;
   border-radius: 50%;
   display: block;
