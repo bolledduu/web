@@ -5,15 +5,42 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css" />
-  <!-- Font for highlighted professor names -->
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Fonts for highlighted names and numericals -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Minimal overrides for requested changes */
+    /* Header layout: name centered, research link on right */
+    .header-inner {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center; /* centers the name */
+      padding: 12px 20px;
+    }
+
+    /* Research link anchored to right corner */
+    .research-link {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: transparent;
+      border: 1px solid rgba(0,0,0,0.18);
+      padding: 8px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: inherit;
+    }
+    .research-link:hover {
+      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
+    }
+
+    /* Font for highlighted professor names */
     .highlight-name {
       font-family: 'Merriweather', Georgia, serif;
       font-weight: 700;
       text-decoration: none;
-      color: inherit; /* let existing CSS control color; remove if you want a distinct color */
+      color: inherit;
       padding: 0 2px;
       border-bottom: 1px dashed rgba(0,0,0,0.12);
     }
@@ -28,51 +55,48 @@
       margin: 0 4px;
     }
 
-    /* Research blogs button beside name */
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-    .name-and-btn {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      flex-wrap: nowrap;
-    }
-    .research-btn {
-      background: transparent;
-      border: 1px solid rgba(0,0,0,0.2);
-      padding: 8px 12px;
-      border-radius: 6px;
-      cursor: pointer;
-      font-size: 0.95rem;
-    }
-    .research-btn:hover {
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+    /* Different font (monospaced) + bold for numericals in work experience */
+    .experience .num {
+      font-family: 'Roboto Mono', monospace;
+      font-weight: 700;
+      /* slightly larger to stand out */
+      font-size: 1.02em;
+      /* keep same color; remove if you want distinct color */
+      color: inherit;
     }
 
-    /* Small tweak to ensure small elements don't break layout */
+    /* Small accessibility/visual tweaks */
     .pub .pub-body .pub-links a {
       text-decoration: none;
+    }
+
+    /* Ensure header name doesn't wrap awkwardly on small screens */
+    .name {
+      margin: 0;
+      text-align: center;
+    }
+
+    @media (max-width: 520px) {
+      .research-link {
+        right: 12px;
+        padding: 6px 8px;
+        font-size: 0.9rem;
+      }
+      .header-inner {
+        padding: 10px;
+      }
     }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
-      <div class="name-and-btn">
-        <h1 class="name">Pradeep Bolleddu</h1>
-        <!-- Update the URL below to your real research-blogs page -->
-        <button class="research-btn" type="button" onclick="window.open('https://your-website.com/research-blogs', '_blank', 'noopener')">Research blogs</button>
-      </div>
-      <div class="email">
-        email: <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>
-      </div>
+      <h1 class="name">Pradeep Bolleddu</h1>
+      <!-- Update this URL to your real research-blogs page when ready -->
+      <a class="research-link" href="https://your-website.com/research-blogs" target="_blank" rel="noopener">Research blogs</a>
     </div>
   </header>
+
   <main class="container">
     <!-- LEFT COLUMN -->
     <aside class="left-col">
@@ -85,6 +109,7 @@
         <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a> 
       </nav>
     </aside>
+
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
@@ -94,6 +119,7 @@ I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massac
 During my master’s at UMass, I defended my project under Prof Julia Fang’s guidance & at UMass, I was fortunate to have <a class="highlight-name" href="#" title="link to be provided for Prof. Scott Field" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with Prof. Vijaya Chalivendra through on-campus work at University of Massachusetts.
         </p>
       </section>
+
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
@@ -117,6 +143,7 @@ During my master’s at UMass, I defended my project under Prof Julia Fang’s g
           </li>
         </ul>
       </section>
+
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
@@ -130,6 +157,7 @@ During my master’s at UMass, I defended my project under Prof Julia Fang’s g
             </div>
           </div>
         </div>
+
         <div class="pub">
           <img src="assests/hadoooop.png" alt="publication thumbnail" />
           <div class="pub-body">
@@ -142,40 +170,48 @@ During my master’s at UMass, I defended my project under Prof Julia Fang’s g
           </div>
         </div>
       </section>
+
       <section class="experience">
         <h2>Work Experience</h2>
+
         <article class="job">
           <h3>Applied Scientist — Oliv AI</h3>
           <p class="job-time">Sep 2024 — Present</p>
           <ul>
             <li>
-              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by 62% while maintaining 98% recall and sped deployment from 6 weeks → 9 days. Later I moved to Cross-domain LLM (RAG), which solved 70% of previously unresolved queries and delivered 89% first-contact resolution (+49% YoY), reducing handle time by 40% (~$500K/year). I also led LLM A/B testing & search optimization (~200 experiments), making search the platform’s most engaging surface.
+              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> ( ~<span class="num">$500K</span>/year). I also led LLM A/B testing & search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
             </li>
             <li>Now I’m building Churn & Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
           </ul>
         </article>
+
         <article class="job">
-          <h3> UMass chan Medical School  — Machine learning Researcher</h3>
+          <h3>Machine learning Researcher</h3>
           <p class="job-time">2023 — 2024</p>
           <ul>
             <li>Advisor: Prof. Hua Fang</li>
-            <li>I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing 5K+ brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving 97% accuracy, which noticeably improved diagnostic precision for oncology teams. </li> 
-            <li>We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = 0.987 (≈18% fewer false positives) and enabled personalized treatment plans for 20K+ patients/year.</li>
+            <li>I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams. </li> 
+            <li>We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = <span class="num">0.987</span> (≈<span class="num">18%</span> fewer false positives) and enabled personalized treatment plans for <span class="num">20K+</span> patients/year.</li>
           </ul>
         </article>
+
       </section>
+
       <section class="skills">
         <h2>Technical Skills</h2>
         <p>Python · PyTorch · TensorFlow · Computer Vision · 3D Reconstruction · CUDA · Docker · Git</p>
       </section>
+
       <section class="contact-cta">
-        <p>If you'd like to collaborate , email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
+        <p>If you'd like to collaborate, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
       </section>
     </section>
   </main>
+
   <footer class="site-footer">
     © <span id="year"></span> Pradeep Bolleddu
   </footer>
+
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
