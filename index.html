@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Pradeep Bolleddu</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <h1 class="name">Pradeep Bolleddu</h1>
+      <div class="email">
+        email: <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>
+      </div>
+    </div>
+  </header>
+  <main class="container">
+    <!-- LEFT COLUMN -->
+    <aside class="left-col">
+      <div class="profile-container">
+        <img class="profile-photo" src="assests/website photo.jpg" alt="Pradeep Bolleddu" />
+      </div>
+      <nav class="links" aria-label="quick links">
+        <a href="assests/resume.pdf" target="_blank">CV</a> |
+        <a href="#" target="_blank">Google Scholar</a> <br>
+        <a href="#" target="_blank">GitHub</a> |
+        <a href="#" target="_blank">Twitter</a>
+      </nav>
+    </aside>
+    <!-- RIGHT COLUMN -->
+    <section class="right-col">
+      <section class="bio">
+        <p>
+          I am a Research Scientist working on reconstructing photorealistic humans in 3D from real world videos.
+          Replace this short bio with your own introduction.
+        </p>
+      </section>
+      <section class="news">
+        <h2>News</h2>
+        <ul>
+          <li>March, 2025. Project accepted to CVPR 2025.</li>
+          <li>Jan, 2025. Co-organizing a workshop at CVPR 2025.</li>
+          <li>Sept, 2024. Dataset released at NeurIPS 2024.</li>
+        </ul>
+      </section>
+      <section class="selected-publications">
+        <h2>Selected Publications</h2>
+        <div class="pub">
+          <img src="assests/thumb1.png" alt="publication thumbnail" />
+          <div class="pub-body">
+            <a class="pub-title" href="#" target="_blank">Pippo: High-Res Multi-View Humans from a Single Image</a>
+            <div class="pub-authors">Yash Kant, Ethan Weber, Jin Kyu Kim, <strong>Pradeep Bolleddu</strong>, ...</div>
+            <div class="pub-meta">CVPR 2025</div>
+            <div class="pub-links">
+              <a href="#">project page</a> | <a href="#">pdf</a> | <a href="#">code</a>
+            </div>
+          </div>
+        </div>
+        <div class="pub">
+          <img src="assests/thumb2.png" alt="publication thumbnail" />
+          <div class="pub-body">
+            <a class="pub-title" href="#" target="_blank">Harmony4D: A Video Dataset for In-The-Wild Close Human Interactions</a>
+            <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*, Jyun-Ting Song*, Jinkun Cao, ...</div>
+            <div class="pub-meta">NeurIPS 2024</div>
+            <div class="pub-links">
+              <a href="#">project page</a> | <a href="#">pdf</a> | <a href="#">code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="experience">
+        <h2>Work Experience</h2>
+        <article class="job">
+          <h3>Applied Scientist — Oliv AI</h3>
+          <p class="job-time">Sep 2024 — Present</p>
+          <ul>
+            <li>Working on 3D human reconstruction from video and multi-view synthesis.</li>
+            <li>Built a production pipeline for model training & evaluation.</li>
+          </ul>
+        </article>
+        <article class="job">
+          <h3>Masters in Artificial Intelligence — University of Massachusetts</h3>
+          <p class="job-time">2023 — 2024</p>
+          <ul>
+            <li>Advisor: Prof. Hua Fang</li>
+            <li>Thesis and publications around photorealistic human reconstruction.</li>
+          </ul>
+        </article>
+      </section>
+      <section class="skills">
+        <h2>Technical Skills</h2>
+        <p>Python · PyTorch · TensorFlow · Computer Vision · 3D Reconstruction · CUDA · Docker · Git</p>
+      </section>
+      <section class="contact-cta">
+        <p>If you'd like to collaborate or intern, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
+      </section>
+    </section>
+  </main>
+  <footer class="site-footer">
+    © <span id="year"></span> Pradeep Bolleddu
+  </footer>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
