@@ -4,6 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pradeep Bolleddu</title>
+  <!-- keep your external CSS if you want; inline styles below will override skills styles -->
   <link rel="stylesheet" href="styles.css" />
   <!-- Fonts for highlighted names and numericals -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -55,9 +56,7 @@
     .experience .num {
       font-family: 'Roboto Mono', monospace;
       font-weight: 700;
-      /* slightly larger to stand out */
       font-size: 1.02em;
-      /* keep same color; remove if you want distinct color */
       color: inherit;
     }
     /* Small accessibility/visual tweaks */
@@ -79,6 +78,129 @@
         padding: 10px;
       }
     }
+
+    /* ---------- LAYOUT (left/right columns) ---------- */
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      line-height: 1.45;
+      margin: 0;
+      color: #111;
+      background: #fff;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 24px;
+      max-width: 1100px;
+      margin: 28px auto;
+      padding: 0 16px;
+    }
+    .left-col {
+      padding-right: 12px;
+    }
+    .right-col {
+      padding-left: 12px;
+    }
+    .profile-photo {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+    h2 { margin-top: 0; }
+
+    /* ---------- SKILLS: scrollable "panel" ---------- */
+    .skills {
+      margin-top: 8px;
+    }
+
+    /* wrapper that looks like the example screenshot */
+    .skills-panel {
+      border: 1px solid rgba(0,0,0,0.1);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(250,250,250,1), rgba(245,245,245,1));
+      padding: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      max-width: 100%;
+    }
+
+    .skills-panel .panel-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 8px;
+    }
+    .skills-panel .panel-title h3 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+    .skills-panel .panel-title .badge {
+      font-size: 0.85rem;
+      background: rgba(0,0,0,0.04);
+      padding: 4px 8px;
+      border-radius: 999px;
+    }
+
+    /* the scrollable area */
+    .skills-scroll {
+      max-height: 170px; /* adjust height to preference; makes it scrollable */
+      overflow-y: auto;
+      padding-right: 8px; /* give room for scrollbar */
+      scroll-behavior: smooth;
+    }
+
+    /* style individual skill groups to look like the screenshot bullets */
+    .skill-group {
+      margin: 8px 0;
+    }
+    .skill-group .group-name {
+      font-weight: 700;
+      margin-bottom: 6px;
+      font-size: 0.95rem;
+    }
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 12px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .skill-list li {
+      background: rgba(0,0,0,0.03);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    /* custom scrollbar (WebKit browsers) */
+    .skills-scroll::-webkit-scrollbar {
+      width: 9px;
+    }
+    .skills-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .skills-scroll::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,0.12);
+      border-radius: 6px;
+    }
+    .skills-scroll:focus {
+      outline: 2px solid rgba(0,120,215,0.18);
+      outline-offset: 3px;
+    }
+
+    /* Firefox scrollbar (uses scrollbar-width / color) */
+    .skills-scroll {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(0,0,0,0.12) transparent;
+    }
+
+    /* responsive adjustments */
+    @media (max-width: 860px) {
+      .container { grid-template-columns: 1fr; }
+      .para2 { margin-left: 0; } /* inlined earlier */
+      .skills-scroll { max-height: 200px; }
+    }
   </style>
 </head>
 <body>
@@ -98,42 +220,41 @@
       <nav class="links" aria-label="quick links">
         <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a> |
         <a href="https://linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank" rel="noopener">LinkedIn</a> <br>
-        <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a> 
+        <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </aside>
+
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
-       <style>
-  .para1 {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
+        <style>
+          .para1 {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+          }
+          .para2 {
+            font-family: "Georgia", "Times New Roman", serif;
+            margin-left: 25%;
+            line-height: 1.6;
+          }
+          .para2::first-letter {
+            font-size: 1.4em;
+            font-weight: 600;
+            line-height: 1;
+          }
+          .highlight-name {
+            color: inherit;
+            text-decoration: underline;
+          }
+          @media (max-width:860px) {
+            .para2 { margin-left: 0; }
+          }
+        </style>
 
-  .para2 {
-    font-family: "Georgia", "Times New Roman", serif;
-    /* start from middle (shift right) so paragraph begins visually from mid page */
-    margin-left: 25%;
-    line-height: 1.6;
-  }
-
-  /* Make the first letter ("D" of "During") slightly larger */
-  .para2::first-letter {
-    font-size: 1.4em;
-    font-weight: 600;
-    line-height: 1;
-  }
-
-  .highlight-name {
-    color: inherit;
-    text-decoration: underline;
-  }
-</style>
-
-<p> Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology. My journey so far has been exciting. I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with <a class="highlight-name" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" title="link" target="_blank" rel="noopener">Dr.Ekta Singla</a> on Autonomous WardBot. During my master’s at UMass, I defended my project under <a class="highlight-name" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" title="link" target="_blank" rel="noopener">Prof Julia Fang’s</a> guidance & at UMass, I was fortunate to have <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Vijaya Chalivendra </a> through on-campus work at University of Massachusetts. </p>
-
+        <p class="para1"> Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology. My journey so far has been exciting. I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with <a class="highlight-name" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" title="link" target="_blank" rel="noopener">Dr.Ekta Singla</a> on Autonomous WardBot. During my master’s at UMass, I defended my project under <a class="highlight-name" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" title="link" target="_blank" rel="noopener">Prof Julia Fang’s</a> guidance & at UMass, I was fortunate to have <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Vijaya Chalivendra </a> through on-campus work at University of Massachusetts. </p>
       </section>
+
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
@@ -157,6 +278,7 @@
           </li>
         </ul>
       </section>
+
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
@@ -182,6 +304,7 @@
           </div>
         </div>
       </section>
+
       <section class="experience">
         <h2>Work Experience</h2>
         <article class="job">
@@ -199,25 +322,129 @@
           <p class="job-time">2023 — 2024</p>
           <ul>
             <li>Advisor: Prof. Hua Fang</li>
-            <li>I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams. </li> 
+            <li>I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams. </li>
             <li>We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = <span class="num">0.987</span> (≈<span class="num">18%</span> fewer false positives) and enabled personalized treatment plans for <span class="num">20K+</span> patients/year.</li>
           </ul>
         </article>
       </section>
-      <section class="skills">
-        <h2>Technical Skills</h2>
-        <p>Python · PyTorch · TensorFlow · Computer Vision · 3D Reconstruction · CUDA · Docker · Git</p>
+
+      <!-- ========== UPDATED TECHNICAL SKILLS (scrolling panel) ========== -->
+      <section class="skills" aria-labelledby="skills-heading">
+        <div class="skills-panel" role="region" aria-label="Technical Skills panel">
+          <div class="panel-title">
+            <h3 id="skills-heading">Technical Skills</h3>
+            <div class="badge">scroll • keyboard accessible</div>
+          </div>
+
+          <!-- scrollable area -->
+          <div class="skills-scroll" tabindex="0" aria-describedby="skills-desc">
+            <p id="skills-desc" style="display:none">Use up/down arrow keys, PageUp/PageDown, or mouse wheel to scroll this list.</p>
+
+            <!-- categories and skill chips (style like badges) -->
+            <div class="skill-group" aria-hidden="false">
+              <div class="group-name">Languages & Math</div>
+              <ul class="skill-list" role="list">
+                <li>Python</li>
+                <li>C++</li>
+                <li>SQL</li>
+                <li>MATLAB</li>
+                <li>NumPy</li>
+                <li>Linear Algebra</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="group-name">Machine Learning</div>
+              <ul class="skill-list">
+                <li>PyTorch</li>
+                <li>TensorFlow</li>
+                <li>Scikit-learn</li>
+                <li>Transformers (Hugging Face)</li>
+                <li>LLMs & RAG</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="group-name">Computer Vision & 3D</div>
+              <ul class="skill-list">
+                <li>OpenCV</li>
+                <li>3D Reconstruction</li>
+                <li>NeRF / Neural Rendering</li>
+                <li>Point Clouds</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="group-name">Engineering & Tools</div>
+              <ul class="skill-list">
+                <li>CUDA</li>
+                <li>Docker</li>
+                <li>Git</li>
+                <li>Linux</li>
+                <li>Airflow / Cloud ETL</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="group-name">Cloud & Deployment</div>
+              <ul class="skill-list">
+                <li>Google Cloud (Dataflow)</li>
+                <li>AWS</li>
+                <li>Model Serving</li>
+                <li>CI/CD</li>
+              </ul>
+            </div>
+
+            <div class="skill-group">
+              <div class="group-name">Other</div>
+              <ul class="skill-list">
+                <li>Experimentation & A/B</li>
+                <li>Bayesian Optimization</li>
+                <li>Data Visualization</li>
+                <li>Research & Writing</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </section>
+
       <section class="contact-cta">
         <p>If you'd like to collaborate, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
       </section>
     </section>
   </main>
-  <footer class="site-footer">
+
+  <footer class="site-footer" style="text-align:center; padding:16px 0;">
     © <span id="year"></span> Pradeep Bolleddu
   </footer>
+
   <script>
+    // current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Optional: keyboard-friendly small enhancement:
+    // When the skills scrollable area is focused, allow PageUp/PageDown/Home/End keys to jump
+    (function() {
+      const scrollArea = document.querySelector('.skills-scroll');
+      if (!scrollArea) return;
+      scrollArea.addEventListener('keydown', function(e) {
+        const key = e.key;
+        const h = scrollArea.clientHeight;
+        if (key === 'PageDown') {
+          e.preventDefault();
+          scrollArea.scrollBy({ top: h * 0.9, behavior: 'smooth' });
+        } else if (key === 'PageUp') {
+          e.preventDefault();
+          scrollArea.scrollBy({ top: -h * 0.9, behavior: 'smooth' });
+        } else if (key === 'Home') {
+          e.preventDefault();
+          scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
+        } else if (key === 'End') {
+          e.preventDefault();
+          scrollArea.scrollTo({ top: scrollArea.scrollHeight, behavior: 'smooth' });
+        }
+      });
+    })();
   </script>
 </body>
-</html> 
+</html>
