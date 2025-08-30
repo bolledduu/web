@@ -4,38 +4,52 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pradeep Bolleddu</title>
-  <!-- keep your external CSS if you want; inline styles below will override -->
   <link rel="stylesheet" href="styles.css" />
-  <!-- Fonts for highlighted names and numericals (kept as-is) -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    /* ---------------- Variables & base ---------------- */
+    :root{
+      --body-font: "Times New Roman", Georgia, serif;
+      --name-font: Georgia, "Times New Roman", serif;
+      --mono-font: 'Roboto Mono', monospace;
+      --highlight-font: 'Merriweather', Georgia, serif;
+
+      /* accents for projects/publications */
+      --project-accent: #1a73e8;      /* blue for project links */
+      --project-accent-hover: #1558b3;
+      --publication-accent: #0b6b5a;  /* teal for publication titles */
+      --publication-hover: #074c43;
+
+      --text-color: #111;
+      --muted: rgba(0,0,0,0.55);
+      --surface: #fff;
+    }
+
     /* ---------- TYPOGRAPHY: Heading & Body per request ---------- */
-    /* Page body font: Times New Roman, 16px */
     html, body {
-      font-family: "Times New Roman", Georgia, serif;
+      font-family: var(--body-font);
       font-size: 16px;
       line-height: 1.45;
       margin: 0;
-      color: #111;
-      background: #fff;
+      color: var(--text-color);
+      background: var(--surface);
     }
 
-    /* Heading (name) in Georgia, ~32–36px — chosen: 34px */
+    /* Heading (name) */
     .name {
       margin: 0;
       text-align: center;
-      font-family: Georgia, "Times New Roman", serif;
+      font-family: var(--name-font);
       font-weight: 700;
       font-size: 34px;
       letter-spacing: -0.2px;
     }
 
-    /* keep research-link styling */
     .header-inner {
       position: relative;
       display: flex;
       align-items: center;
-      justify-content: center; /* centers the name */
+      justify-content: center;
       padding: 12px 20px;
     }
     .research-link {
@@ -55,9 +69,8 @@
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
     }
 
-    /* Font for highlighted professor names remains Merriweather */
     .highlight-name {
-      font-family: 'Merriweather', Georgia, serif;
+      font-family: var(--highlight-font);
       font-weight: 700;
       text-decoration: none;
       color: inherit;
@@ -65,13 +78,12 @@
       border-bottom: 1px dashed rgba(0,0,0,0.12);
     }
 
-    /* Project small links next to bullets */
     .proj-links { font-size: 0.9rem; margin-left: 8px; }
-    .proj-links a { text-decoration: none; margin: 0 4px; }
+    .proj-links a { text-decoration: none; margin: 0 4px; color: var(--project-accent); }
+    .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
 
-    /* Different font (monospaced) + bold for numericals in work experience */
     .experience .num {
-      font-family: 'Roboto Mono', monospace;
+      font-family: var(--mono-font);
       font-weight: 700;
       font-size: 1.02em;
       color: inherit;
@@ -89,9 +101,9 @@
     .left-col { padding-right: 12px; }
     .right-col { padding-left: 12px; }
     .profile-photo { width: 100%; border-radius: 8px; display: block; }
-    h2 { margin-top: 0; }
+    h2 { margin-top: 0; font-size: 20px; font-weight:700; }
 
-    /* Skills scroll panel (kept from your original) */
+    /* Skills panel */
     .skills { margin-top: 8px; }
     .skills-panel {
       border: 1px solid rgba(0,0,0,0.1);
@@ -117,7 +129,6 @@
     .skills-scroll:focus { outline: 2px solid rgba(0,120,215,0.18); outline-offset:3px; }
     .skills-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
 
-    /* small responsive tweaks */
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
       .skills-scroll { max-height: 200px; }
@@ -127,11 +138,12 @@
       .header-inner { padding: 10px; }
     }
 
-    /* inline paragraph overrides (so your paragraphs use Times New Roman and 16px) */
+    /* ---------- Intro paragraph overrides (kept to match screenshot) ---------- */
     .para1, .para2 {
-      font-family: "Times New Roman", Georgia, serif;
-      font-size: 20px;
+      font-family: var(--body-font);
+      font-size: 20px; /* kept as you previously set — preserves the screenshot look */
       margin-bottom: 1rem;
+      color: var(--text-color);
     }
     .para2 {
       margin-left: 25%;
@@ -146,15 +158,63 @@
       .para2 { margin-left: 0; }
     }
 
-    /* footer */
+    /* ---------------- Project Articles / Publications styling (colors changed) ---------------- */
+
+    /* Project Articles list: slightly smaller text than intro */
+    .news h2 { margin-bottom: 8px; }
+    .news ul { margin-top: 6px; padding-left: 1.1em; }
+    .news ul li {
+      margin-bottom: 10px;
+      font-size: 16px;               /* slightly smaller than intro so intro stays prominent */
+      color: var(--muted);           /* muted primary text color */
+    }
+    /* make project small links visible with the accent */
+    .news .proj-links a { color: var(--project-accent); font-weight:600; }
+    .news .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
+
+    /* Selected Publications: thumbnail + meta, with a distinct publication accent */
+    .selected-publications h2 { margin-top: 22px; }
+    .selected-publications .pub {
+      display:flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items:flex-start;
+    }
+    .selected-publications .pub img { width: 140px; height: auto; object-fit: cover; border-radius:6px; }
+    .selected-publications .pub-body { max-width: 100%; }
+    .selected-publications .pub-title {
+      display:block;
+      font-size: 16px;
+      font-weight:700;
+      color: var(--publication-accent);      /* publication title color */
+      text-decoration: none;
+      margin-bottom:6px;
+    }
+    .selected-publications .pub-title:hover { color: var(--publication-hover); text-decoration: underline; }
+    .selected-publications .pub-authors { font-size: 14px; color: var(--muted); margin-bottom:4px; }
+    .selected-publications .pub-meta { font-size: 13px; color: var(--muted); margin-bottom:6px; }
+    .selected-publications .pub-links a { font-size:13px; color: var(--project-accent); text-decoration:none; margin-right:8px; }
+    .selected-publications .pub-links a:hover { text-decoration:underline; color: var(--project-accent-hover); }
+
+    /* Work experience: keep spacing and fonts same */
+    .experience h2 { margin-top: 24px; }
+    .job { margin-bottom: 14px; }
+    .job h3 { margin: 0 0 6px 0; font-size: 16px; }
+    .job-time { font-size: 13px; color: var(--muted); margin-bottom:8px; }
+
+    /* contact & footer */
+    .contact-cta { margin-top: 18px; font-size: 15px; }
     .site-footer { text-align:center; padding:16px 0; }
+
+    /* ensure links inside intro remain neutral (so intro looks like screenshot) */
+    .bio a { color: inherit; }
+    .bio a:hover { text-decoration: underline; color: var(--text-color); }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <h1 class="name">Pradeep Bolleddu</h1>
-      <!-- changed to point to research/index.html -->
       <a class="research-link" href="./research/index.html" target="_self" rel="noopener">Research blogs</a>
     </div>
   </header>
@@ -207,7 +267,7 @@
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
-          <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" style="max-width:140px; display:block; margin-bottom:8px;" />
+          <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" />
           <div class="pub-body">
             <a class="pub-title" href="#" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>, ...</div>
@@ -218,7 +278,7 @@
           </div>
         </div>
         <div class="pub">
-          <img src="assests/hadoooop.png" alt="publication thumbnail" style="max-width:140px; display:block; margin-bottom:8px;" />
+          <img src="assests/hadoooop.png" alt="publication thumbnail" />
           <div class="pub-body">
             <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security </a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*</div>
@@ -341,10 +401,8 @@
   </footer>
 
   <script>
-    // current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // keyboard-friendly enhancements for skill panel
     (function() {
       const scrollArea = document.querySelector('.skills-scroll');
       if (!scrollArea) return;
