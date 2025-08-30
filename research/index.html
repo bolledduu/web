@@ -5,93 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Research Blogs — Pradeep Bolleddu</title>
   <style>
-    :root{
-      --body-color: #111;
-      --card-bg: #fafafa;
-      --prof-blue: #4da6ff; /* light blue for professor names */
-    }
-
-    body {
-      font-family: "Times New Roman", Georgia, serif;
-      font-size:16px;
-      margin:24px;
-      color:var(--body-color);
-      background:#fff;
-    }
-
-    header {
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:18px;
-    }
-
-    h1 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size:34px;
-      margin:0;
-    }
-
-    a.button {
-      text-decoration:none;
-      border:1px solid rgba(0,0,0,0.12);
-      padding:8px 12px;
-      border-radius:6px;
-      color:inherit;
-    }
-
-    .grid {
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:18px;
-      margin-top:12px;
-    }
-
-    .card {
-      border:1px solid rgba(0,0,0,0.06);
-      border-radius:8px;
-      padding:12px;
-      background:var(--card-bg);
-    }
-
-    /* ---------- Intro adjustments ---------- */
-    .intro {
-      font-size:14px;         /* decreased size for intro text */
-      line-height:1.55;
-      margin-bottom:16px;
-      color: #222;
-    }
-
-    /* professor names: bold, light blue, slightly smaller than intro */
-    .prof-name {
-      color: var(--prof-blue);
-      font-weight:700;
-      font-size:0.95em; /* slightly smaller than the surrounding intro text */
-    }
-
-    /* optionally style other person names consistently */
-    .person-name {
-      font-weight:700;
-    }
-
-    /* ---------- Work experience list bullets (only this section) ---------- */
-    .work-experience ul {
-      padding-left:1.2rem;
-      margin:8px 0 0 0;
-    }
-
-    /* Set marker (bullet) color to black for work-experience only */
-    .work-experience li::marker {
-      color:#000;
-      font-size:1em;
-    }
-
-    /* Keep normal list layout for other lists (if any) */
-    .card ul {
-      color: #444; /* text color inside cards */
-    }
-
+    body { font-family: "Times New Roman", Georgia, serif; font-size:16px; margin:24px; color:#111; background:#fff; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size:34px; margin:0; }
+    a.button { text-decoration:none; border:1px solid rgba(0,0,0,0.12); padding:8px 12px; border-radius:6px; color:inherit; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:12px; }
+    .card { border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; background:#fafafa; }
     @media (max-width:800px) { .grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -103,24 +22,9 @@
     </div>
   </header>
 
-  <!-- INTRO (reduced size + professor names styled) -->
-  <p class="intro">
-    Hey there! I’m <strong>Pradeep Bolleddu</strong>. I’m an Applied Scientist at InstaWorks Inc and previously worked with Oliv AI as an AI Data Science Intern. I build products with AI &amp; modern technology. My journey includes 3D Computer Vision work at UMASS Chan Medical School, LLM and AI solutions at Third AI Automation, and research during my degrees at the University of Massachusetts (Master's) and IIT Ropar (B.Tech). During my bachelor’s at IIT Ropar, I worked with <span class="person-name">Dr. Ekta Singla</span> on an Autonomous WardBot. For my master’s at UMass I worked under <span class="person-name">Prof. Julia Fang</span>, and I collaborated closely with <span class="prof-name">Prof. Scott Field</span> and <span class="prof-name">Prof. Vijaya Chalivendra</span> on campus projects.
-    <br><br>
-    I’m passionate about blending research-grade models with production systems — from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.
-  </p>
+  <p>This is a temporary duplicate of the profile content to show a working research page. Replace these articles with your real blog posts later.</p>
 
-  <!-- Example Work Experience section to demonstrate black bullets -->
-  <section class="card work-experience">
-    <h3>Work experience</h3>
-    <ul>
-      <li>Applied Scientist — InstaWorks Inc (Current) — building production ML systems and LLM integrations.</li>
-      <li>AI Data Science Intern — Oliv AI — prototyped LLM-assisted data pipelines.</li>
-      <li>Research Assistant — UMASS Chan Medical School — 3D computer vision projects.</li>
-    </ul>
-  </section>
-
-  <div class="grid" style="margin-top:18px;">
+  <div class="grid">
     <div class="card">
       <h3>Advanced Facial Recognition &amp; Emotion Detection</h3>
       <p>Summary: Real-time adaptive AR/VR demos, model architecture notes, dataset pointers, and links to code.</p>
