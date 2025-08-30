@@ -4,12 +4,33 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Pradeep Bolleddu</title>
-  <!-- keep your external CSS if you want; inline styles below will override skills styles -->
+  <!-- keep your external CSS if you want; inline styles below will override -->
   <link rel="stylesheet" href="styles.css" />
-  <!-- Fonts for highlighted names and numericals -->
+  <!-- Fonts for highlighted names and numericals (kept as-is) -->
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    /* Header layout: name centered, research link on right */
+    /* ---------- TYPOGRAPHY: Heading & Body per request ---------- */
+    /* Page body font: Times New Roman, 16px */
+    html, body {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 16px;
+      line-height: 1.45;
+      margin: 0;
+      color: #111;
+      background: #fff;
+    }
+
+    /* Heading (name) in Georgia, ~32–36px — chosen: 34px */
+    .name {
+      margin: 0;
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 700;
+      font-size: 34px;
+      letter-spacing: -0.2px;
+    }
+
+    /* keep research-link styling */
     .header-inner {
       position: relative;
       display: flex;
@@ -17,7 +38,6 @@
       justify-content: center; /* centers the name */
       padding: 12px 20px;
     }
-    /* Research link anchored to right corner */
     .research-link {
       position: absolute;
       right: 20px;
@@ -34,7 +54,8 @@
     .research-link:hover {
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
     }
-    /* Font for highlighted professor names */
+
+    /* Font for highlighted professor names remains Merriweather */
     .highlight-name {
       font-family: 'Merriweather', Georgia, serif;
       font-weight: 700;
@@ -43,15 +64,11 @@
       padding: 0 2px;
       border-bottom: 1px dashed rgba(0,0,0,0.12);
     }
+
     /* Project small links next to bullets */
-    .proj-links {
-      font-size: 0.9rem;
-      margin-left: 8px;
-    }
-    .proj-links a {
-      text-decoration: none;
-      margin: 0 4px;
-    }
+    .proj-links { font-size: 0.9rem; margin-left: 8px; }
+    .proj-links a { text-decoration: none; margin: 0 4px; }
+
     /* Different font (monospaced) + bold for numericals in work experience */
     .experience .num {
       font-family: 'Roboto Mono', monospace;
@@ -59,34 +76,8 @@
       font-size: 1.02em;
       color: inherit;
     }
-    /* Small accessibility/visual tweaks */
-    .pub .pub-body .pub-links a {
-      text-decoration: none;
-    }
-    /* Ensure header name doesn't wrap awkwardly on small screens */
-    .name {
-      margin: 0;
-      text-align: center;
-    }
-    @media (max-width: 520px) {
-      .research-link {
-        right: 12px;
-        padding: 6px 8px;
-        font-size: 0.9rem;
-      }
-      .header-inner {
-        padding: 10px;
-      }
-    }
 
-    /* ---------- LAYOUT (left/right columns) ---------- */
-    body {
-      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      line-height: 1.45;
-      margin: 0;
-      color: #111;
-      background: #fff;
-    }
+    /* Layout */
     .container {
       display: grid;
       grid-template-columns: 220px 1fr;
@@ -95,25 +86,13 @@
       margin: 28px auto;
       padding: 0 16px;
     }
-    .left-col {
-      padding-right: 12px;
-    }
-    .right-col {
-      padding-left: 12px;
-    }
-    .profile-photo {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-    }
+    .left-col { padding-right: 12px; }
+    .right-col { padding-left: 12px; }
+    .profile-photo { width: 100%; border-radius: 8px; display: block; }
     h2 { margin-top: 0; }
 
-    /* ---------- SKILLS: scrollable "panel" ---------- */
-    .skills {
-      margin-top: 8px;
-    }
-
-    /* wrapper that looks like the example screenshot */
+    /* Skills scroll panel (kept from your original) */
+    .skills { margin-top: 8px; }
     .skills-panel {
       border: 1px solid rgba(0,0,0,0.1);
       border-radius: 8px;
@@ -122,95 +101,64 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.03);
       max-width: 100%;
     }
+    .skills-panel .panel-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
+    .skills-panel .panel-title h3 { margin:0; font-size:1rem; font-weight:700; }
+    .skills-panel .panel-title .badge { font-size:0.85rem; background: rgba(0,0,0,0.04); padding:4px 8px; border-radius:999px; }
 
-    .skills-panel .panel-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 8px;
-    }
-    .skills-panel .panel-title h3 {
-      margin: 0;
-      font-size: 1rem;
-      font-weight: 700;
-    }
-    .skills-panel .panel-title .badge {
-      font-size: 0.85rem;
-      background: rgba(0,0,0,0.04);
-      padding: 4px 8px;
-      border-radius: 999px;
-    }
+    .skills-scroll { max-height:170px; overflow-y:auto; padding-right:8px; scroll-behavior:smooth; }
+    .skill-group { margin:8px 0; }
+    .group-name { font-weight:700; margin-bottom:6px; font-size:0.95rem; }
+    .skill-list { display:flex; flex-wrap:wrap; gap:8px 12px; margin:0; padding:0; list-style:none; }
+    .skill-list li { background: rgba(0,0,0,0.03); padding:6px 10px; border-radius:999px; font-size:0.9rem; }
 
-    /* the scrollable area */
-    .skills-scroll {
-      max-height: 170px; /* adjust height to preference; makes it scrollable */
-      overflow-y: auto;
-      padding-right: 8px; /* give room for scrollbar */
-      scroll-behavior: smooth;
-    }
+    .skills-scroll::-webkit-scrollbar { width:9px; }
+    .skills-scroll::-webkit-scrollbar-track { background: transparent; }
+    .skills-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius:6px; }
+    .skills-scroll:focus { outline: 2px solid rgba(0,120,215,0.18); outline-offset:3px; }
+    .skills-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
 
-    /* style individual skill groups to look like the screenshot bullets */
-    .skill-group {
-      margin: 8px 0;
-    }
-    .skill-group .group-name {
-      font-weight: 700;
-      margin-bottom: 6px;
-      font-size: 0.95rem;
-    }
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px 12px;
-      margin: 0;
-      padding: 0;
-      list-style: none;
-    }
-    .skill-list li {
-      background: rgba(0,0,0,0.03);
-      padding: 6px 10px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-    }
-
-    /* custom scrollbar (WebKit browsers) */
-    .skills-scroll::-webkit-scrollbar {
-      width: 9px;
-    }
-    .skills-scroll::-webkit-scrollbar-track {
-      background: transparent;
-    }
-    .skills-scroll::-webkit-scrollbar-thumb {
-      background: rgba(0,0,0,0.12);
-      border-radius: 6px;
-    }
-    .skills-scroll:focus {
-      outline: 2px solid rgba(0,120,215,0.18);
-      outline-offset: 3px;
-    }
-
-    /* Firefox scrollbar (uses scrollbar-width / color) */
-    .skills-scroll {
-      scrollbar-width: thin;
-      scrollbar-color: rgba(0,0,0,0.12) transparent;
-    }
-
-    /* responsive adjustments */
+    /* small responsive tweaks */
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
-      .para2 { margin-left: 0; } /* inlined earlier */
       .skills-scroll { max-height: 200px; }
     }
+    @media (max-width: 520px) {
+      .research-link { right: 12px; padding: 6px 8px; font-size: 0.9rem; }
+      .header-inner { padding: 10px; }
+    }
+
+    /* inline paragraph overrides (so your paragraphs use Times New Roman and 16px) */
+    .para1, .para2 {
+      font-family: "Times New Roman", Georgia, serif;
+      font-size: 16px;
+      margin-bottom: 1rem;
+    }
+    .para2 {
+      margin-left: 25%;
+      line-height: 1.6;
+    }
+    .para2::first-letter {
+      font-size: 1.4em;
+      font-weight: 600;
+      line-height: 1;
+    }
+    @media (max-width:860px) {
+      .para2 { margin-left: 0; }
+    }
+
+    /* footer */
+    .site-footer { text-align:center; padding:16px 0; }
   </style>
 </head>
 <body>
   <header class="site-header">
     <div class="header-inner">
       <h1 class="name">Pradeep Bolleddu</h1>
-      <!-- Link stays pretty: /research/ -->
-      <a class="research-link" href="./research/" target="_self" rel="noopener">Research blogs</a>
+      <!-- changed to point to research/index.html -->
+      <a class="research-link" href="./research/index.html" target="_self" rel="noopener">Research blogs</a>
     </div>
   </header>
+
   <main class="container">
     <!-- LEFT COLUMN -->
     <aside class="left-col">
@@ -227,39 +175,16 @@
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
-        <style>
-          .para1 {
-            font-family: Arial, Helvetica, sans-serif;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-          }
-          .para2 {
-            font-family: "Georgia", "Times New Roman", serif;
-            margin-left: 25%;
-            line-height: 1.6;
-          }
-          .para2::first-letter {
-            font-size: 1.4em;
-            font-weight: 600;
-            line-height: 1;
-          }
-          .highlight-name {
-            color: inherit;
-            text-decoration: underline;
-          }
-          @media (max-width:860px) {
-            .para2 { margin-left: 0; }
-          }
-        </style>
+        <p class="para1">Hey there! I’m <strong>Pradeep Bolleddu</strong>. I’m an Applied Scientist at InstaWorks Inc and previously worked with Oliv AI as an AI Data Science Intern. I build products with AI &amp; modern technology. My journey includes 3D Computer Vision work at UMASS Chan Medical School, LLM and AI solutions at Third AI Automation, and research during my degrees at the University of Massachusetts (Master's) and IIT Ropar (B.Tech). During my bachelor’s at IIT Ropar, I worked with <a class="highlight-name" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" target="_blank" rel="noopener">Dr. Ekta Singla</a> on an Autonomous WardBot. For my master’s at UMass I worked under <a class="highlight-name" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" target="_blank" rel="noopener">Prof. Julia Fang</a>, and I collaborated closely with <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/" target="_blank" rel="noopener">Prof. Scott Field</a> and <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/" target="_blank" rel="noopener">Prof. Vijaya Chalivendra</a> on campus projects.</p>
 
-        <p class="para1"> Hey there! I’m Pradeep Bolleddu, An Applied Scientist at InstaWorks Inc and also worked with Oliv AI as a AI Data science Intern. I love to build products with AI & Technology. My journey so far has been exciting. I started by exploring 3D Computer Vision at UMASS Chan Medical School in Massachusetts, worked on LLM's & AI solutions at Third AI Automation, and spent years diving into research during my studies at the University of Massachusetts (graduated with a Master's degree) and IIT Ropar (Bachelors). Back in my bachelor’s days at IIT Ropar, I worked with <a class="highlight-name" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" title="link" target="_blank" rel="noopener">Dr.Ekta Singla</a> on Autonomous WardBot. During my master’s at UMass, I defended my project under <a class="highlight-name" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" title="link" target="_blank" rel="noopener">Prof Julia Fang’s</a> guidance & at UMass, I was fortunate to have <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Scott Field</a> as my advisor while collaborating with <a class="highlight-name" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." title="link" target="_blank" rel="noopener">Prof. Vijaya Chalivendra </a> through on-campus work at University of Massachusetts. </p>
+        <p class="para2">I’m passionate about blending research-grade models with production systems — from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
       </section>
 
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
           <li>
-            Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences
+            Advanced Facial Recognition &amp; Emotion Detection System for Real-Time Adaptive AR/VR Experiences
             <small class="proj-links">
               <a href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
             </small>
@@ -282,7 +207,7 @@
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
-          <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" />
+          <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" style="max-width:140px; display:block; margin-bottom:8px;" />
           <div class="pub-body">
             <a class="pub-title" href="#" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>, ...</div>
@@ -293,7 +218,7 @@
           </div>
         </div>
         <div class="pub">
-          <img src="assests/hadoooop.png" alt="publication thumbnail" />
+          <img src="assests/hadoooop.png" alt="publication thumbnail" style="max-width:140px; display:block; margin-bottom:8px;" />
           <div class="pub-body">
             <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security </a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*</div>
@@ -312,9 +237,9 @@
           <p class="job-time">Sep 2024 — Present</p>
           <ul>
             <li>
-              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> ( ~<span class="num">$500K</span>/year). I also led LLM A/B testing & search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
+              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> ( ~<span class="num">$500K</span>/year). I also led LLM A/B testing &amp; search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
             </li>
-            <li>Now I’m building Churn & Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
+            <li>Now I’m building Churn &amp; Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
           </ul>
         </article>
         <article class="job">
@@ -328,7 +253,6 @@
         </article>
       </section>
 
-      <!-- ========== UPDATED TECHNICAL SKILLS (scrolling panel) ========== -->
       <section class="skills" aria-labelledby="skills-heading">
         <div class="skills-panel" role="region" aria-label="Technical Skills panel">
           <div class="panel-title">
@@ -336,11 +260,9 @@
             <div class="badge">scroll • keyboard accessible</div>
           </div>
 
-          <!-- scrollable area -->
           <div class="skills-scroll" tabindex="0" aria-describedby="skills-desc">
             <p id="skills-desc" style="display:none">Use up/down arrow keys, PageUp/PageDown, or mouse wheel to scroll this list.</p>
 
-            <!-- categories and skill chips (style like badges) -->
             <div class="skill-group" aria-hidden="false">
               <div class="group-name">Languages & Math</div>
               <ul class="skill-list" role="list">
@@ -360,12 +282,12 @@
                 <li>TensorFlow</li>
                 <li>Scikit-learn</li>
                 <li>Transformers (Hugging Face)</li>
-                <li>LLMs & RAG</li>
+                <li>LLMs &amp; RAG</li>
               </ul>
             </div>
 
             <div class="skill-group">
-              <div class="group-name">Computer Vision & 3D</div>
+              <div class="group-name">Computer Vision &amp; 3D</div>
               <ul class="skill-list">
                 <li>OpenCV</li>
                 <li>3D Reconstruction</li>
@@ -375,7 +297,7 @@
             </div>
 
             <div class="skill-group">
-              <div class="group-name">Engineering & Tools</div>
+              <div class="group-name">Engineering &amp; Tools</div>
               <ul class="skill-list">
                 <li>CUDA</li>
                 <li>Docker</li>
@@ -386,7 +308,7 @@
             </div>
 
             <div class="skill-group">
-              <div class="group-name">Cloud & Deployment</div>
+              <div class="group-name">Cloud &amp; Deployment</div>
               <ul class="skill-list">
                 <li>Google Cloud (Dataflow)</li>
                 <li>AWS</li>
@@ -398,10 +320,10 @@
             <div class="skill-group">
               <div class="group-name">Other</div>
               <ul class="skill-list">
-                <li>Experimentation & A/B</li>
+                <li>Experimentation &amp; A/B</li>
                 <li>Bayesian Optimization</li>
                 <li>Data Visualization</li>
-                <li>Research & Writing</li>
+                <li>Research &amp; Writing</li>
               </ul>
             </div>
           </div>
@@ -414,7 +336,7 @@
     </section>
   </main>
 
-  <footer class="site-footer" style="text-align:center; padding:16px 0;">
+  <footer class="site-footer">
     © <span id="year"></span> Pradeep Bolleddu
   </footer>
 
@@ -422,8 +344,7 @@
     // current year in footer
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // Optional: keyboard-friendly small enhancement:
-    // When the skills scrollable area is focused, allow PageUp/PageDown/Home/End keys to jump
+    // keyboard-friendly enhancements for skill panel
     (function() {
       const scrollArea = document.querySelector('.skills-scroll');
       if (!scrollArea) return;
