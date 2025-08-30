@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research Blogs — Pradeep Bolleddu</title>
+  <style>
+    body { font-family: "Times New Roman", Georgia, serif; font-size:16px; margin:24px; color:#111; background:#fff; }
+    header { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:18px; }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-size:34px; margin:0; }
+    a.button { text-decoration:none; border:1px solid rgba(0,0,0,0.12); padding:8px 12px; border-radius:6px; color:inherit; }
+    .grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:12px; }
+    .card { border:1px solid rgba(0,0,0,0.06); border-radius:8px; padding:12px; background:#fafafa; }
+    @media (max-width:800px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Research Blogs</h1>
+    <div>
+      <a class="button" href="../index.html">← Back to profile</a>
+    </div>
+  </header>
+
+  <p>This is a temporary duplicate of the profile content to show a working research page. Replace these articles with your real blog posts later.</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Advanced Facial Recognition &amp; Emotion Detection</h3>
+      <p>Summary: Real-time adaptive AR/VR demos, model architecture notes, dataset pointers, and links to code.</p>
+      <p><a href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">Code</a></p>
+    </div>
+
+    <div class="card">
+      <h3>3D Image Models &amp; Building LLMs with Object Detection</h3>
+      <p>Summary: NeRF experiments, object-aware retrieval, and integration notes for RAG pipelines.</p>
+      <p><a href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">Code</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Neural Radiance Fields — PyTorch</h3>
+      <p>Summary: Implementation details, tips for fast training, and rendering examples.</p>
+      <p><a href="#" target="_blank" rel="noopener">PDF / Demo</a></p>
+    </div>
+
+    <div class="card">
+      <h3>Publications &amp; Posters</h3>
+      <p>Duplicate list: "An Analysis of Clustering Techniques" (IJSRCSEIT 2025), "Hadoop—An Overview of Data Security" (IJSR 2024).</p>
+      <p><a href="../assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a></p>
+    </div>
+  </div>
+
+  <footer style="margin-top:28px;">
+    © <span id="year"></span> Pradeep Bolleddu
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
