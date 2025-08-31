@@ -92,8 +92,8 @@
     /* Layout */
     .container {
       display: grid;
-      /* make left column responsive but bounded so photo can be larger without huge blank area */
-      grid-template-columns: minmax(160px, 240px) 1fr;
+      /* allow a wider left column but keep it flexible on small screens */
+      grid-template-columns: minmax(220px, 360px) 1fr;
       gap: 24px;
       max-width: 1100px;
       margin: 28px auto;
@@ -107,13 +107,19 @@
       align-items: start;
     }
     .right-col { padding-left: 12px; }
-    /* allow the profile to grow to the (now larger) column width, but keep it centered */
+    /* make the profile image bigger and crisp on high-DPI screens */
     .profile-photo {
       width: 100%;
-      max-width: 240px; /* increased visual size */
+      max-width: 320px;     /* increased visual size */
       height: auto;
-      border-radius: 8px;
+      border-radius: 10px;
       display: block;
+      object-fit: cover;    /* ensures the image fills nicely if you constrain height later */
+      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+      transition: transform 180ms ease;
+    }
+    .profile-photo:hover {
+      transform: translateY(-3px);
     }
     h2 { margin-top: 0; font-size: 20px; font-weight:700; }
 
@@ -159,12 +165,14 @@
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
       .skills-scroll { max-height: 200px; }
-      /* on small screens, keep photo a bit smaller so it doesn't dominate layout */
-      .profile-photo { max-width: 200px; }
+      /* keep photo a bit smaller on medium screens */
+      .profile-photo { max-width: 240px; }
     }
     @media (max-width: 520px) {
       .research-link { right: 12px; padding: 6px 8px; font-size: 0.9rem; }
       .header-inner { padding: 10px; }
+      /* mobile: avoid too-large image that overwhelms content */
+      .profile-photo { max-width: 160px; }
     }
 
     /* ---------- Intro paragraph overrides (kept to match screenshot) ---------- */
