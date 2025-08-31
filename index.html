@@ -1,456 +1,169 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Pradeep Bolleddu</title>
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap" rel="stylesheet">
-  <style>
-    /* ---------------- Variables & base ---------------- */
-    :root{
-      --body-font: "Times New Roman", Georgia, serif;
-      --name-font: Georgia, "Times New Roman", serif;
-      --mono-font: 'Roboto Mono', monospace;
-      --highlight-font: 'Merriweather', Georgia, serif;
-      /* accents for projects/publications */
-      --project-accent: #1a73e8;    /* blue for project links */
-      --project-accent-hover: #1558b3;
-      --publication-accent: #0b6b5a;  /* teal for publication titles */
-      --publication-hover: #074c43;
-      --text-color: #111;
-      --muted: rgba(0,0,0,0.55);
-      --surface: #fff;
-    }
-    /* ---------- TYPOGRAPHY: Heading & Body per request ---------- */
-    html, body {
-      font-family: var(--body-font);
-      font-size: 16px;
-      line-height: 1.45;
-      margin: 0;
-      color: var(--text-color);
-      background: var(--surface);
-    }
-    /* Heading (name) */
-    .name {
-      margin: 0;
-      text-align: center;
-      font-family: var(--name-font);
-      font-weight: 700;
-      font-size: 34px;
-      letter-spacing: -0.2px;
-    }
-    .header-inner {
-      position: relative;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 12px 20px;
-    }
-    .research-link {
-      position: absolute;
-      right: 20px;
-      top: 50%;
-      transform: translateY(-50%);
-      background: transparent;
-      border: 1px solid rgba(0,0,0,0.18);
-      padding: 8px 12px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.95rem;
-      color: inherit;
-    }
-    .research-link:hover {
-      box-shadow: 0 1px 6px rgba(0,0,0,0.08);
-    }
-    .highlight-name {
-      font-family: var(--highlight-font);
-      font-weight: 700;
-      text-decoration: none;
-      color: inherit;
-      padding: 0 2px;
-      border-bottom: 1px dashed rgba(0,0,0,0.12);
-    }
-    .proj-links { font-size: 0.9rem; margin-left: 8px; }
-    .proj-links a { text-decoration: none; margin: 0 4px; color: var(--project-accent); }
-    .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
-    .experience .num {
-      font-family: 'EB Garamond', serif !important;
-      font-weight: 600 !important;
-      font-size: 15px !important;
-      color: inherit;
-    }
-    /* Layout: fixed smaller left column so it doesn't take too much space */
-    .container {
-      display: grid;
-      /* fixed small left column (won't stretch) + flexible right column */
-      grid-template-columns: 200px 1fr;
-      gap: 20px;
-      max-width: 1100px;
-      margin: 28px auto;
-      padding: 0 16px;
-      align-items: start;
-    }
-    /* center content in the left column */
-    .left-col {
-      padding-right: 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: start;
-      gap: 10px;
-    }
-    .right-col { padding-left: 12px; }
-    /* Fixed-sized profile image (slightly larger): keeps left column compact */
-    .profile-photo {
-      width: 220px;        /* fixed width */
-      height: 280px;         /* fixed height (slightly increased length) */
-      border-radius: 10px;
-      display: block;
-      object-fit: cover;    /* crop smartly to fill frame */
-      box-shadow: 0 6px 18px rgba(0,0,0,0.06);
-      transition: transform 180ms ease;
-      flex-shrink: 0;
-    }
-    .profile-photo:hover {
-      transform: translateY(-3px);
-    }
-    h2 { margin-top: 0; font-size: 20px; font-weight:700; }
-    
-    /* Make all text inside Work Experience use the main (black) text color and increase font size slightly */
-    .experience .job,
-    .experience .job h3,
-    .experience .job-time,
-    .experience li {
-      color: var(--text-color);
-      font-family: 'EB Garamond', serif !important;
-      font-weight: 600 !important;
-      font-size: 17px !important;
-    }
-    
-    /* Increase font size for the two specific list points in the first job */
-    .first-job-list li {
-      font-size: 17px !important;
-    }
-    
-    /* keep job titles a touch larger / bolder */
-    .experience .job h3 { font-size: 17.5px; margin-bottom:6px; }
-    /* Skills panel */
-    .skills { margin-top: 8px; }
-    .skills-panel {
-      border: 1px solid rgba(0,0,0,0.1);
-      border-radius: 8px;
-      background: linear-gradient(180deg, rgba(250,250,250,1), rgba(245,245,245,1));
-      padding: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-      max-width: 100%;
-    }
-    .skills-panel .panel-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
-    .skills-panel .panel-title h3 { margin:0; font-size:1rem; font-weight:700; }
-    .skills-panel .panel-title .badge { font-size:0.85rem; background: rgba(0,0,0,0.04); padding:4px 8px; border-radius:999px; }
-    .skills-scroll { max-height:170px; overflow-y:auto; padding-right:8px; scroll-behavior:smooth; }
-    .skill-group { margin:8px 0; }
-    .group-name { font-weight:700; margin-bottom:6px; font-size:0.95rem; }
-    .skill-list { display:flex; flex-wrap:wrap; gap:8px 12px; margin:0; padding:0; list-style:none; }
-    .skill-list li { background: rgba(0,0,0,0.03); padding:6px 10px; border-radius:999px; font-size:0.9rem; }
-    .skills-scroll::-webkit-scrollbar { width:9px; }
-    .skills-scroll::-webkit-scrollbar-track { background: transparent; }
-    .skills-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius:6px; }
-    .skills-scroll:focus { outline: 2px solid rgba(0,120,215,0.18); outline-offset:3px; }
-    .skills-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
-    @media (max-width: 1000px) {
-      /* slightly reduce left column on narrower desktops */
-      .container { grid-template-columns: 180px 1fr; }
-      .profile-photo { width: 200px; height: 250px; }
-    }
-    @media (max-width: 860px) {
-      .container { grid-template-columns: 1fr; }
-      .skills-scroll { max-height: 200px; }
-      /* on small screens use a compact, responsive image */
-      .profile-photo { width: 160px; height: 200px; margin: 0 auto; }
-      .para2 { margin-left: 0; }
-    }
-    @media (max-width: 520px) {
-      .research-link { right: 12px; padding: 6px 8px; font-size: 0.9rem; }
-      .header-inner { padding: 10px; }
-      /* mobile: smaller image */
-      .profile-photo { width: 140px; height: 180px; }
-    }
-    /* ---------- Intro paragraph overrides (kept to match screenshot) ---------- */
-    .bio p {
-      font-family: 'EB Garamond', serif !important;
-      font-weight: 600 !important;
-      font-size: 19px !important;
-      margin-bottom: 1rem;
-      color: var(--text-color);
-    }
-
-    .para2 {
-      margin-left: 25%;
-      line-height: 1.6;
-    }
-    .para2::first-letter {
-      font-size: 1.4em;
-      font-weight: 600;
-      line-height: 1;
-    }
-    /* Style for the new light blue links */
-    .bio a.bio-link {
-        color: #60a5fa;
-        text-decoration: none;
-    }
-    .bio a.bio-link:hover {
-        text-decoration: underline;
-    }
-    /* ---------------- Project Articles / Publications styling (colors changed) ---------------- */
-    /* Project Articles list: slightly smaller text than intro */
-    .news h2 { margin-bottom: 8px; }
-    .news ul { margin-top: 6px; padding-left: 1.1em; }
-    .news ul li {
-      margin-bottom: 10px;
-      font-size: 16px;            /* slightly smaller than intro so intro stays prominent */
-      color: var(--muted);            /* muted primary text color */
-    }
-    /* make project small links visible with the accent */
-    .news .proj-links a { color: var(--project-accent); font-weight:600; }
-    .news .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
-    /* Selected Publications: thumbnail + meta, with a distinct publication accent */
-    .selected-publications h2 { margin-top: 22px; }
-    .selected-publications .pub {
-      display:flex;
-      gap: 16px;
-      margin-bottom: 18px;
-      align-items:flex-start;
-    }
-    .selected-publications .pub img { width: 140px; height: auto; object-fit: cover; border-radius:6px; }
-    .selected-publications .pub-body { max-width: 100%; }
-    .selected-publications .pub-title {
-      display:block;
-      font-size: 16px;
-      font-weight:700;
-      color: var(--publication-accent);      /* publication title color */
-      text-decoration: none;
-      margin-bottom:6px;
-    }
-    .selected-publications .pub-title:hover { color: var(--publication-hover); text-decoration: underline; }
-    .selected-publications .pub-authors { font-size: 14px; color: var(--muted); margin-bottom:4px; }
-    .selected-publications .pub-meta { font-size: 13px; color: var(--muted); margin-bottom:6px; }
-    .selected-publications .pub-links a { font-size:13px; color: var(--project-accent); text-decoration:none; margin-right:8px; }
-    .selected-publications .pub-links a:hover { text-decoration:underline; color: var(--project-accent-hover); }
-    /* Work experience: keep spacing and fonts same */
-    .experience h2 { margin-top: 24px; }
-    .job { margin-bottom: 14px; }
-    .job h3 { margin: 0 0 6px 0; font-size: 16px; }
-    .job-time { font-size: 13px; color: var(--muted); margin-bottom:8px; }
-    /* contact & footer */
-    .contact-cta { margin-top: 18px; font-size: 15px; }
-    .site-footer { text-align:center; padding:16px 0; }
-    /* ensure links inside intro remain neutral (so intro looks like screenshot) */
-    .bio a { color: inherit; }
-    .bio a:hover { text-decoration: underline; color: var(--text-color); }
-  </style>
-</head>
-<body>
-  <header class="site-header">
-    <div class="header-inner">
-      <h1 class="name">Pradeep Bolleddu</h1>
-      <a class="research-link" href="./research/index.html" target="_self" rel="noopener">Research blogs</a>
-    </div>
-  </header>
-  <main class="container">
-    <!-- LEFT COLUMN -->
-    <aside class="left-col">
-      <div class="profile-container">
-        <img class="profile-photo" src="assests/website photo.jpg" alt="Pradeep Bolleddu" />
-      </div>
-      <nav class="links" aria-label="quick links" style="margin-top:10px; text-align:center;">
-        <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a> |
-        <a href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener">LinkedIn</a> <br>
-        <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a>
-      </nav>
-    </aside>
-    <!-- RIGHT COLUMN -->
-    <section class="right-col">
-      <section class="bio">
-        <p class="para1">I’m <strong>Pradeep Bolleddu</strong>, an Applied Scientist at a stealth AI startup in Seattle, Washington. My research and engineering work spans computer vision, LLM performance modeling, and building scalable ML systems- I have a Strong research background in computer vision and image processing, including multi-cameras, Multiviews 3D computer vision, content-based image/video retrieval, mobile augmented reality, image
-synthesis and object segmentation.</p>
-        <p class="para1">I joined UMass Chan in November 2023 as a Machine Learning Researcher,building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI.Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at Third AI Automation, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
-        <p class="para1"> Previsouly I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="bio-link" href="#">Prof. Julia Fang</a>.
-With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester , partnered with <a class="bio-link" href="#">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at CSCDR Lab. It was wonderful collabrating with <a class="bio-link" href="#">Prof. Vijaya Chalivendra</a> on several campus projects. </p>
-        <p class="para1"> Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have  worked with <a class="bio-link" href="#">Dr. Ekta Singla</a> on an Autonomous WardBot. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
-      <p class="para1"> </p>
-      </section>
-      <section class="news">
-        <h2>Project Articles</h2>
-        <ul>
-          <li>
-            Advanced Facial Recognition &amp; Emotion Detection System for Real-Time Adaptive AR/VR Experiences
-            <small class="proj-links">
-              <a href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
-            </small>
-          </li>
-          <li>
-            3D Image Models and Building Large Language Models with Object Detection
-            <small class="proj-links">
-              <a href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
-            </small>
-          </li>
-          <li>
-            Neural Radiance Fields with PyTorch implementation
-            <small class="proj-links">
-              <a href="#" target="_blank" rel="noopener">code</a> | <a href="#" target="_blank" rel="noopener">pdf</a>
-            </small>
-          </li>
-        </ul>
-      </section>
-      <section class="selected-publications">
-        <h2>Selected Publications</h2>
-        <div class="pub">
-          <img src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" />
-          <div class="pub-body">
-            <a class="pub-title" href="#" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
-            <div class="pub-authors"><strong>Pradeep Bolleddu</strong>, ...</div>
-            <div class="pub-meta">IJSRCSEIT 2025</div>
-            <div class="pub-links">
-              <a href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
-            </div>
-          </div>
-        </div>
-        <div class="pub">
-          <img src="assests/hadoooop.png" alt="publication thumbnail" />
-          <div class="pub-body">
-            <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
-            <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*</div>
-            <div class="pub-meta">IJSR 2024</div>
-            <div class="pub-links">
-              <a href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="experience">
-        <h2>Work Experience</h2>
-        <article class="job">
-          <h3>Applied Scientist — Oliv AI</h3>
-          <p class="job-time">Sep 2024 — Present</p>
-          <ul class="first-job-list">
-            <li>
-              When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> ( ~<span class="num">$500K</span>/year). I also led LLM A/B testing &amp; search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
-            </li>
-            <li>Now I’m building Churn &amp; Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
-          </ul>
-        </article>
-        <article class="job">
-          <h3>Machine learning Researcher</h3>
-          <p class="job-time">2023 — 2024</p>
-          <ul>
-            <li>Advisor: Prof. Hua Fang</li>
-            <li>I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams. </li>
-            <li>We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = <span class="num">0.987</span> (≈<span class="num">18%</span> fewer false positives) and enabled personalized treatment plans for <span class="num">20K+</span> patients/year.</li>
-          </ul>
-        </article>
-      </section>
-      <section class="skills" aria-labelledby="skills-heading">
-        <div class="skills-panel" role="region" aria-label="Technical Skills panel">
-          <div class="panel-title">
-            <h3 id="skills-heading">Technical Skills</h3>
-            <div class="badge"> </div>
-          </div>
-          <div class="skills-scroll" tabindex="0" aria-describedby="skills-desc">
-            <p id="skills-desc" style="display:none">Use up/down arrow keys, PageUp/PageDown, or mouse wheel to scroll this list.</p>
-            <div class="skill-group" aria-hidden="false">
-              <div class="group-name">Languages & Math</div>
-              <ul class="skill-list" role="list">
-                <li>Python</li>
-                <li>C++</li>
-                <li>SQL</li>
-                <li>Golang</li>
-                <li>NumPy</li>
-                <li>Linear Algebra</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <div class="group-name">Machine Learning</div>
-              <ul class="skill-list">
-                <li>PyTorch</li>
-                <li>TensorFlow</li>
-                <li>Scikit-learn</li>
-                <li>Transformers (Hugging Face)</li>
-                <li>LLMs &amp; RAG</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <div class="group-name">Computer Vision &amp; 3D</div>
-              <ul class="skill-list">
-                <li>OpenCV</li>
-                <li>3D Reconstruction</li>
-                <li>NeRF / Neural Rendering</li>
-                <li>Point Clouds</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <div class="group-name">Engineering &amp; Tools</div>
-              <ul class="skill-list">
-                <li>CUDA</li>
-                <li>Docker</li>
-                <li>Git</li>
-                <li>Linux</li>
-                <li>Airflow / Cloud ETL</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <div class="group-name">Cloud &amp; Deployment</div>
-              <ul class="skill-list">
-                <li>Google Cloud (Dataflow)</li>
-                <li>AWS</li>
-                <li>Model Serving</li>
-                <li>CI/CD</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <div class="group-name">Other</div>
-              <ul class="skill-list">
-                <li>Experimentation &amp; A/B</li>
-                <li>Bayesian Optimization</li>
-                <li>Data Visualization</li>
-                <li>Research &amp; Writing</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="contact-cta">
-        <p>If you'd like to collaborate, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
-      </section>
-    </section>
-  </main>
-  <footer class="site-footer">
-    © <span id="year"></span>
-  </footer>
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-    (function() {
-      const scrollArea = document.querySelector('.skills-scroll');
-      if (!scrollArea) return;
-      scrollArea.addEventListener('keydown', function(e) {
-        const key = e.key;
-        const h = scrollArea.clientHeight;
-        if (key === 'PageDown') {
-          e.preventDefault();
-          scrollArea.scrollBy({ top: h * 0.9, behavior: 'smooth' });
-        } else if (key === 'PageUp') {
-          e.preventDefault();
-          scrollArea.scrollBy({ top: -h * 0.9, behavior: 'smooth' });
-        } else if (key === 'Home') {
-          e.preventDefault();
-          scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
-        } else if (key === 'End') {
-          e.preventDefault();
-          scrollArea.scrollTo({ top: scrollArea.scrollHeight, behavior: 'smooth' });
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Blogs — Pradeep Bolleddu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&family=Lexend&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
         }
-      });
-    })();
-  </script>
+        .font-garamond {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .text-summary {
+            font-size: 15px;
+            font-family: 'Lexend', sans-serif;
+        }
+        .tag-button {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto">
+    <header class="flex items-center justify-between mb-8 md:mb-12">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">Research Blogs</h1>
+        <div>
+            <a class="button" href="../index.html">← Back to profile</a>
+        </div>
+    </header>
+
+    <!-- Tag Filters -->
+    <div id="tags-container" class="flex flex-wrap items-center gap-2 mb-8 -mt-6">
+        <button data-filter="all" class="tag-button px-3 py-1 rounded-full font-garamond font-bold text-gray-700 bg-gray-200 transition-all duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 active">All</button>
+        <button data-filter="facial-recognition" class="tag-button px-3 py-1 rounded-full font-garamond font-bold text-blue-400 bg-gray-200 transition-all duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">AI</button>
+        <button data-filter="3d-models" class="tag-button px-3 py-1 rounded-full font-garamond font-bold text-blue-400 bg-gray-200 transition-all duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">Machine Learning</button>
+        <button data-filter="neural-fields" class="tag-button px-3 py-1 rounded-full font-garamond font-bold text-blue-400 bg-gray-200 transition-all duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">Computer Vision</button>
+        <button data-filter="publications" class="tag-button px-3 py-1 rounded-full font-garamond font-bold text-blue-400 bg-gray-200 transition-all duration-200 hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500">Big Data Engineering</button>
+    </div>
+
+    <p class="text-gray-600 mb-8">The profile content to show a working research page.</p>
+
+
+    <div id="research-grid" class="space-y-12">
+        <!-- Blog 1 -->
+        <div class="research-card flex flex-col md:flex-row items-center md:items-start gap-6" data-tags="facial-recognition">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/150x150/e5e7eb/4b5563?text=AI+Vision" alt="Placeholder image for AI research" class="rounded-lg shadow-md w-24 h-24 sm:w-32 sm:h-32 object-cover">
+            </div>
+            <div class="flex-grow">
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">Advanced Facial Recognition &amp; Emotion Detection</h3>
+                <p class="text-gray-700 mb-2 italic text-summary">Summary: Real-time adaptive AR/VR demos, model architecture notes, dataset pointers, and links to code.</p>
+                <div class="flex space-x-4 text-sm font-medium">
+                    <a href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Code</a>
+                </div>
+                <!-- Tags for this project -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">AI</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Machine Learning</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Computer Vision</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog 2 -->
+        <div class="research-card flex flex-col md:flex-row items-center md:items-start gap-6" data-tags="3d-models">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/150x150/d1d5db/374151?text=3D+Models" alt="Placeholder image for 3D models" class="rounded-lg shadow-md w-24 h-24 sm:w-32 sm:h-32 object-cover">
+            </div>
+            <div class="flex-grow">
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">3D Image Models &amp; Building LLMs with Object Detection</h3>
+                <p class="text-gray-700 mb-2 italic text-summary">Summary: NeRF experiments, object-aware retrieval, and integration notes for RAG pipelines.</p>
+                <div class="flex space-x-4 text-sm font-medium">
+                    <a href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">Code</a>
+                </div>
+                <!-- Tags for this project -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">AI</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Machine Learning</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Computer Vision</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog 3 -->
+        <div class="research-card flex flex-col md:flex-row items-center md:items-start gap-6" data-tags="neural-fields">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/150x150/9ca3af/1f2937?text=Neural+Net" alt="Placeholder image for neural networks" class="rounded-lg shadow-md w-24 h-24 sm:w-32 sm:h-32 object-cover">
+            </div>
+            <div class="flex-grow">
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">Neural Radiance Fields — PyTorch</h3>
+                <p class="text-gray-700 mb-2 italic text-summary">Summary: Implementation details, tips for fast training, and rendering examples.</p>
+                <div class="flex space-x-4 text-sm font-medium">
+                    <a href="#" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">PDF / Demo</a>
+                </div>
+                <!-- Tags for this project -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">AI</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Machine Learning</span>
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Computer Vision</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blog 4 -->
+        <div class="research-card flex flex-col md:flex-row items-center md:items-start gap-6" data-tags="publications">
+            <div class="flex-shrink-0">
+                <img src="https://placehold.co/150x150/6b7280/e5e7eb?text=Publications" alt="Placeholder image for publications" class="rounded-lg shadow-md w-24 h-24 sm:w-32 sm:h-32 object-cover">
+            </div>
+            <div class="flex-grow">
+                <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">Publications &amp; Posters</h3>
+                <p class="text-gray-700 mb-2 italic text-summary">Duplicate list: "An Analysis of Clustering Techniques" (IJSRCSEIT 2025), "Hadoop—An Overview of Data Security" (IJSR 2024).</p>
+                <div class="flex space-x-4 text-sm font-medium">
+                    <a href="../assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200">CV</a>
+                </div>
+                <!-- Tags for this project -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Big Data Engineering</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-16 text-center text-sm text-gray-500">
+        © <span id="year"></span> Pradeep Bolleddu
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tagsContainer = document.getElementById('tags-container');
+            const researchCards = document.querySelectorAll('.research-card');
+
+            tagsContainer.addEventListener('click', (event) => {
+                const target = event.target;
+                if (target.matches('.tag-button')) {
+                    const filterTag = target.dataset.filter;
+
+                    // Remove active class from all buttons
+                    document.querySelectorAll('.tag-button').forEach(button => {
+                        button.classList.remove('text-gray-700');
+                        button.classList.add('text-blue-400');
+                        button.classList.remove('active');
+                    });
+
+                    // Add active class to the clicked button
+                    target.classList.add('active');
+                    target.classList.remove('text-blue-400');
+                    target.classList.add('text-gray-700');
+
+                    // Filter the cards
+                    researchCards.forEach(card => {
+                        if (filterTag === 'all' || card.dataset.tags.includes(filterTag)) {
+                            card.classList.remove('hidden');
+                        } else {
+                            card.classList.add('hidden');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
