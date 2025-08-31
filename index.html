@@ -6,6 +6,7 @@
   <title>Pradeep Bolleddu</title>
   <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@600&display=swap" rel="stylesheet">
   <style>
     /* ---------------- Variables & base ---------------- */
     :root{
@@ -13,18 +14,15 @@
       --name-font: Georgia, "Times New Roman", serif;
       --mono-font: 'Roboto Mono', monospace;
       --highlight-font: 'Merriweather', Georgia, serif;
-
       /* accents for projects/publications */
-      --project-accent: #1a73e8;      /* blue for project links */
+      --project-accent: #1a73e8;    /* blue for project links */
       --project-accent-hover: #1558b3;
       --publication-accent: #0b6b5a;  /* teal for publication titles */
       --publication-hover: #074c43;
-
       --text-color: #111;
       --muted: rgba(0,0,0,0.55);
       --surface: #fff;
     }
-
     /* ---------- TYPOGRAPHY: Heading & Body per request ---------- */
     html, body {
       font-family: var(--body-font);
@@ -34,7 +32,6 @@
       color: var(--text-color);
       background: var(--surface);
     }
-
     /* Heading (name) */
     .name {
       margin: 0;
@@ -44,7 +41,6 @@
       font-size: 34px;
       letter-spacing: -0.2px;
     }
-
     .header-inner {
       position: relative;
       display: flex;
@@ -68,7 +64,6 @@
     .research-link:hover {
       box-shadow: 0 1px 6px rgba(0,0,0,0.08);
     }
-
     .highlight-name {
       font-family: var(--highlight-font);
       font-weight: 700;
@@ -77,18 +72,15 @@
       padding: 0 2px;
       border-bottom: 1px dashed rgba(0,0,0,0.12);
     }
-
     .proj-links { font-size: 0.9rem; margin-left: 8px; }
     .proj-links a { text-decoration: none; margin: 0 4px; color: var(--project-accent); }
     .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
-
     .experience .num {
-      font-family: var(--mono-font);
-      font-weight: 700;
-      font-size: 1.02em;
+      font-family: 'EB Garamond', serif !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
       color: inherit;
     }
-
     /* Layout: fixed smaller left column so it doesn't take too much space */
     .container {
       display: grid;
@@ -110,11 +102,10 @@
       gap: 10px;
     }
     .right-col { padding-left: 12px; }
-
     /* Fixed-sized profile image (slightly larger): keeps left column compact */
     .profile-photo {
-      width: 220px;         /* fixed width */
-      height: 280px;        /* fixed height (slightly increased length) */
+      width: 220px;        /* fixed width */
+      height: 280px;         /* fixed height (slightly increased length) */
       border-radius: 10px;
       display: block;
       object-fit: cover;    /* crop smartly to fill frame */
@@ -125,22 +116,26 @@
     .profile-photo:hover {
       transform: translateY(-3px);
     }
-
     h2 { margin-top: 0; font-size: 20px; font-weight:700; }
-
+    
     /* Make all text inside Work Experience use the main (black) text color and increase font size slightly */
-    .experience,
-    .experience h2,
     .experience .job,
     .experience .job h3,
     .experience .job-time,
     .experience li {
       color: var(--text-color);
-      font-size: 17px; /* slightly larger for better readability */
+      font-family: 'EB Garamond', serif !important;
+      font-weight: 600 !important;
+      font-size: 16px !important;
     }
+    
+    /* Increase font size for the two specific list points in the first job */
+    .first-job-list li {
+      font-size: 17px !important;
+    }
+    
     /* keep job titles a touch larger / bolder */
     .experience .job h3 { font-size: 17.5px; margin-bottom:6px; }
-
     /* Skills panel */
     .skills { margin-top: 8px; }
     .skills-panel {
@@ -154,25 +149,21 @@
     .skills-panel .panel-title { display:flex; align-items:center; justify-content:space-between; margin-bottom:8px; }
     .skills-panel .panel-title h3 { margin:0; font-size:1rem; font-weight:700; }
     .skills-panel .panel-title .badge { font-size:0.85rem; background: rgba(0,0,0,0.04); padding:4px 8px; border-radius:999px; }
-
     .skills-scroll { max-height:170px; overflow-y:auto; padding-right:8px; scroll-behavior:smooth; }
     .skill-group { margin:8px 0; }
     .group-name { font-weight:700; margin-bottom:6px; font-size:0.95rem; }
     .skill-list { display:flex; flex-wrap:wrap; gap:8px 12px; margin:0; padding:0; list-style:none; }
     .skill-list li { background: rgba(0,0,0,0.03); padding:6px 10px; border-radius:999px; font-size:0.9rem; }
-
     .skills-scroll::-webkit-scrollbar { width:9px; }
     .skills-scroll::-webkit-scrollbar-track { background: transparent; }
     .skills-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius:6px; }
     .skills-scroll:focus { outline: 2px solid rgba(0,120,215,0.18); outline-offset:3px; }
     .skills-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
-
     @media (max-width: 1000px) {
       /* slightly reduce left column on narrower desktops */
       .container { grid-template-columns: 180px 1fr; }
       .profile-photo { width: 200px; height: 250px; }
     }
-
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
       .skills-scroll { max-height: 200px; }
@@ -186,14 +177,15 @@
       /* mobile: smaller image */
       .profile-photo { width: 140px; height: 180px; }
     }
-
     /* ---------- Intro paragraph overrides (kept to match screenshot) ---------- */
-    .para1, .para2 {
-      font-family: var(--body-font);
-      font-size: 20px; /* kept as you previously set — preserves the screenshot look */
+    .bio p {
+      font-family: 'EB Garamond', serif !important;
+      font-weight: 600 !important;
+      font-size: 15px !important;
       margin-bottom: 1rem;
       color: var(--text-color);
     }
+
     .para2 {
       margin-left: 25%;
       line-height: 1.6;
@@ -203,21 +195,26 @@
       font-weight: 600;
       line-height: 1;
     }
-
+    /* Style for the new light blue links */
+    .bio a.bio-link {
+        color: #60a5fa;
+        text-decoration: none;
+    }
+    .bio a.bio-link:hover {
+        text-decoration: underline;
+    }
     /* ---------------- Project Articles / Publications styling (colors changed) ---------------- */
-
     /* Project Articles list: slightly smaller text than intro */
     .news h2 { margin-bottom: 8px; }
     .news ul { margin-top: 6px; padding-left: 1.1em; }
     .news ul li {
       margin-bottom: 10px;
-      font-size: 16px;               /* slightly smaller than intro so intro stays prominent */
-      color: var(--muted);           /* muted primary text color */
+      font-size: 16px;            /* slightly smaller than intro so intro stays prominent */
+      color: var(--muted);            /* muted primary text color */
     }
     /* make project small links visible with the accent */
     .news .proj-links a { color: var(--project-accent); font-weight:600; }
     .news .proj-links a:hover { color: var(--project-accent-hover); text-decoration: underline; }
-
     /* Selected Publications: thumbnail + meta, with a distinct publication accent */
     .selected-publications h2 { margin-top: 22px; }
     .selected-publications .pub {
@@ -241,17 +238,14 @@
     .selected-publications .pub-meta { font-size: 13px; color: var(--muted); margin-bottom:6px; }
     .selected-publications .pub-links a { font-size:13px; color: var(--project-accent); text-decoration:none; margin-right:8px; }
     .selected-publications .pub-links a:hover { text-decoration:underline; color: var(--project-accent-hover); }
-
     /* Work experience: keep spacing and fonts same */
     .experience h2 { margin-top: 24px; }
     .job { margin-bottom: 14px; }
     .job h3 { margin: 0 0 6px 0; font-size: 16px; }
     .job-time { font-size: 13px; color: var(--muted); margin-bottom:8px; }
-
     /* contact & footer */
     .contact-cta { margin-top: 18px; font-size: 15px; }
     .site-footer { text-align:center; padding:16px 0; }
-
     /* ensure links inside intro remain neutral (so intro looks like screenshot) */
     .bio a { color: inherit; }
     .bio a:hover { text-decoration: underline; color: var(--text-color); }
@@ -264,7 +258,6 @@
       <a class="research-link" href="./research/index.html" target="_self" rel="noopener">Research blogs</a>
     </div>
   </header>
-
   <main class="container">
     <!-- LEFT COLUMN -->
     <aside class="left-col">
@@ -277,22 +270,17 @@
         <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a>
       </nav>
     </aside>
-
     <!-- RIGHT COLUMN -->
     <section class="right-col">
       <section class="bio">
         <p class="para1">I’m <strong>Pradeep Bolleddu</strong>, an Applied Scientist at a stealth AI startup in Seattle, Washington. My research and engineering work spans computer vision, LLM performance modeling, and building scalable ML systems- I have a Strong research background in computer vision and image processing, including multi-cameras, Multiviews 3D computer vision, content-based image/video retrieval, mobile augmented reality, image
 synthesis and object segmentation.</p>
-
         <p class="para1">I joined UMass Chan in November 2023 as a Machine Learning Researcher,building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI.Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at Third AI Automation, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
-
-        <p class="para1"> Previsouly I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under Prof. Julia Fang.
-With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester , partnered with Prof. Scott Field to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at CSCDR Lab. It was wonderful collabrating with Prof. Vijaya Chalivendra on several campus projects. </p>
-
-        <p class="para1"> Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have  worked with Dr. Ekta Singla on an Autonomous WardBot. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
-     <p class="para1"> </p>
+        <p class="para1"> Previsouly I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="bio-link" href="#">Prof. Julia Fang</a>.
+With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester , partnered with <a class="bio-link" href="#">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at CSCDR Lab. It was wonderful collabrating with <a class="bio-link" href="#">Prof. Vijaya Chalivendra</a> on several campus projects. </p>
+        <p class="para1"> Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have  worked with <a class="bio-link" href="#">Dr. Ekta Singla</a> on an Autonomous WardBot. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
+      <p class="para1"> </p>
       </section>
-
       <section class="news">
         <h2>Project Articles</h2>
         <ul>
@@ -316,7 +304,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
           </li>
         </ul>
       </section>
-
       <section class="selected-publications">
         <h2>Selected Publications</h2>
         <div class="pub">
@@ -333,7 +320,7 @@ With Julia, I focused on translating generative models into privacy-conscious, c
         <div class="pub">
           <img src="assests/hadoooop.png" alt="publication thumbnail" />
           <div class="pub-body">
-            <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security </a>
+            <a class="pub-title" href="#" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
             <div class="pub-authors"><strong>Pradeep Bolleddu</strong>*</div>
             <div class="pub-meta">IJSR 2024</div>
             <div class="pub-links">
@@ -342,13 +329,12 @@ With Julia, I focused on translating generative models into privacy-conscious, c
           </div>
         </div>
       </section>
-
       <section class="experience">
         <h2>Work Experience</h2>
         <article class="job">
           <h3>Applied Scientist — Oliv AI</h3>
           <p class="job-time">Sep 2024 — Present</p>
-          <ul>
+          <ul class="first-job-list">
             <li>
               When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> ( ~<span class="num">$500K</span>/year). I also led LLM A/B testing &amp; search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
             </li>
@@ -365,17 +351,14 @@ With Julia, I focused on translating generative models into privacy-conscious, c
           </ul>
         </article>
       </section>
-
       <section class="skills" aria-labelledby="skills-heading">
         <div class="skills-panel" role="region" aria-label="Technical Skills panel">
           <div class="panel-title">
             <h3 id="skills-heading">Technical Skills</h3>
             <div class="badge"> </div>
           </div>
-
           <div class="skills-scroll" tabindex="0" aria-describedby="skills-desc">
             <p id="skills-desc" style="display:none">Use up/down arrow keys, PageUp/PageDown, or mouse wheel to scroll this list.</p>
-
             <div class="skill-group" aria-hidden="false">
               <div class="group-name">Languages & Math</div>
               <ul class="skill-list" role="list">
@@ -387,7 +370,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
                 <li>Linear Algebra</li>
               </ul>
             </div>
-
             <div class="skill-group">
               <div class="group-name">Machine Learning</div>
               <ul class="skill-list">
@@ -398,7 +380,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
                 <li>LLMs &amp; RAG</li>
               </ul>
             </div>
-
             <div class="skill-group">
               <div class="group-name">Computer Vision &amp; 3D</div>
               <ul class="skill-list">
@@ -408,7 +389,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
                 <li>Point Clouds</li>
               </ul>
             </div>
-
             <div class="skill-group">
               <div class="group-name">Engineering &amp; Tools</div>
               <ul class="skill-list">
@@ -419,7 +399,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
                 <li>Airflow / Cloud ETL</li>
               </ul>
             </div>
-
             <div class="skill-group">
               <div class="group-name">Cloud &amp; Deployment</div>
               <ul class="skill-list">
@@ -429,7 +408,6 @@ With Julia, I focused on translating generative models into privacy-conscious, c
                 <li>CI/CD</li>
               </ul>
             </div>
-
             <div class="skill-group">
               <div class="group-name">Other</div>
               <ul class="skill-list">
@@ -442,20 +420,16 @@ With Julia, I focused on translating generative models into privacy-conscious, c
           </div>
         </div>
       </section>
-
       <section class="contact-cta">
         <p>If you'd like to collaborate, email me at <a href="mailto:bolledduu.pradeep@gmail.com">bolledduu.pradeep@gmail.com</a>.</p>
       </section>
     </section>
   </main>
-
   <footer class="site-footer">
     © <span id="year"></span>
   </footer>
-
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
-
     (function() {
       const scrollArea = document.querySelector('.skills-scroll');
       if (!scrollArea) return;
