@@ -89,38 +89,43 @@
       color: inherit;
     }
 
-    /* Layout */
+    /* Layout: fixed smaller left column so it doesn't take too much space */
     .container {
       display: grid;
-      /* allow a wider left column but keep it flexible on small screens */
-      grid-template-columns: minmax(220px, 360px) 1fr;
-      gap: 24px;
+      /* fixed small left column (won't stretch) + flexible right column */
+      grid-template-columns: 200px 1fr;
+      gap: 20px;
       max-width: 1100px;
       margin: 28px auto;
       padding: 0 16px;
+      align-items: start;
     }
-    /* center content in the left column so there's no visible empty gap on the left */
+    /* center content in the left column */
     .left-col {
       padding-right: 8px;
       display: flex;
-      justify-content: center;
-      align-items: start;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      gap: 10px;
     }
     .right-col { padding-left: 12px; }
-    /* make the profile image bigger and crisp on high-DPI screens */
+
+    /* Fixed-sized profile image (slightly larger): keeps left column compact */
     .profile-photo {
-      width: 100%;
-      max-width: 320px;     /* increased visual size */
-      height: auto;
+      width: 220px;         /* fixed width */
+      height: 280px;        /* fixed height (slightly increased length) */
       border-radius: 10px;
       display: block;
-      object-fit: cover;    /* ensures the image fills nicely if you constrain height later */
+      object-fit: cover;    /* crop smartly to fill frame */
       box-shadow: 0 6px 18px rgba(0,0,0,0.06);
       transition: transform 180ms ease;
+      flex-shrink: 0;
     }
     .profile-photo:hover {
       transform: translateY(-3px);
     }
+
     h2 { margin-top: 0; font-size: 20px; font-weight:700; }
 
     /* Make all text inside Work Experience use the main (black) text color and increase font size slightly */
@@ -162,17 +167,24 @@
     .skills-scroll:focus { outline: 2px solid rgba(0,120,215,0.18); outline-offset:3px; }
     .skills-scroll { scrollbar-width: thin; scrollbar-color: rgba(0,0,0,0.12) transparent; }
 
+    @media (max-width: 1000px) {
+      /* slightly reduce left column on narrower desktops */
+      .container { grid-template-columns: 180px 1fr; }
+      .profile-photo { width: 200px; height: 250px; }
+    }
+
     @media (max-width: 860px) {
       .container { grid-template-columns: 1fr; }
       .skills-scroll { max-height: 200px; }
-      /* keep photo a bit smaller on medium screens */
-      .profile-photo { max-width: 240px; }
+      /* on small screens use a compact, responsive image */
+      .profile-photo { width: 160px; height: 200px; margin: 0 auto; }
+      .para2 { margin-left: 0; }
     }
     @media (max-width: 520px) {
       .research-link { right: 12px; padding: 6px 8px; font-size: 0.9rem; }
       .header-inner { padding: 10px; }
-      /* mobile: avoid too-large image that overwhelms content */
-      .profile-photo { max-width: 160px; }
+      /* mobile: smaller image */
+      .profile-photo { width: 140px; height: 180px; }
     }
 
     /* ---------- Intro paragraph overrides (kept to match screenshot) ---------- */
@@ -190,9 +202,6 @@
       font-size: 1.4em;
       font-weight: 600;
       line-height: 1;
-    }
-    @media (max-width:860px) {
-      .para2 { margin-left: 0; }
     }
 
     /* ---------------- Project Articles / Publications styling (colors changed) ---------------- */
@@ -262,7 +271,7 @@
       <div class="profile-container">
         <img class="profile-photo" src="assests/website photo.jpg" alt="Pradeep Bolleddu" />
       </div>
-      <nav class="links" aria-label="quick links" style="margin-top:10px;">
+      <nav class="links" aria-label="quick links" style="margin-top:10px; text-align:center;">
         <a href="assests/Academic_CV_pradeep (1).pdf" target="_blank" rel="noopener">CV</a> |
         <a href="https://linkedin.com/in/pradeep-pb-bolleddu-4745991b2" target="_blank" rel="noopener">LinkedIn</a> <br>
         <a href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a>
