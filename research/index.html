@@ -6,7 +6,7 @@
     <title>Research Blogs — Pradeep Bolleddu</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&family=Lexend&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&family=Lexend&family=Raleway:ital@1&display=swap" rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -24,6 +24,12 @@
         }
         .tag-button {
             font-size: 14px;
+        }
+        .abstract-text {
+            font-family: 'Raleway', sans-serif;
+            font-style: italic;
+            font-size: 11px; /* Changed from text-xs for a more noticeable size reduction */
+            @apply text-gray-700 p-4 rounded-lg border border-gray-300 shadow-md mt-4 bg-gray-100;
         }
     </style>
 </head>
@@ -56,16 +62,18 @@
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">Advanced Facial Recognition &amp; Emotion Detection</h3>
                 <p class="text-gray-700 mb-2 italic text-summary">Summary: Real-time adaptive AR/VR demos, model architecture notes, dataset pointers, and links to code.</p>
                 <div class="flex space-x-4 text-sm font-medium">
+                    <a href="#" class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center gap-1" data-target="abstract-1">
+                        <i class="fa-solid fa-file-lines text-blue-600"></i>
+                        <span>Abstract</span>
+                    </a>
                     <a href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center gap-1">
                         <i class="fa-brands fa-github text-black"></i>
                         <span>Code</span>
                     </a>
                 </div>
-                <!-- Tags for this project -->
-                <div class="flex flex-wrap gap-2 mt-2">
-                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">AI</span>
-                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Machine Learning</span>
-                    <span class="text-xs font-semibold px-2 py-1 rounded-full bg-blue-100 text-blue-800">Computer Vision</span>
+                 <!-- Abstract container for Blog 1 -->
+                <div id="abstract-1" class="abstract-text hidden">
+                    This project presents an advanced system for real-time facial recognition and emotion detection. The system leverages state-of-the-art deep learning architectures, including Convolutional Neural Networks (CNNs) and transformer models, to achieve high accuracy in identifying individuals and their emotional states from live video feeds. The codebase is designed for efficiency and can be deployed in various applications such as adaptive AR/VR experiences and user-centric systems. The research includes detailed notes on model training, dataset curation, and performance optimization techniques, providing a comprehensive resource for developers and researchers in the field.
                 </div>
             </div>
         </div>
@@ -79,6 +87,10 @@
                 <h3 class="text-2xl font-semibold mb-2 text-gray-900 font-garamond">3D Image Models &amp; Building LLMs with Object Detection</h3>
                 <p class="text-gray-700 mb-2 italic text-summary">Summary: NeRF experiments, object-aware retrieval, and integration notes for RAG pipelines.</p>
                 <div class="flex space-x-4 text-sm font-medium">
+                    <a href="#" class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center gap-1" data-target="abstract-2">
+                        <i class="fa-solid fa-file-lines text-blue-600"></i>
+                        <span>Abstract</span>
+                    </a>
                     <a href="https://bolledduu.github.io/web/assests/3D%20Image%20Models%20&%20Building%20LLMs%20with%20Object%20Detection.pdf" target="_blank" rel="noopener" class="text-blue-600 hover:text-blue-800 transition-colors duration-200 flex items-center gap-1">
                         <i class="fa-solid fa-file-pdf text-red-600"></i>
                         <span>PDF</span>
@@ -87,6 +99,9 @@
                         <i class="fa-brands fa-github text-black"></i>
                         <span>Code</span>
                     </a>
+                </div>
+                <div id="abstract-2" class="abstract-text hidden">
+                    This project delves into the creation of 3D image models using Neural Radiance Fields (NeRFs) and their application in building Large Language Models (LLMs) with enhanced object detection capabilities. The research explores techniques for generating high-quality 3D representations from 2D images and integrating object-aware information into Retrieval-Augmented Generation (RAG) pipelines. This approach aims to improve the contextual understanding and accuracy of LLMs by enabling them to reason about objects and their spatial relationships within a scene.
                 </div>
                 <!-- Tags for this project -->
                 <div class="flex flex-wrap gap-2 mt-2">
@@ -270,6 +285,16 @@ We leverage state-of-the-art architectures (CNNs & vision transformers), multi-m
                         }
                     });
                 }
+            });
+
+            // Handle the click on the Abstract button
+            document.querySelectorAll('.toggle-abstract').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevents the default link behavior
+                    const targetId = event.currentTarget.dataset.target;
+                    const abstractDiv = document.getElementById(targetId);
+                    abstractDiv.classList.toggle('hidden');
+                });
             });
         });
     </script>
