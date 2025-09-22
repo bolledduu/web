@@ -5,40 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pradeep Bolleddu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: {
-                        'body': ['"Times New Roman"', 'Georgia', 'serif'],
-                        'name': ['Georgia', '"Times New Roman"', 'serif'],
-                        'mono': ['"Roboto Mono"', 'monospace'],
-                        'highlight': ['Merriweather', 'Georgia', 'serif'],
-                        'garamond': ['"EB Garamond"', 'serif'],
-                        'lato': ['Lato', 'sans-serif'],
-                    },
-                    colors: {
-                        projectAccent: '#1a73e8',
-                        projectAccentHover: '#1558b3',
-                        publicationAccent: '#0b6b5a',
-                        publicationHover: '#074c43',
-                        text: '#111',
-                        muted: 'rgba(0,0,0,0.55)',
-                        surface: '#fff',
-                    },
-                }
-            }
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base styles from original CSS, adjusted to work with Tailwind */
         html, body {
-            font-family: var(--body-font);
+            font-family: 'Lato', sans-serif;
             font-size: 16px;
             line-height: 1.45;
-            color: var(--text);
-            background: var(--surface);
+            color: #111;
+            background: #fff;
         }
         /* Specific overrides for Garamond font in experience section and Lato in bio */
         .bio p {
@@ -48,11 +23,11 @@
             line-height: 1.6;
         }
         .experience .job, .experience .job h3, .experience .job-time, .experience li {
-            font-family: var(--garamond);
+            font-family: 'EB Garamond', serif;
             font-weight: 600;
         }
         .experience .num {
-            font-family: var(--garamond);
+            font-family: 'EB Garamond', serif;
             font-weight: 600;
             font-size: 15px;
             color: inherit;
@@ -84,16 +59,17 @@
     </style>
 </head>
 <body class="bg-surface text-text font-body">
-    <header class="bg-surface border-b border-gray-200">
+    <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
             <h1 class="text-3xl font-name font-bold tracking-tight text-center">Pradeep Bolleddu</h1>
-            <a class="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent border border-gray-300 py-2 px-3 rounded-md text-sm text-gray-700 hover:shadow-md transition-shadow" href="https://github.com/bolledduu/web/blob/main/research/index.html" target="_blank" rel="noopener">Research blogs</a>
+            <!-- The link has been updated to point to the raw GitHub URL for the HTML file. -->
+            <a class="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent border border-gray-300 py-2 px-3 rounded-md text-sm text-gray-700 hover:shadow-md transition-shadow" href="./research/index.html">Research blogs</a>
         </div>
     </header>
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
         <!-- LEFT COLUMN -->
         <aside class="flex flex-col items-center justify-start gap-3">
-            <img class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-xl shadow-lg transition-transform hover:scale-105" src="https://github.com/bolledduu/web/blob/main/assests/website%20photo.jpg" alt="Pradeep Bolleddu" />
+            <img class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-xl shadow-lg transition-transform hover:scale-105" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/website%20photo.jpg" alt="Pradeep Bolleddu" />
             <nav class="flex flex-wrap justify-center gap-2 mt-2">
                 <a class="text-gray-700 hover:text-black hover:underline transition-colors" href="#" target="_blank" rel="noopener">CV</a> |
                 <a class="text-gray-700 hover:text-black hover:underline transition-colors" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener">LinkedIn</a> |
@@ -114,22 +90,22 @@
             <section class="news mb-8">
                 <h2 class="text-xl font-bold mb-2">Project Articles</h2>
                 <ul class="list-disc pl-5">
-                    <li class="mb-2 text-muted">
+                    <li class="mb-2 text-gray-700">
                         Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences
-                        <small class="proj-links text-sm ml-2">
-                            <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                        <small class="text-sm ml-2">
+                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
-                    <li class="mb-2 text-muted">
+                    <li class="mb-2 text-gray-700">
                         3D Image Models and Building Large Language Models with Object Detection
-                        <small class="proj-links text-sm ml-2">
-                            <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                        <small class="text-sm ml-2">
+                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
-                    <li class="mb-2 text-muted">
+                    <li class="mb-2 text-gray-700">
                         Neural Radiance Fields with PyTorch implementation
-                        <small class="proj-links text-sm ml-2">
-                            <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                        <small class="text-sm ml-2">
+                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
                 </ul>
@@ -138,24 +114,24 @@
             <section class="selected-publications mb-8">
                 <h2 class="text-xl font-bold mb-4">Selected Publications</h2>
                 <div class="flex gap-4 mb-4 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md" src="https://raw.githubusercontent.com/bolledduu/web/refs/heads/main/assests/clustering.webp" alt="publication thumbnail" />
+                    <img class="w-32 h-auto object-cover rounded-md" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/clustering.webp" alt="publication thumbnail" />
                     <div class="flex flex-col">
-                        <a class="text-publicationAccent hover:text-publicationHover hover:underline font-bold" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
-                        <div class="text-sm text-muted mb-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-muted mb-2">IJSRCSEIT 2025</div>
+                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
+                        <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>, ...</div>
+                        <div class="text-xs text-gray-600 mb-2">IJSRCSEIT 2025</div>
                         <div class="text-sm">
-                            <a class="text-projectAccent hover:text-projectAccentHover hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline mr-2" href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline" href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
+                            <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-blue-600 hover:text-blue-800 hover-underline" href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
                         </div>
                     </div>
                 </div>
                 <div class="flex gap-4 mb-4 items-start">
                     <img class="w-32 h-auto object-cover rounded-md" src="https://placehold.co/400x250/E8E8E8/333?text=Hadoop" alt="publication thumbnail" />
                     <div class="flex flex-col">
-                        <a class="text-publicationAccent hover:text-publicationHover hover:underline font-bold" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
-                        <div class="text-sm text-muted mb-1"><strong>Pradeep Bolleddu</strong>*</div>
-                        <div class="text-xs text-muted mb-2">IJSR 2024</div>
+                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
+                        <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>*</div>
+                        <div class="text-xs text-gray-600 mb-2">IJSR 2024</div>
                         <div class="text-sm">
-                            <a class="text-projectAccent hover:text-projectAccentHover hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline mr-2" href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-projectAccent hover:text-projectAccentHover hover:underline" href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
+                            <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-blue-600 hover:text-blue-800 hover-underline" href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
                         </div>
                     </div>
                 </div>
@@ -165,7 +141,7 @@
                 <h2 class="text-xl font-bold mb-4">Work Experience</h2>
                 <article class="mb-6">
                     <h3>Applied Scientist — <a class="text-blue-500 hover:text-blue-700 hover:underline" href="#">Oliv AI</a></h3>
-                    <p class="job-time text-muted text-sm mb-2">Sep 2024 — Present</p>
+                    <p class="job-time text-gray-600 text-sm mb-2">Sep 2024 — Present</p>
                     <ul class="list-disc pl-5">
                         <li class="mb-2">
                             When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> (~<span class="num">$500K</span>/year). I also led LLM A/B testing & search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
@@ -175,7 +151,7 @@
                 </article>
                 <article class="mb-6">
                     <h3>UMass chan Medical School — Machine learning Researcher</h3>
-                    <p class="job-time text-muted text-sm mb-2">Nov 2023 — May 2024</p>
+                    <p class="job-time text-gray-600 text-sm mb-2">Nov 2023 — May 2024</p>
                     <ul class="list-disc pl-5">
                         <li>Advisor: Prof. Hua Fang</li>
                         <li class="mt-2">I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams.</li>
