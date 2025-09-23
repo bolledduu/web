@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pradeep Bolleddu</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2f3o2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base styles from original CSS, adjusted to work with Tailwind */
@@ -56,24 +57,69 @@
             font-weight: 600;
             line-height: 1;
         }
+        /* Tooltip styles */
+        .tooltip-container {
+            position: relative;
+            display: inline-block;
+        }
+        .tooltip-container .tooltip-text {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 8px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            white-space: nowrap;
+        }
+        .tooltip-container:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
+        .tooltip-container .tooltip-text::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #333 transparent transparent transparent;
+        }
     </style>
 </head>
 <body class="bg-surface text-text font-body">
     <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
             <h1 class="text-3xl font-name font-bold tracking-tight text-center">Pradeep Bolleddu</h1>
-            <!-- The link has been updated to point to the raw GitHub URL for the HTML file. -->
-            <a class="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent border border-gray-300 py-2 px-3 rounded-md text-sm text-gray-700 hover:shadow-md transition-shadow" href="./research/index.html">Research blogs</a>
+            <!-- The link has been updated to include a blue border effect on click. -->
+            <a class="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent border border-gray-300 py-2 px-3 rounded-md text-sm text-gray-700 hover:border-blue-500 hover:shadow-md transition-shadow active:border-blue-500 active:shadow-lg focus:border-blue-500 focus:shadow-lg" href="./research/index.html">Research blogs</a>
         </div>
     </header>
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
         <!-- LEFT COLUMN -->
         <aside class="flex flex-col items-center justify-start gap-3">
             <img class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-xl shadow-lg transition-transform hover:scale-105" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/website%20photo.jpg" alt="Pradeep Bolleddu" />
-            <nav class="flex flex-wrap justify-center gap-2 mt-2">
-                <a class="text-gray-700 hover:text-black hover:underline transition-colors" href="#" target="_blank" rel="noopener">CV</a> |
-                <a class="text-gray-700 hover:text-black hover:underline transition-colors" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener">LinkedIn</a> |
-                <a class="text-gray-700 hover:text-black hover:underline transition-colors" href="https://github.com/bolleddu15" target="_blank" rel="noopener">GitHub</a>
+            <!-- The nav has been updated with social icons and colors. -->
+            <nav class="flex justify-center gap-4 mt-2 text-xl" aria-label="Social links">
+                <a class="text-red-600 hover:text-red-800 transition-colors tooltip-container" href="#" target="_blank" rel="noopener" aria-label="CV">
+                    <i class="fas fa-file-pdf"></i>
+                    <span class="tooltip-text">CV</span>
+                </a>
+                <a class="text-blue-700 hover:text-blue-900 transition-colors tooltip-container" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                    <span class="tooltip-text">LinkedIn</span>
+                </a>
+                <a class="text-gray-700 hover:text-black hover:underline transition-colors tooltip-container" href="https://github.com/bolleddu15" target="_blank" rel="noopener" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                    <span class="tooltip-text">GitHub</span>
+                </a>
             </nav>
         </aside>
 
@@ -81,10 +127,9 @@
         <section>
             <section class="bio mb-8">
                 <p>I’m <strong>Pradeep Bolleddu</strong>, an Applied Scientist at a stealth AI startup in Seattle, Washington. My research and engineering work spans computer vision, LLM performance modeling, and building scalable ML systems- I have a Strong research background in computer vision and image processing, including multi-cameras, Multiviews 3D computer vision, content-based image/video retrieval, mobile augmented reality, image synthesis and object segmentation.</p>
-                <p>I joined <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/">UMass Chan Medical School</a> in November 2023 as a Machine Learning Researcher, building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI. Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.thirdaiautomation.com/">Third AI Automation</a>, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
-                <p>Previously, I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/">Prof. Julia Fang</a>. With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester, partnered with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg.">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.cscdr.umassd.edu/">CSCDR Lab</a>. It was wonderful collabrating with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassd.edu/directory/vchalivendra/">Prof. Vijaya Chalivendra</a> on several campus projects.</p>
-                <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>.</p>
-                <p>I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
+                <p class="mb-4">I joined <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/">UMass Chan Medical School</a> in November 2023 as a Machine Learning Researcher, building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI. Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.thirdaiautomation.com/">Third AI Automation</a>, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
+                <p class="mb-4">Previously, I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/">Prof. Julia Fang</a>. With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester, partnered with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg.">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.cscdr.umassd.edu/">CSCDR Lab</a>. It was wonderful collabrating with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassd.edu/directory/vchalivendra/">Prof. Vijaya Chalivendra</a> on several campus projects.</p>
+                <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
             </section>
 
             <section class="news mb-8">
