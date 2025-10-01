@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pradeep Bolleddu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2f3o2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- D3.js for the interactive force-directed graph -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base styles from original CSS, adjusted to work with Tailwind */
@@ -16,7 +18,6 @@
             color: #111;
             background: #fff;
         }
-        /* Specific overrides for Garamond font in experience section and Lato in bio */
         .bio p {
             font-family: 'Lato', sans-serif;
             font-weight: normal;
@@ -35,27 +36,6 @@
         }
         .experience .job h3 {
             font-size: 17.5px;
-        }
-        /* Skills panel scrollbar styling */
-        .skills-scroll::-webkit-scrollbar {
-            width: 9px;
-        }
-        .skills-scroll::-webkit-scrollbar-track {
-            background: transparent;
-        }
-        .skills-scroll::-webkit-scrollbar-thumb {
-            background: rgba(0, 0, 0, 0.12);
-            border-radius: 6px;
-        }
-        .skills-scroll {
-            scrollbar-width: thin;
-            scrollbar-color: rgba(0, 0, 0, 0.12) transparent;
-        }
-        /* First letter pseudo-element */
-        .first-letter-drop::first-letter {
-            font-size: 1.4em;
-            font-weight: 600;
-            line-height: 1;
         }
         /* Tooltip styles */
         .tooltip-container {
@@ -77,6 +57,8 @@
             opacity: 0;
             transition: opacity 0.3s;
             white-space: nowrap;
+            font-family: 'Lato', sans-serif; 
+            font-size: 13px;
         }
         .tooltip-container:hover .tooltip-text {
             visibility: visible;
@@ -92,21 +74,41 @@
             border-style: solid;
             border-color: #333 transparent transparent transparent;
         }
+
+        /* D3 Graph specific styles */
+        .link {
+            stroke: #999;
+            stroke-opacity: 0.6;
+        }
+
+        .node-text {
+            font-family: 'Roboto Mono', monospace; /* Technical font for concepts */
+            font-size: 10px;
+            pointer-events: none; /* Prevents text from blocking drag events on the circle */
+            text-shadow: 0 0 4px white; /* Helps readability over links */
+            fill: #333;
+            font-weight: 600;
+        }
+
+        .domain-node {
+            stroke: #374151; /* Darker stroke for main nodes */
+            stroke-width: 2px;
+        }
     </style>
 </head>
 <body class="bg-surface text-text font-body">
     <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
             <h1 class="text-3xl font-name font-bold tracking-tight text-center">Pradeep Bolleddu</h1>
-            <!-- The link has been updated to include a blue border effect on click. -->
-            <a class="absolute right-4 top-1/2 -translate-y-1/2 bg-transparent border border-gray-300 py-2 px-3 rounded-md text-sm text-gray-700 hover:border-blue-500 hover:shadow-md transition-shadow active:border-blue-500 active:shadow-lg focus:border-blue-500 focus:shadow-lg" href="./research/index.html">Research blogs</a>
         </div>
     </header>
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
         <!-- LEFT COLUMN -->
         <aside class="flex flex-col items-center justify-start gap-3">
+            <!-- Profile Image -->
             <img class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-xl shadow-lg transition-transform hover:scale-105" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/website%20photo.jpg" alt="Pradeep Bolleddu" />
-            <!-- The nav has been updated with social icons and colors. -->
+            
+            <!-- Social Links -->
             <nav class="flex justify-center gap-4 mt-2 text-xl" aria-label="Social links">
                 <a class="text-red-600 hover:text-red-800 transition-colors tooltip-container" href="#" target="_blank" rel="noopener" aria-label="CV">
                     <i class="fas fa-file-pdf"></i>
@@ -121,6 +123,11 @@
                     <span class="tooltip-text">GitHub</span>
                 </a>
             </nav>
+
+            <!-- Research blogs link (moved here as requested) -->
+            <a class="mt-4 w-48 text-center bg-blue-50 border border-blue-200 py-2 px-3 rounded-lg text-sm font-semibold text-blue-700 hover:bg-blue-100 hover:border-blue-500 transition-all shadow-md hover:shadow-lg" href="./research/index.html">
+                <i class="fas fa-book-open mr-2"></i> Research Blogs
+            </a>
         </aside>
 
         <!-- RIGHT COLUMN -->
@@ -170,7 +177,7 @@
                     </div>
                 </div>
                 <div class="flex gap-4 mb-4 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md" src="https://github.com/bolledduu/web/blob/main/assests/haddop.png" alt="publication thumbnail" />
+                    <img class="w-32 h-auto object-cover rounded-md" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/haddop.png" alt="publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/128x96/f0f0f0/333?text=Hadoop+Pub';" />
                     <div class="flex flex-col">
                         <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
                         <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>*</div>
@@ -205,72 +212,14 @@
                 </article>
             </section>
 
-            <section class="skills mb-8" aria-labelledby="skills-heading">
-                <div class="border border-gray-200 rounded-lg bg-gray-50 p-4 shadow-sm max-w-full">
-                    <div class="flex items-center justify-between mb-2">
-                        <h3 id="skills-heading" class="m-0 text-base font-bold">Technical Skills</h3>
-                        <div class="text-sm bg-gray-200 text-gray-700 px-3 py-1 rounded-full"></div>
-                    </div>
-                    <div class="skills-scroll max-h-48 overflow-y-auto pr-2" tabindex="0" aria-describedby="skills-desc">
-                        <p id="skills-desc" class="sr-only">Use up/down arrow keys, PageUp/PageDown, or mouse wheel to scroll this list.</p>
-                        <div class="mb-2">
-                            <div class="font-bold mb-1 text-sm">Languages & Math</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Python</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">C++</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">SQL</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Golang</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">NumPy</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Linear Algebra</li>
-                            </ul>
-                        </div>
-                        <div class="mb-2">
-                            <div class="font-bold mb-1 text-sm">Machine Learning</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">PyTorch</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">TensorFlow</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Scikit-learn</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Transformers (Hugging Face)</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">LLMs & RAG</li>
-                            </ul>
-                        </div>
-                        <div class="mb-2">
-                            <div class="font-bold mb-1 text-sm">Computer Vision & 3D</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">OpenCV</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">3D Reconstruction</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">NeRF / Neural Rendering</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Point Clouds</li>
-                            </ul>
-                        </div>
-                        <div class="mb-2">
-                            <div class="font-bold mb-1 text-sm">Engineering & Tools</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">CUDA</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Docker</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Git</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Linux</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Airflow / Cloud ETL</li>
-                            </ul>
-                        </div>
-                        <div class="mb-2">
-                            <div class="font-bold mb-1 text-sm">Cloud & Deployment</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Google Cloud (Dataflow)</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">AWS</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Model Serving</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">CI/CD</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <div class="font-bold mb-1 text-sm">Other</div>
-                            <ul class="flex flex-wrap gap-2 text-sm" role="list">
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Experimentation & A/B</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Bayesian Optimization</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Data Visualization</li>
-                                <li class="bg-gray-200 px-2 py-1 rounded-full">Research & Writing</li>
-                            </ul>
-                        </div>
+            <!-- UPDATED: Interactive Knowledge Graph Section -->
+            <section class="knowledge-graph mb-8" aria-labelledby="knowledge-heading">
+                <h2 id="knowledge-heading" class="text-xl font-bold mb-4">Pradeep's Core AI Competencies</h2>
+                <!-- Applied a subtle background and border to the container for better visual appeal -->
+                <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-white border-2 border-dashed border-indigo-200 shadow-lg">
+                    <p class="text-sm text-gray-600 mb-3">Drag the central domain nodes (larger circles) or the algorithm nodes to interact with the graph. The nodes are organized by domain knowledge and show key cross-discipline relationships.</p>
+                    <div id="knowledge-graph-container" class="w-full" style="height: 350px;">
+                        <svg id="knowledge-graph-svg" class="w-full h-full"></svg>
                     </div>
                 </div>
             </section>
@@ -285,27 +234,236 @@
     </footer>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
-        (function() {
-            const scrollArea = document.querySelector('.skills-scroll');
-            if (!scrollArea) return;
-            scrollArea.addEventListener('keydown', function(e) {
-                const key = e.key;
-                const h = scrollArea.clientHeight;
-                if (key === 'PageDown') {
-                    e.preventDefault();
-                    scrollArea.scrollBy({ top: h * 0.9, behavior: 'smooth' });
-                } else if (key === 'PageUp') {
-                    e.preventDefault();
-                    scrollArea.scrollBy({ top: -h * 0.9, behavior: 'smooth' });
-                } else if (key === 'Home') {
-                    e.preventDefault();
-                    scrollArea.scrollTo({ top: 0, behavior: 'smooth' });
-                } else if (key === 'End') {
-                    e.preventDefault();
-                    scrollArea.scrollTo({ top: scrollArea.scrollHeight, behavior: 'smooth' });
-                }
+
+        // --- D3.js INTERACTIVE KNOWLEDGE GRAPH ---
+
+        function createKnowledgeGraph() {
+            const container = document.getElementById('knowledge-graph-container');
+            const svg = d3.select("#knowledge-graph-svg");
+            
+            // Set dimensions relative to container
+            const width = container.clientWidth;
+            const height = container.clientHeight;
+
+            svg.attr("viewBox", [0, 0, width, height]);
+
+            // Define the knowledge data (EXPANDED with new cross-links)
+            const graphData = {
+                nodes: [
+                    { id: "DL", group: 1, type: "domain", label: "Deep Learning" },
+                    { id: "CV", group: 2, type: "domain", label: "Computer Vision" },
+                    { id: "GEN AI", group: 3, type: "domain", label: "Generative AI" },
+                    { id: "LLMs", group: 4, type: "domain", label: "LLMs" },
+                    { id: "ML", group: 5, type: "domain", label: "Machine Learning" },
+
+                    // Deep Learning (Group 1)
+                    { id: "CNNs", group: 1, type: "concept", label: "CNNs" },
+                    { id: "RNN/LSTM", group: 1, type: "concept", label: "RNN/LSTM" },
+                    { id: "GRUs", group: 1, type: "concept", label: "GRUs" },
+                    { id: "Attention", group: 1, type: "concept", label: "Attention" },
+                    { id: "Autoencoders", group: 1, type: "concept", label: "Autoencoders" },
+                    
+                    // Computer Vision (Group 2)
+                    { id: "YOLO/R-CNN", group: 2, type: "concept", label: "YOLO/R-CNN" },
+                    { id: "3D Multi-view", group: 2, type: "concept", label: "3D Multi-view" },
+                    { id: "Point Clouds", group: 2, type: "concept", label: "Point Clouds" },
+                    { id: "OpenCV", group: 2, type: "concept", label: "OpenCV" },
+                    { id: "Keypoint Detect.", group: 2, type: "concept", label: "Keypoint Detect." },
+                    { id: "Image Segmentation", group: 2, type: "concept", label: "Image Segment." },
+                    { id: "SfM", group: 2, type: "concept", label: "SfM/SLAM" },
+
+                    // Generative AI (Group 3)
+                    { id: "VAEs", group: 3, type: "concept", label: "VAEs" },
+                    { id: "GANs", group: 3, type: "concept", label: "GANs" },
+                    { id: "Diffusion", group: 3, type: "concept", label: "Diffusion Models" },
+                    { id: "NeRF", group: 3, type: "concept", label: "NeRF" },
+                    { id: "CLIP", group: 3, type: "concept", label: "CLIP" },
+                    { id: "Txt-to-Image", group: 3, type: "concept", label: "Txt-to-Image" },
+
+                    // LLMs (Group 4)
+                    { id: "Transformer", group: 4, type: "concept", label: "Transformer" },
+                    { id: "RAG", group: 4, type: "concept", label: "RAG Systems" },
+                    { id: "Fine-tuning", group: 4, type: "concept", label: "Fine-tuning" },
+                    { id: "Prompt Eng.", group: 4, type: "concept", label: "Prompt Eng." },
+                    { id: "Vector DBs", group: 4, type: "concept", label: "Vector DBs" },
+                    
+                    // Machine Learning (Group 5)
+                    { id: "XGBoost", group: 5, type: "concept", label: "XGBoost" },
+                    { id: "Random Forest", group: 5, type: "concept", label: "Random Forest" },
+                    { id: "Bayesian Opt.", group: 5, type: "concept", label: "Bayesian Opt." },
+                    { id: "K-Means", group: 5, type: "concept", label: "K-Means" },
+                    { id: "DBSCAN", group: 5, type: "concept", label: "DBSCAN" },
+                    { id: "SVM/Ensembles", group: 5, type: "concept", label: "SVM/Ensembles" },
+                ],
+                links: [
+                    // DL Domain Links
+                    { source: "DL", target: "CNNs" },
+                    { source: "DL", target: "RNN/LSTM" },
+                    { source: "DL", target: "GRUs" },
+                    { source: "DL", target: "Attention" },
+                    { source: "DL", target: "Autoencoders" },
+                    
+                    // CV Domain Links
+                    { source: "CV", target: "YOLO/R-CNN" },
+                    { source: "CV", target: "3D Multi-view" },
+                    { source: "CV", target: "Point Clouds" },
+                    { source: "CV", target: "OpenCV" },
+                    { source: "CV", target: "Keypoint Detect." },
+                    { source: "CV", target: "Image Segmentation" },
+                    { source: "CV", target: "SfM" },
+                    
+                    // GEN AI Domain Links
+                    { source: "GEN AI", target: "VAEs" },
+                    { source: "GEN AI", target: "GANs" },
+                    { source: "GEN AI", target: "Diffusion" },
+                    { source: "GEN AI", target: "NeRF" },
+                    { source: "GEN AI", target: "CLIP" },
+                    { source: "GEN AI", target: "Txt-to-Image" },
+                    
+                    // LLMs Domain Links
+                    { source: "LLMs", target: "Transformer" },
+                    { source: "LLMs", target: "RAG" },
+                    { source: "LLMs", target: "Fine-tuning" },
+                    { source: "LLMs", target: "Prompt Eng." },
+                    { source: "LLMs", target: "Vector DBs" },
+                    
+                    // ML Domain Links
+                    { source: "ML", target: "XGBoost" },
+                    { source: "ML", target: "Random Forest" },
+                    { source: "ML", target: "Bayesian Opt." },
+                    { source: "ML", target: "K-Means" },
+                    { source: "ML", target: "DBSCAN" },
+                    { source: "ML", target: "SVM/Ensembles" },
+                    
+                    // **NEW AND IMPROVED CROSS-DOMAIN/SUBTREE LINKS**
+                    
+                    // Domain-to-Domain Link (Requested)
+                    { source: "ML", target: "DL" }, 
+                    
+                    // Cross-Domain Concepts
+                    { source: "DL", target: "Transformer" }, 
+                    { source: "DL", target: "GANs" },
+                    { source: "DL", target: "CNNs" }, 
+                    { source: "CV", target: "NeRF" },
+                    { source: "CV", target: "Image Segmentation" },
+                    { source: "GEN AI", target: "Transformer" },
+                    { source: "ML", target: "Bayesian Opt." },
+
+                    // Subtree/Detailed Concepts
+                    { source: "CNNs", target: "YOLO/R-CNN" }, // CNNs are fundamental to Object Detection
+                    { source: "Autoencoders", target: "VAEs" }, // VAEs are a type of Generative Autoencoder
+                    { source: "RAG", target: "Vector DBs" }, // RAG systems heavily rely on Vector Databases
+                    { source: "3D Multi-view", target: "SfM" }, // 3D Multi-view techniques lead to Structure from Motion (SfM)
+                    { source: "XGBoost", target: "Random Forest" }, // Both are ensemble methods
+                ]
+            };
+
+            // Color scale for groups/domains
+            const color = d3.scaleOrdinal(d3.schemeCategory10);
+
+            // Simulation setup
+            const simulation = d3.forceSimulation(graphData.nodes)
+                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(45).strength(0.6)) /* Reduced distance and increased strength for tighter grouping */
+                .force("charge", d3.forceManyBody().strength(-150)) // Increased repulsion
+                .force("center", d3.forceCenter(width / 2, height / 2)) 
+                .force("x", d3.forceX().strength(0.08)) 
+                .force("y", d3.forceY().strength(0.08)); 
+            
+            // Clear previous content (important for window resize handling)
+            svg.selectAll("*").remove();
+
+            // Draw links
+            const link = svg.append("g")
+                .attr("class", "links")
+                .selectAll("line")
+                .data(graphData.links)
+                .join("line")
+                .attr("class", "link");
+
+            // Draw nodes (circles and labels)
+            const node = svg.append("g")
+                .attr("class", "nodes")
+                .selectAll("g")
+                .data(graphData.nodes)
+                .join("g")
+                .call(drag(simulation));
+
+            node.append("circle")
+                .attr("r", d => d.type === 'domain' ? 14 : 8) // Bigger radius for domain nodes
+                .attr("fill", d => color(d.group))
+                .attr("class", d => d.type === 'domain' ? 'domain-node' : 'concept-node');
+
+            node.append("text")
+                .attr("class", "node-text")
+                .attr("dy", d => d.type === 'domain' ? 2 : 4) // Adjust vertical position
+                .attr("x", d => d.type === 'domain' ? 18 : 10) // Adjust horizontal position
+                .text(d => d.label);
+
+            // Update positions on tick
+            simulation.on("tick", () => {
+                // Constrain nodes within the viewbox
+                const radius = 15; // Max node radius
+                
+                link
+                    .attr("x1", d => d.source.x)
+                    .attr("y1", d => d.source.y)
+                    .attr("x2", d => d.target.x)
+                    .attr("y2", d => d.target.y);
+
+                node
+                    .attr("transform", d => {
+                        // Keep nodes within the bounds
+                        d.x = Math.max(radius, Math.min(width - radius, d.x));
+                        d.y = Math.max(radius, Math.min(height - radius, d.y));
+                        return `translate(${d.x},${d.y})`;
+                    });
             });
-        })();
+
+            // Drag behavior definition
+            function drag(simulation) {    
+                function dragstarted(event, d) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+                
+                function dragged(event, d) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
+                
+                function dragended(event, d) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    // Lock domain nodes in place after interaction to maintain structure
+                    if (d.type === 'domain') {
+                        d.fx = d.x;
+                        d.fy = d.y;
+                    } else {
+                        // Concepts drift back slightly if not explicitly held
+                        d.fx = null;
+                        d.fy = null;
+                    }
+                }
+                
+                return d3.drag()
+                    .on("start", dragstarted)
+                    .on("drag", dragged)
+                    .on("end", dragended);
+            }
+        }
+
+        // Initialize and handle resize
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(createKnowledgeGraph, 200);
+        });
+
+        // Run on page load
+        window.onload = function () {
+            document.getElementById('year').textContent = new Date().getFullYear();
+            createKnowledgeGraph();
+        }
     </script>
 </body>
 </html>
