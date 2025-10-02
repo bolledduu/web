@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- D3.js for the interactive force-directed graph -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.5/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* Base styles from original CSS, adjusted to work with Tailwind */
@@ -17,6 +17,10 @@
             line-height: 1.45;
             color: #111;
             background: #fff;
+        }
+        /* Added Merriweather for the header for impact */
+        .font-name {
+            font-family: 'Merriweather', serif;
         }
         .bio p {
             font-family: 'Lato', sans-serif;
@@ -94,11 +98,14 @@
             stroke: #374151; /* Darker stroke for main nodes */
             stroke-width: 2px;
         }
+
+        /* The custom CSS for .research-blog-card was removed as requested. */
     </style>
 </head>
 <body class="bg-surface text-text font-body">
     <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
+            <!-- Added font-name class to h1 -->
             <h1 class="text-3xl font-name font-bold tracking-tight text-center">Pradeep Bolleddu</h1>
         </div>
     </header>
@@ -114,7 +121,8 @@
                     <i class="fas fa-file-pdf"></i>
                     <span class="tooltip-text">CV</span>
                 </a>
-                <a class="text-blue-700 hover:text-blue-900 transition-colors tooltip-container" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener" aria-label="LinkedIn">
+                <!-- Changed LinkedIn link color from blue to teal -->
+                <a class="text-teal-700 hover:text-teal-900 transition-colors tooltip-container" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                     <span class="tooltip-text">LinkedIn</span>
                 </a>
@@ -124,19 +132,36 @@
                 </a>
             </nav>
 
-            <!-- Research blogs link (moved here as requested) -->
-            <a class="mt-4 w-48 text-center bg-blue-50 border border-blue-200 py-2 px-3 rounded-lg text-sm font-semibold text-blue-700 hover:bg-blue-100 hover:border-blue-500 transition-all shadow-md hover:shadow-lg" href="./research/index.html">
-                <i class="fas fa-book-open mr-2"></i> Research Blogs
-            </a>
+            <!-- UPDATED: Research Blogs Card (Attractive box with image and button) -->
+            <div class="mt-4 w-full p-0 bg-white rounded-xl shadow-lg border border-gray-100 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl">
+                <!-- Image at the top of the box - UPDATED SRC TO USER'S NEW IMAGE -->
+                <img class="w-full h-32 object-cover rounded-t-xl" 
+                     src="https://raw.githubusercontent.com/bolledduu/web/main/assests/research%20matters.png" 
+                     alt="Research Blogs Thumbnail" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/400x128/f0fdf4/16a34a?text=Research+Topics';" />
+                
+                <div class="p-4 flex flex-col items-center">
+                    <h3 class="text-lg font-bold text-gray-800">Research Insights</h3>
+                    <p class="text-xs text-gray-500 mb-3">Deep dives into AI, CV, and ML systems.</p>
+
+                    <!-- Button Below the image/text (color changed from indigo to teal) -->
+                    <a href="./research/index.html" class="w-full block py-2 bg-teal-600 text-white font-semibold text-center rounded-lg shadow-md hover:bg-teal-700 transition-colors">
+                        Read My Blogs
+                    </a>
+                </div>
+            </div>
         </aside>
 
         <!-- RIGHT COLUMN -->
         <section>
             <section class="bio mb-8">
                 <p>I’m <strong>Pradeep Bolleddu</strong>, an Applied Scientist at a stealth AI startup in Seattle, Washington. My research and engineering work spans computer vision, LLM performance modeling, and building scalable ML systems- I have a Strong research background in computer vision and image processing, including multi-cameras, Multiviews 3D computer vision, content-based image/video retrieval, mobile augmented reality, image synthesis and object segmentation.</p>
-                <p class="mb-4">I joined <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/">UMass Chan Medical School</a> in November 2023 as a Machine Learning Researcher, building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI. Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.thirdaiautomation.com/">Third AI Automation</a>, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
-                <p class="mb-4">Previously, I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/">Prof. Julia Fang</a>. With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester, partnered with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg.">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.cscdr.umassd.edu/">CSCDR Lab</a>. It was wonderful collabrating with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.umassd.edu/directory/vchalivendra/">Prof. Vijaya Chalivendra</a> on several campus projects.</p>
-                <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-blue-500 hover:text-blue-700 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
+                <!-- Changed link color from blue to orange -->
+                <p class="mb-4">I joined <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.umassmed.edu/">UMass Chan Medical School</a> in November 2023 as a Machine Learning Researcher, building cloud-native DICOM ETL and preprocessing pipelines on Google Cloud Dataflow for brain MRI. Implemented CNNs and generative models (VAEs/GANs) for representation learning and augmentation. Following that, I completed a three-month internship at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.thirdaiautomation.com/">Third AI Automation</a>, where I implemented Novel LLM Foundational Models and RAG systems for Southern California Edison.</p>
+                <!-- Changed link color from blue to orange -->
+                <p class="mb-4">Previously, I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/">Prof. Julia Fang</a>. With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester, partnered with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg.">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.cscdr.umassd.edu/">CSCDR Lab</a>. It was wonderful collabrating with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.umassd.edu/directory/vchalivendra/">Prof. Vijaya Chalivendra</a> on several campus projects.</p>
+                <!-- Changed link color from blue to orange -->
+                <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
             </section>
 
             <section class="news mb-8">
@@ -145,19 +170,22 @@
                     <li class="mb-2 text-gray-700">
                         Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences
                         <small class="text-sm ml-2">
-                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            <!-- Changed link color from blue to orange -->
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
                     <li class="mb-2 text-gray-700">
                         3D Image Models and Building Large Language Models with Object Detection
                         <small class="text-sm ml-2">
-                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            <!-- Changed link color from blue to orange -->
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
                     <li class="mb-2 text-gray-700">
                         Neural Radiance Fields with PyTorch implementation
                         <small class="text-sm ml-2">
-                            <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            <!-- Changed link color from blue to orange -->
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
                         </small>
                     </li>
                 </ul>
@@ -172,7 +200,8 @@
                         <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>, ...</div>
                         <div class="text-xs text-gray-600 mb-2">IJSRCSEIT 2025</div>
                         <div class="text-sm">
-                            <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-blue-600 hover:text-blue-800 hover-underline" href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
+                            <!-- Changed link color from blue to orange -->
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://ijsrcseit.com/paper/CSEIT22821.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-orange-600 hover:text-orange-800 hover-underline" href="https://docs.google.com/presentation/d/1JzUvNUdxXkuV8KAFnSKshW8QoIhT_9FdjBMGh6eq9ME/edit?slide=id.p#slide=id.p" target="_blank" rel="noopener">code</a>
                         </div>
                     </div>
                 </div>
@@ -183,7 +212,8 @@
                         <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>*</div>
                         <div class="text-xs text-gray-600 mb-2">IJSR 2024</div>
                         <div class="text-sm">
-                            <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-blue-600 hover:text-blue-800 hover:underline mr-2" href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-blue-600 hover:text-blue-800 hover-underline" href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
+                            <!-- Changed link color from blue to orange -->
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.ijsr.net/archive/v11i3/SR22320023849.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-orange-600 hover:text-orange-800 hover-underline" href="https://docs.google.com/presentation/d/1SPdO6-BitqNtX93_WTZZgpSMs7ltulf5LcHkrtLhcAc/edit" target="_blank" rel="noopener">code</a>
                         </div>
                     </div>
                 </div>
@@ -192,7 +222,7 @@
             <section class="experience mb-8">
                 <h2 class="text-xl font-bold mb-4">Work Experience</h2>
                 <article class="mb-6">
-                    <h3>Applied Scientist — <a class="text-blue-500 hover:text-blue-700 hover:underline" href="#">Oliv AI</a></h3>
+                    <h3>Applied Scientist — <a class="text-orange-600 hover:text-orange-800 hover:underline" href="#">Oliv AI</a></h3>
                     <p class="job-time text-gray-600 text-sm mb-2">Sep 2024 — Present</p>
                     <ul class="list-disc pl-5">
                         <li class="mb-2">
@@ -215,8 +245,8 @@
             <!-- UPDATED: Interactive Knowledge Graph Section -->
             <section class="knowledge-graph mb-8" aria-labelledby="knowledge-heading">
                 <h2 id="knowledge-heading" class="text-xl font-bold mb-4">Pradeep's Core AI Competencies</h2>
-                <!-- Applied a subtle background and border to the container for better visual appeal -->
-                <div class="p-4 rounded-xl bg-gradient-to-br from-indigo-50/50 to-white border-2 border-dashed border-indigo-200 shadow-lg">
+                <!-- Changed border and background gradient color from indigo to emerald -->
+                <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-50/50 to-white border-2 border-dashed border-emerald-300 shadow-lg">
                     <p class="text-sm text-gray-600 mb-3">Drag the central domain nodes (larger circles) or the algorithm nodes to interact with the graph. The nodes are organized by domain knowledge and show key cross-discipline relationships.</p>
                     <div id="knowledge-graph-container" class="w-full" style="height: 350px;">
                         <svg id="knowledge-graph-svg" class="w-full h-full"></svg>
@@ -225,7 +255,8 @@
             </section>
 
             <section class="contact-cta mb-8">
-                <p>If you'd like to collaborate, email me at <a class="text-blue-500 hover:text-blue-700 hover:underline" href="mailto:bolleddu.pradeep1@gmail.com">bolleddu.pradeep1@gmail.com</a>.</p>
+                <!-- Changed link color from blue to orange -->
+                <p>If you'd like to collaborate, email me at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="mailto:bolleddu.pradeep1@gmail.com">bolleddu.pradeep1@gmail.com</a>.</p>
             </section>
         </section>
     </main>
@@ -313,12 +344,12 @@
                     { source: "CV", target: "SfM" },
                     
                     // GEN AI Domain Links
-                    { source: "GEN AI", target: "VAEs" },
-                    { source: "GEN AI", target: "GANs" },
-                    { source: "GEN AI", target: "Diffusion" },
-                    { source: "GEN AI", target: "NeRF" },
-                    { source: "GEN AI", target: "CLIP" },
-                    { source: "GEN AI", target: "Txt-to-Image" },
+                    { source: "VAEs", target: "GEN AI" },
+                    { source: "GANs", target: "GEN AI" },
+                    { source: "Diffusion", target: "GEN AI" },
+                    { source: "NeRF", target: "GEN AI" },
+                    { source: "CLIP", target: "GEN AI" },
+                    { source: "Txt-to-Image", target: "GEN AI" },
                     
                     // LLMs Domain Links
                     { source: "LLMs", target: "Transformer" },
@@ -359,6 +390,9 @@
             };
 
             // Color scale for groups/domains
+            // NOTE: D3's schemeCategory10 is used here, which includes blue. 
+            // The blue links/elements were manually changed in the HTML, but the D3 graph colors 
+            // are dependent on this scale for separation, so we keep the standard d3 colors here.
             const color = d3.scaleOrdinal(d3.schemeCategory10);
 
             // Simulation setup
@@ -420,7 +454,7 @@
             });
 
             // Drag behavior definition
-            function drag(simulation) {    
+            function drag(simulation) {     
                 function dragstarted(event, d) {
                     if (!event.active) simulation.alphaTarget(0.3).restart();
                     d.fx = d.x;
