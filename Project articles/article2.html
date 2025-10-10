@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dialogue Diplomats — Project Overview</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background: #ffffff; color: #111827; font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial; }
+    .container { max-width: 780px; margin: 48px auto; padding: 0 20px; }
+    h1 { font-size: 2.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 20px; }
+    h2 { font-size: 1.5rem; font-weight: 700; margin-top: 40px; }
+    p { color: #374151; line-height: 1.7; margin-top: 12px; }
+    code, pre { background: #f9fafb; padding: 10px; border-radius: 8px; display: block; margin: 16px 0; }
+    .gh { display:inline-block; background:#111827; color:#fff; padding:10px 16px; border-radius:8px; text-decoration:none; font-weight:600; margin-top:20px; }
+    blockquote { border-left: 4px solid #e5e7eb; padding-left: 16px; color: #4b5563; background: #f9fafb; border-radius: 8px; margin-top: 20px; }
+    footer { margin-top: 48px; color: #6b7280; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Dialogue Diplomats  — Teaching AI Agents to Talk, Negotiate, and Cooperate</h1>
+      <a class="gh" href="https://github.com/your-org/dialogue-diplomats" target="_blank" rel="noopener">View on GitHub</a>
+    </header>
+
+    <p><strong>Dialogue Diplomats</strong> is an end-to-end experiment that explores how multiple AI agents can hold conversations, find common ground, and reach agreements through natural dialogue — just like human diplomats do. It’s part research, part storytelling, and part engineering, showing how language models can reason together rather than compete.</p>
+
+    <h2>The Idea</h2>
+    <p>Instead of coding cooperation with rules, we teach agents to <em>talk it out</em>. Each AI plays a role — one might be a negotiator, another a strategist, and another a mediator. They discuss goals, share context, propose actions, and finally agree on a decision.</p>
+
+    <blockquote>
+      The core insight: powerful language models already understand negotiation patterns — we just have to give them structure and feedback loops to use it productively.
+    </blockquote>
+
+    <h2>How It Works (Simplified)</h2>
+    <p>Dialogue Diplomats runs multiple agents in a shared communication loop. They interact through structured prompts and reinforcement signals that reward productive, fair, and balanced outcomes.</p>
+
+    <pre><code>Agent A (Analyst):  "We should allocate resources equally."
+Agent B (Negotiator):  "That might reduce efficiency — can we adjust based on impact?"
+Agent C (Mediator):  "Let's find a balance: weighted fairness based on contribution."
+
+→ Final Decision:  Balanced allocation with fairness & impact weighting.</code></pre>
+
+    <h2>🧩 Workflow Architecture</h2>
+    <p>The system is organized in clear stages, just like a diplomatic process:</p>
+    <ul class="list-disc pl-6 mt-2">
+      <li><strong>Stage 1 — Context Sharing:</strong> Each agent receives the same task but different background perspectives.</li>
+      <li><strong>Stage 2 — Dialogue:</strong> They converse through multi-turn exchanges, reasoning about trade-offs and alternatives.</li>
+      <li><strong>Stage 3 — Consensus:</strong> A meta-agent summarizes the discussion and proposes the best joint decision.</li>
+      <li><strong>Stage 4 — Reinforcement Loop:</strong> The group’s decision quality is scored and fed back for learning.</li>
+    </ul>
+
+    <img src="https://cdn.jsdelivr.net/gh/academicpages/academicpages.github.io/images/architecture-diagram.png" alt="Dialogue Diplomats Workflow Diagram" class="rounded-xl shadow mt-6">
+
+    <h2>Novel Contributions</h2>
+    <ul class="list-disc pl-6 mt-2">
+      <li><strong>Dialogue-based RL:</strong> Uses natural conversation instead of numeric rewards to guide cooperation.</li>
+      <li><strong>Diplomacy Framework:</strong> Agents reason over fairness, trust, and reputation metrics.</li>
+      <li><strong>Zero-shot Cooperation:</strong> No fine-tuning required — models learn from dialogue outcomes alone.</li>
+      <li><strong>Interpretable Reasoning:</strong> Every step of decision-making is visible through chat logs.</li>
+    </ul>
+
+    <h2>💬 Sample Conversation (Illustrative)</h2>
+    <pre><code>Scenario: Dividing research compute between two AI teams.
+
+Agent 1: "We should split compute 50/50 to be fair."
+Agent 2: "Our experiments are longer — we might need more GPU hours."
+Agent 3: "Let’s try 60/40, but share unused compute weekly."
+
+Final Outcome: Fair split with dynamic rebalancing and accountability.
+    </code></pre>
+
+    <h2> Why It Matters</h2>
+    <p>By letting AIs talk, not just act, we move toward systems that understand nuance — collaboration, negotiation, and fairness. Dialogue Diplomats shows that the future of AI isn’t just about raw power — it’s about empathy, communication, and shared reasoning.</p>
+
+    <h2> What’s Next</h2>
+    <ul class="list-disc pl-6 mt-2">
+      <li>Extend Dialogue Diplomats into real-world policy simulations.</li>
+      <li>Explore ethical negotiation scenarios (e.g., AI mediating human-AI goals).</li>
+      <li>Integrate with CodeCrew RL for collaborative AI research workflows.</li>
+    </ul>
+
+    <footer>
+      <p>&copy; 2025 MIT License- Gitignore @bolleddu15</p>
+    </footer>
+  </div>
+</body>
+</html>
