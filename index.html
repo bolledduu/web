@@ -7,6 +7,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- D3.js for the interactive force-directed graph -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
+    <!-- Venn.js for the Venn Diagram -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/venn.js/0.2.20/venn.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.5/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2gBwBvhE1XyLz8w2/7l2fB2D2uD2u2B2l2/l22o2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -99,7 +101,39 @@
             stroke-width: 2px;
         }
 
-        /* The custom CSS for .research-blog-card was removed as requested. */
+        /* Venn Diagram styles */
+        #venn-diagram svg {
+            width: 100%;
+            height: auto;
+        }
+        .venn-circle path {
+            stroke-width: 2;
+            stroke-opacity: 1;
+            stroke: #fff;
+        }
+        .venn-circle:hover path {
+            fill-opacity: .8;
+        }
+        .venn-circle text {
+            fill: white;
+            font-weight: 600;
+            font-family: 'Lato', sans-serif;
+            font-size: 11px; /* Smaller font for smaller diagram */
+        }
+        .venn-tooltip {
+            position: absolute;
+            text-align: center;
+            width: auto;
+            padding: 8px;
+            font: 12px 'Lato', sans-serif;
+            background: #333;
+            color: #fff;
+            border: 0;
+            border-radius: 8px;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
     </style>
 </head>
 <body class="bg-surface text-text font-body">
@@ -150,6 +184,12 @@
                     </a>
                 </div>
             </div>
+
+            <!-- VENN DIAGRAM -->
+            <div class="mt-4">
+                <h2 class="text-lg font-bold mb-2 text-center"></h2>
+                <div id="venn-diagram"></div>
+            </div>
         </aside>
 
         <!-- RIGHT COLUMN -->
@@ -163,32 +203,32 @@
                 <!-- Changed link color from blue to orange -->
                 <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
             </section>
-
-            <section class="news mb-8">
-                <h2 class="text-xl font-bold mb-2">Project Articles</h2>
-                <ul class="list-disc pl-5">
-                    <li class="mb-2 text-gray-700">
-                        Advanced Facial Recognition & Emotion Detection System for Real-Time Adaptive AR/VR Experiences
-                        <small class="text-sm ml-2">
-                            <!-- Changed link color from blue to orange -->
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="https://github.com/bolleddu15/PretrainedAI-Models_LLM-ModelHub" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
-                        </small>
-                    </li>
-                    <li class="mb-2 text-gray-700">
-                        3D Image Models and Building Large Language Models with Object Detection
-                        <small class="text-sm ml-2">
-                            <!-- Changed link color from blue to orange -->
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="https://github.com/bolleddu15/nerfPlus" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
-                        </small>
-                    </li>
-                    <li class="mb-2 text-gray-700">
-                        Neural Radiance Fields with PyTorch implementation
-                        <small class="text-sm ml-2">
-                            <!-- Changed link color from blue to orange -->
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
-                        </small>
-                    </li>
-                </ul>
+            
+            <!-- PROJECT ARTICLES Section -->
+            <section class="mb-8">
+                <div class="news">
+                    <h2 class="text-lg font-bold mb-2">Project Articles</h2>
+                    <ul class="list-disc pl-5">
+                        <li class="mb-2 text-gray-700">
+                            Multi-Agent Reinforcement Learning for Real-Time Dynamic Production Scheduling in a Robot Assembly Cell
+                            <small class="text-sm ml-2">
+                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            </small>
+                        </li>
+                        <li class="mb-2 text-gray-700">
+                            Dialogue Diplomats: An End-to-End Multi-Agent RL System for Automated Conflict Resolution and Consensus Building
+                            <small class="text-sm ml-2">
+                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            </small>
+                        </li>
+                        <li class="mb-2 text-gray-700">
+                            CodeCrew RL: End-to-End Collaborative LLM Agents for Automated Software Development, Testing, and Integration
+                            <small class="text-sm ml-2">
+                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">code</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="#" target="_blank" rel="noopener">pdf</a>
+                            </small>
+                        </li>
+                    </ul>
+                </div>
             </section>
 
             <section class="selected-publications mb-8">
@@ -270,15 +310,14 @@
 
         function createKnowledgeGraph() {
             const container = document.getElementById('knowledge-graph-container');
+            if (!container) return;
             const svg = d3.select("#knowledge-graph-svg");
             
-            // Set dimensions relative to container
             const width = container.clientWidth;
             const height = container.clientHeight;
 
             svg.attr("viewBox", [0, 0, width, height]);
 
-            // Define the knowledge data (EXPANDED with new cross-links)
             const graphData = {
                 nodes: [
                     { id: "DL", group: 1, type: "domain", label: "Deep Learning" },
@@ -286,15 +325,11 @@
                     { id: "GEN AI", group: 3, type: "domain", label: "Generative AI" },
                     { id: "LLMs", group: 4, type: "domain", label: "LLMs" },
                     { id: "ML", group: 5, type: "domain", label: "Machine Learning" },
-
-                    // Deep Learning (Group 1)
                     { id: "CNNs", group: 1, type: "concept", label: "CNNs" },
                     { id: "RNN/LSTM", group: 1, type: "concept", label: "RNN/LSTM" },
                     { id: "GRUs", group: 1, type: "concept", label: "GRUs" },
                     { id: "Attention", group: 1, type: "concept", label: "Attention" },
                     { id: "Autoencoders", group: 1, type: "concept", label: "Autoencoders" },
-                    
-                    // Computer Vision (Group 2)
                     { id: "YOLO/R-CNN", group: 2, type: "concept", label: "YOLO/R-CNN" },
                     { id: "3D Multi-view", group: 2, type: "concept", label: "3D Multi-view" },
                     { id: "Point Clouds", group: 2, type: "concept", label: "Point Clouds" },
@@ -302,23 +337,17 @@
                     { id: "Keypoint Detect.", group: 2, type: "concept", label: "Keypoint Detect." },
                     { id: "Image Segmentation", group: 2, type: "concept", label: "Image Segment." },
                     { id: "SfM", group: 2, type: "concept", label: "SfM/SLAM" },
-
-                    // Generative AI (Group 3)
                     { id: "VAEs", group: 3, type: "concept", label: "VAEs" },
                     { id: "GANs", group: 3, type: "concept", label: "GANs" },
                     { id: "Diffusion", group: 3, type: "concept", label: "Diffusion Models" },
                     { id: "NeRF", group: 3, type: "concept", label: "NeRF" },
                     { id: "CLIP", group: 3, type: "concept", label: "CLIP" },
                     { id: "Txt-to-Image", group: 3, type: "concept", label: "Txt-to-Image" },
-
-                    // LLMs (Group 4)
                     { id: "Transformer", group: 4, type: "concept", label: "Transformer" },
                     { id: "RAG", group: 4, type: "concept", label: "RAG Systems" },
                     { id: "Fine-tuning", group: 4, type: "concept", label: "Fine-tuning" },
                     { id: "Prompt Eng.", group: 4, type: "concept", label: "Prompt Eng." },
                     { id: "Vector DBs", group: 4, type: "concept", label: "Vector DBs" },
-                    
-                    // Machine Learning (Group 5)
                     { id: "XGBoost", group: 5, type: "concept", label: "XGBoost" },
                     { id: "Random Forest", group: 5, type: "concept", label: "Random Forest" },
                     { id: "Bayesian Opt.", group: 5, type: "concept", label: "Bayesian Opt." },
@@ -327,177 +356,113 @@
                     { id: "SVM/Ensembles", group: 5, type: "concept", label: "SVM/Ensembles" },
                 ],
                 links: [
-                    // DL Domain Links
-                    { source: "DL", target: "CNNs" },
-                    { source: "DL", target: "RNN/LSTM" },
-                    { source: "DL", target: "GRUs" },
-                    { source: "DL", target: "Attention" },
-                    { source: "DL", target: "Autoencoders" },
-                    
-                    // CV Domain Links
-                    { source: "CV", target: "YOLO/R-CNN" },
-                    { source: "CV", target: "3D Multi-view" },
-                    { source: "CV", target: "Point Clouds" },
-                    { source: "CV", target: "OpenCV" },
-                    { source: "CV", target: "Keypoint Detect." },
-                    { source: "CV", target: "Image Segmentation" },
-                    { source: "CV", target: "SfM" },
-                    
-                    // GEN AI Domain Links
-                    { source: "VAEs", target: "GEN AI" },
-                    { source: "GANs", target: "GEN AI" },
-                    { source: "Diffusion", target: "GEN AI" },
-                    { source: "NeRF", target: "GEN AI" },
-                    { source: "CLIP", target: "GEN AI" },
-                    { source: "Txt-to-Image", target: "GEN AI" },
-                    
-                    // LLMs Domain Links
-                    { source: "LLMs", target: "Transformer" },
-                    { source: "LLMs", target: "RAG" },
-                    { source: "LLMs", target: "Fine-tuning" },
-                    { source: "LLMs", target: "Prompt Eng." },
-                    { source: "LLMs", target: "Vector DBs" },
-                    
-                    // ML Domain Links
-                    { source: "ML", target: "XGBoost" },
-                    { source: "ML", target: "Random Forest" },
-                    { source: "ML", target: "Bayesian Opt." },
-                    { source: "ML", target: "K-Means" },
-                    { source: "ML", target: "DBSCAN" },
-                    { source: "ML", target: "SVM/Ensembles" },
-                    
-                    // **NEW AND IMPROVED CROSS-DOMAIN/SUBTREE LINKS**
-                    
-                    // Domain-to-Domain Link (Requested)
+                    { source: "DL", target: "CNNs" }, { source: "DL", target: "RNN/LSTM" }, { source: "DL", target: "GRUs" }, { source: "DL", target: "Attention" }, { source: "DL", target: "Autoencoders" },
+                    { source: "CV", target: "YOLO/R-CNN" }, { source: "CV", target: "3D Multi-view" }, { source: "CV", target: "Point Clouds" }, { source: "CV", target: "OpenCV" }, { source: "CV", target: "Keypoint Detect." }, { source: "CV", target: "Image Segmentation" }, { source: "CV", target: "SfM" },
+                    { source: "VAEs", target: "GEN AI" }, { source: "GANs", target: "GEN AI" }, { source: "Diffusion", target: "GEN AI" }, { source: "NeRF", target: "GEN AI" }, { source: "CLIP", target: "GEN AI" }, { source: "Txt-to-Image", target: "GEN AI" },
+                    { source: "LLMs", target: "Transformer" }, { source: "LLMs", target: "RAG" }, { source: "LLMs", target: "Fine-tuning" }, { source: "LLMs", target: "Prompt Eng." }, { source: "LLMs", target: "Vector DBs" },
+                    { source: "ML", target: "XGBoost" }, { source: "ML", target: "Random Forest" }, { source: "ML", target: "Bayesian Opt." }, { source: "ML", target: "K-Means" }, { source: "ML", target: "DBSCAN" }, { source: "ML", target: "SVM/Ensembles" },
                     { source: "ML", target: "DL" }, 
-                    
-                    // Cross-Domain Concepts
-                    { source: "DL", target: "Transformer" }, 
-                    { source: "DL", target: "GANs" },
-                    { source: "DL", target: "CNNs" }, 
-                    { source: "CV", target: "NeRF" },
-                    { source: "CV", target: "Image Segmentation" },
-                    { source: "GEN AI", target: "Transformer" },
-                    { source: "ML", target: "Bayesian Opt." },
-
-                    // Subtree/Detailed Concepts
-                    { source: "CNNs", target: "YOLO/R-CNN" }, // CNNs are fundamental to Object Detection
-                    { source: "Autoencoders", target: "VAEs" }, // VAEs are a type of Generative Autoencoder
-                    { source: "RAG", target: "Vector DBs" }, // RAG systems heavily rely on Vector Databases
-                    { source: "3D Multi-view", target: "SfM" }, // 3D Multi-view techniques lead to Structure from Motion (SfM)
-                    { source: "XGBoost", target: "Random Forest" }, // Both are ensemble methods
+                    { source: "DL", target: "Transformer" }, { source: "DL", target: "GANs" }, { source: "DL", target: "CNNs" }, { source: "CV", target: "NeRF" }, { source: "CV", target: "Image Segmentation" }, { source: "GEN AI", target: "Transformer" }, { source: "ML", target: "Bayesian Opt." },
+                    { source: "CNNs", target: "YOLO/R-CNN" }, { source: "Autoencoders", target: "VAEs" }, { source: "RAG", target: "Vector DBs" }, { source: "3D Multi-view", target: "SfM" }, { source: "XGBoost", target: "Random Forest" },
                 ]
             };
 
-            // Color scale for groups/domains
-            // NOTE: D3's schemeCategory10 is used here, which includes blue. 
-            // The blue links/elements were manually changed in the HTML, but the D3 graph colors 
-            // are dependent on this scale for separation, so we keep the standard d3 colors here.
             const color = d3.scaleOrdinal(d3.schemeCategory10);
 
-            // Simulation setup
             const simulation = d3.forceSimulation(graphData.nodes)
-                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(45).strength(0.6)) /* Reduced distance and increased strength for tighter grouping */
-                .force("charge", d3.forceManyBody().strength(-150)) // Increased repulsion
+                .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(45).strength(0.6))
+                .force("charge", d3.forceManyBody().strength(-150))
                 .force("center", d3.forceCenter(width / 2, height / 2)) 
                 .force("x", d3.forceX().strength(0.08)) 
                 .force("y", d3.forceY().strength(0.08)); 
             
-            // Clear previous content (important for window resize handling)
             svg.selectAll("*").remove();
 
-            // Draw links
-            const link = svg.append("g")
-                .attr("class", "links")
-                .selectAll("line")
-                .data(graphData.links)
-                .join("line")
-                .attr("class", "link");
+            const link = svg.append("g").attr("class", "links").selectAll("line").data(graphData.links).join("line").attr("class", "link");
+            const node = svg.append("g").attr("class", "nodes").selectAll("g").data(graphData.nodes).join("g").call(drag(simulation));
+            node.append("circle").attr("r", d => d.type === 'domain' ? 14 : 8).attr("fill", d => color(d.group)).attr("class", d => d.type === 'domain' ? 'domain-node' : 'concept-node');
+            node.append("text").attr("class", "node-text").attr("dy", d => d.type === 'domain' ? 2 : 4).attr("x", d => d.type === 'domain' ? 18 : 10).text(d => d.label);
 
-            // Draw nodes (circles and labels)
-            const node = svg.append("g")
-                .attr("class", "nodes")
-                .selectAll("g")
-                .data(graphData.nodes)
-                .join("g")
-                .call(drag(simulation));
-
-            node.append("circle")
-                .attr("r", d => d.type === 'domain' ? 14 : 8) // Bigger radius for domain nodes
-                .attr("fill", d => color(d.group))
-                .attr("class", d => d.type === 'domain' ? 'domain-node' : 'concept-node');
-
-            node.append("text")
-                .attr("class", "node-text")
-                .attr("dy", d => d.type === 'domain' ? 2 : 4) // Adjust vertical position
-                .attr("x", d => d.type === 'domain' ? 18 : 10) // Adjust horizontal position
-                .text(d => d.label);
-
-            // Update positions on tick
             simulation.on("tick", () => {
-                // Constrain nodes within the viewbox
-                const radius = 15; // Max node radius
-                
-                link
-                    .attr("x1", d => d.source.x)
-                    .attr("y1", d => d.source.y)
-                    .attr("x2", d => d.target.x)
-                    .attr("y2", d => d.target.y);
-
-                node
-                    .attr("transform", d => {
-                        // Keep nodes within the bounds
-                        d.x = Math.max(radius, Math.min(width - radius, d.x));
-                        d.y = Math.max(radius, Math.min(height - radius, d.y));
-                        return `translate(${d.x},${d.y})`;
-                    });
+                const radius = 15;
+                link.attr("x1", d => d.source.x).attr("y1", d => d.source.y).attr("x2", d => d.target.x).attr("y2", d => d.target.y);
+                node.attr("transform", d => {
+                    d.x = Math.max(radius, Math.min(width - radius, d.x));
+                    d.y = Math.max(radius, Math.min(height - radius, d.y));
+                    return `translate(${d.x},${d.y})`;
+                });
             });
 
-            // Drag behavior definition
-            function drag(simulation) {     
-                function dragstarted(event, d) {
-                    if (!event.active) simulation.alphaTarget(0.3).restart();
-                    d.fx = d.x;
-                    d.fy = d.y;
-                }
-                
-                function dragged(event, d) {
-                    d.fx = event.x;
-                    d.fy = event.y;
-                }
-                
-                function dragended(event, d) {
-                    if (!event.active) simulation.alphaTarget(0);
-                    // Lock domain nodes in place after interaction to maintain structure
-                    if (d.type === 'domain') {
-                        d.fx = d.x;
-                        d.fy = d.y;
-                    } else {
-                        // Concepts drift back slightly if not explicitly held
-                        d.fx = null;
-                        d.fy = null;
-                    }
-                }
-                
-                return d3.drag()
-                    .on("start", dragstarted)
-                    .on("drag", dragged)
-                    .on("end", dragended);
+            function drag(simulation) {    
+                function dragstarted(event, d) { if (!event.active) simulation.alphaTarget(0.3).restart(); d.fx = d.x; d.fy = d.y; }
+                function dragged(event, d) { d.fx = event.x; d.fy = event.y; }
+                function dragended(event, d) { if (!event.active) simulation.alphaTarget(0); if (d.type === 'domain') { d.fx = d.x; d.fy = d.y; } else { d.fx = null; d.fy = null; } }
+                return d3.drag().on("start", dragstarted).on("drag", dragged).on("end", dragended);
             }
         }
 
-        // Initialize and handle resize
-        let resizeTimer;
-        window.addEventListener('resize', () => {
-            clearTimeout(resizeTimer);
-            resizeTimer = setTimeout(createKnowledgeGraph, 200);
+        // --- Venn.js INTERACTIVE VENN DIAGRAM ---
+        function createVennDiagram() {
+            const container = d3.select("#venn-diagram");
+            if (container.empty()) return;
+
+            const sets = [
+                { sets: ['AI/ML'], size: 12, label: 'AI/ML' },
+                { sets: ['Reinforcement Learning'], size: 12, label: 'RL' },
+                { sets: ['Multimodal AI'], size: 12, label: 'Multimodal' },
+                { sets: ['AI/ML', 'Reinforcement Learning'], size: 4 },
+                { sets: ['AI/ML', 'Multimodal AI'], size: 4 },
+                { sets: ['Reinforcement Learning', 'Multimodal AI'], size: 2 },
+                { sets: ['AI/ML', 'Reinforcement Learning', 'Multimodal AI'], size: 2 }
+            ];
+
+            const chart = venn.VennDiagram()
+                             .width(180) // smaller width
+                             .height(180); // smaller height
+
+            container.datum(sets).call(chart);
+            container.selectAll(".venn-circle path").style("fill-opacity", 0.7).style("fill", (d,i) => ["#14B8A6", "#F97316", "#0284C7"][i]);
+            container.selectAll(".venn-circle text").style("fill", "white").style("font-size", "11px").style("font-weight", "600");
+            
+            const tooltip = d3.select("body").append("div").attr("class", "venn-tooltip");
+
+            container.selectAll("g")
+                .on("mouseover", function(event, d) {
+                    venn.sortAreas(container, d);
+                    tooltip.transition().duration(200).style("opacity", .9);
+                    tooltip.html(d.sets.join(' ∩ '))
+                        .style("left", (event.pageX) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                    d3.select(this).transition("tooltip").duration(400).select("path").style("fill-opacity", 0.9);
+                })
+                .on("mousemove", (event) => tooltip.style("left", (event.pageX) + "px").style("top", (event.pageY - 28) + "px"))
+                .on("mouseout", function() {
+                    tooltip.transition().duration(500).style("opacity", 0);
+                    d3.select(this).transition("tooltip").duration(400).select("path").style("fill-opacity", 0.7);
+                });
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => { clearTimeout(timeout); func(...args); };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        const debouncedResize = debounce(() => {
+            createKnowledgeGraph();
+            createVennDiagram();
+        }, 250);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createKnowledgeGraph();
+            createVennDiagram();
         });
 
-        // Run on page load
-        window.onload = function () {
-            document.getElementById('year').textContent = new Date().getFullYear();
-            createKnowledgeGraph();
-        }
+        window.addEventListener('resize', debouncedResize);
+
     </script>
 </body>
 </html>
