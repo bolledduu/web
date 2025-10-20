@@ -7,11 +7,12 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lora:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Updated font link to include Cormorant Garamond for titles -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Using a serif font for titles as seen in the image */
-        .font-lora {
-            font-family: 'Lora', serif;
+        /* New font class for titles (similar to Garamond) */
+        .font-title {
+            font-family: 'Cormorant Garamond', serif;
         }
         /* Using a sans-serif font for the body */
         body {
@@ -27,47 +28,56 @@
             <!-- Notes List -->
             <div class="space-y-8">
 
-                <!-- Note 1: Link updated to point to the details page -->
+                <!-- Note 1 -->
                 <a href="note-details.html" class="block cursor-pointer">
                     <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <h2 class="text-2xl font-lora font-bold mb-2">
-                            <span class="mr-2">📂</span> A Taxonomy of Reinforcement Learning Algorithms
+                        <!-- Title now uses the new font-title class -->
+                        <h2 class="text-2xl font-title font-bold mb-2">
+                            <span class="mr-2"></span> A Taxonomy of Reinforcement Learning Algorithms
                         </h2>
-                        <p class="text-gray-600 mb-4">
+                        <!-- Description remains italic -->
+                        <p class="text-gray-600 mb-4 italic">
                             A guide to understanding and categorizing the many flavors of reinforcement learning algorithms, from value iteration to PPO.
                         </p>
-                        <p class="text-sm text-gray-500">
-                            October 2024 · 6 min · 1191 words · Arushi Somani
+                        <!-- Metadata now uses 'text-blue-600' -->
+                        <p class="text-sm text-blue-600">
+                            October 2024 · 6 min · 1191 words · Pradeep Bolleddu
                         </p>
                     </article>
                 </a>
 
-                <!-- Note 2: Link updated to point to the details page -->
+                <!-- Note 2 -->
                 <a href="note-details.html" class="block cursor-pointer">
                     <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <h2 class="text-2xl font-lora font-bold mb-2">
-                            <span class="mr-2">📝</span> Introduction to RL
+                        <!-- Title now uses the new font-title class -->
+                        <h2 class="text-2xl font-title font-bold mb-2">
+                            <span class="mr-2"></span> Introduction to RL
                         </h2>
-                        <p class="text-gray-600 mb-4">
+                        <!-- Description remains italic -->
+                        <p class="text-gray-600 mb-4 italic">
                             Notes on reinforcement learning from Steve Brunton's Data-Driven Science and Engineering book, covering core RL concepts, mathematical formalism, and key ideas.
                         </p>
-                        <p class="text-sm text-gray-500">
-                            October 2021 · 12 min · 2130 words · Arushi Somani
+                        <!-- Metadata now uses 'text-blue-600' -->
+                        <p class="text-sm text-blue-600">
+                            October 2023 · 12 min · 2130 words · Pradeep Bolleddu
                         </p>
                     </article>
                 </a>
 
-                <!-- Note 3: Link updated to point to the details page -->
+                <!-- Note 3 -->
                 <a href="note-details.html" class="block cursor-pointer">
                     <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <h2 class="text-2xl font-lora font-bold mb-2">
-                            <span class="mr-2">📈</span> ML at Scale: Pipeline Parallelism
+                        <!-- Title now uses the new font-title class -->
+                        <h2 class="text-2xl font-title font-bold mb-2">
+                            <span class="mr-2"></span> ML at Scale: Pipeline Parallelism
                         </h2>
-                        <p class="text-gray-600 mb-4">
+                        <!-- Description remains italic -->
+                        <p class="text-gray-600 mb-4 italic">
                             Pipeline parallelism is a technique for training large ML models, showing how to efficiently partition model layers across devices to optimize distributed training and manage memory constraints.
                         </p>
-                        <p class="text-sm text-gray-500">
-                            July 2024 · 12 min · 2329 words · Arushi Somani, Anton Zabreyko
+                        <!-- Metadata now uses 'text-blue-600' -->
+                        <p class="text-sm text-blue-600">
+                            July 2024 · 12 min · 2329 words · Pradeep Bolleddu
                         </p>
                     </article>
                 </a>
