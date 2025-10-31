@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Human's Guide to RL Algorithms</title>
+    
+    <!-- Import EB Garamond font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            /* Use Garamond font, default to serif */
+            font-family: 'EB Garamond', serif;
+            font-weight: 400; /* Regular weight */
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.4;
+            padding: 0.5rem;
+            margin: 0;
+        }
+
+        .container {
+            /* Fill the width */
+            width: 100%;
+            margin: 0;
+            background-color: #ffffff;
+            border-radius: 0;
+            box-shadow: none;
+            overflow: visible;
+        }
+
+        header {
+            padding: 0.5rem;
+            background-color: #ffffff;
+            color: #000000;
+            border-bottom: 2px solid #000000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+            letter-spacing: normal;
+        }
+
+        .content {
+            padding: 0.5rem;
+        }
+
+        /* REMOVED section-title styles as the elements are gone */
+
+        /* Remove color-coding classes, all are black */
+        .level-beginner, .level-intermediate, .level-advanced {
+            color: #000;
+            border-color: #000;
+        }
+
+        .algo-card {
+            /* No longer a "card", just a content block */
+            background-color: #ffffff;
+            border: none;
+            border-bottom: 1px dashed #000; /* Separate entries */
+            border-radius: 0;
+            padding: 0.5rem 0;
+            margin-bottom: 0.5rem;
+            box-shadow: none;
+        }
+
+        .algo-card h3 {
+            font-size: 1.2rem;
+            margin: 0.2rem 0;
+            color: #000;
+        }
+        
+        .algo-card h4 {
+            font-size: 1rem;
+            color: #000;
+            margin-top: 0.5rem;
+            margin-bottom: 0.2rem;
+            text-transform: none;
+            letter-spacing: normal;
+            font-weight: bold; /* Make it stand out a bit */
+        }
+
+        /* Tighter spacing for paragraphs */
+        .algo-card p {
+            font-size: 0.9rem;
+            margin: 0.2rem 0;
+            padding-left: 0;
+        }
+        
+        /* Remove list styling */
+        .algo-card ul, .algo-card ol {
+            padding-left: 0;
+            margin: 0.2rem 0;
+            list-style: none;
+        }
+        .algo-card li {
+            padding-left: 0;
+            font-size: 0.9rem;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>A Human's Guide to RL Algorithms</h1>
+        </header>
+
+        <main class="content">
+
+            <!-- 
+                SECTIONS REMOVED - All algorithms are in one list.
+            -->
+            
+            <div class="algo-card">
+                <h3>Q-Learning</h3>
+                
+                <h4>Definition:</h4>
+                <p>
+                    A method that learns the value of actions in specific states by using a simple table (a "cheat sheet").
+                </p>
+
+                <h4>Industry Use Case:</h4>
+                <p>
+                    Used in simple robotics for navigation, like optimizing the cleaning path for a robot vacuum in a home, or for basic inventory management systems to find the quickest path to an item.
+                </p>
+            </div>
+            
+            <div class="algo-card">
+                <h3>Deep Q-Network (DQN)</h3>
+                
+                <h4>Definition:</h4>
+                <p>
+                    Uses a neural network (a 'brain') to guess the value of actions, allowing it to handle complex or unseen states.
+                </p>
+
+                <h4>Industry Use Case:</h4>
+                <p>
+                    Used by companies like Google's DeepMind to master video games, which also applies to optimizing resource management in data centers or training ad-recommendation systems to show relevant content.
+                </p>
+            </div>
+
+            <div class="algo-card">
+                <h3>Policy Gradient Methods (e.g., REINFORCE)</h3>
+                
+                <h4>Definition:</h4>
+                <p>
+                    Directly learns a 'policy,' or the probability of which action to take, to get the best reward.
+                </p>
+
+                <h4>Industry Use Case:</h4>
+                <p>
+                    Ideal for robotics where precise, continuous control is needed. For example, a factory robot arm learning the exact amount of force and angle needed to pick up and place delicate objects like computer chips.
+                </p>
+            </div>
+            
+            <div class="algo-card">
+                <h3>Actor-Critic</h3>
+                
+                <h4>Definition:</h4>
+                <p>
+                    Uses two networks: an 'Actor' to decide on an action and a 'Critic' to judge how good that action was.
+                </p>
+
+                <h4>Industry Use Case:</h4>
+                <p>
+                    Powers advanced robotics, such as helping bipedal robots (like those from Boston Dynamics) learn to walk, run, and keep their balance on uneven terrain, which is crucial for search-and-rescue.
+                </p>
+            </div>
+
+            <div class="algo-card">
+                <h3>Proximal Policy Optimization (PPO)</h3>
+                
+                <h4>Definition:</h4>
+                <p>
+                    A stable algorithm that improves its policy by taking small, safe steps, avoiding big, risky changes.
+                </p>
+
+                <h4>Industry Use Case:</h4>
+                <p>
+                    A go-to for complex, large-scale problems. It's used to train sophisticated AI for e-sports (like Dota 2) and in finance for creating automated stock trading strategies that can adapt to market changes.
+                </p>
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>
+
 
