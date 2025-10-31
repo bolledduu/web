@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Data Scientist's Journey</title>
+    
+    <!-- Load Tailwind CSS for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Import EB Garamond font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply Garamond font, B&W styling, and text size */
+        body {
+            font-family: 'EB Garamond', serif;
+            font-weight: 500; /* Medium weight for body text */
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 1rem;
+        }
+        h1, h2, h3 {
+            font-weight: 700; /* Bold weight for headings */
+            margin-bottom: 0.75rem;
+        }
+        h1 { font-size: 2.25rem; }
+        h2 { font-size: 1.75rem; border-bottom: 1px dashed #000; padding-bottom: 0.5rem; margin-top: 2rem; }
+        h3 { font-size: 1.25rem; }
+        p { margin-bottom: 1rem; }
+        ol { list-style: decimal inside; margin-left: 1.5rem; margin-bottom: 1rem; }
+        ol li { margin-bottom: 0.5rem; }
+        
+        /* Table styling for simple black and white look */
+        table { width: 100%; border-collapse: collapse; margin-top: 1rem; margin-bottom: 1.5rem; }
+        th, td { border: 1px solid #000; padding: 0.75rem; text-align: left; }
+        th { font-weight: 700; background-color: #f0f0f0; } 
+    </style>
+</head>
+<body class="max-w-4xl mx-auto p-4">
+
+    <header class="pb-4 mb-6 border-b-2 border-black">
+        <h1>The Data Scientist's Journey: From Concept to Customer</h1>
+        <p>
+            Welcome, class. Today, we put aside the perfect equations and dive into the messy, exhilarating world of real-world Machine Learning. Our story is about translating abstract potential into tangible business value—a journey fraught with choices, constraints, and the occasional late-night debug session.
+        </p>
+    </header>
+
+    <main>
+        
+        <h2 id="crossroads">Chapter 1: The Crossroads of Choice</h2>
+        <p>
+            Every ML project begins at a critical juncture: **algorithm selection**. This isn't just about picking the fastest or fanciest model; it's about making a practical, business-driven choice.
+        </p>
+
+        <h3 id="practicality">The Challenge of Practicality</h3>
+        <p>
+            In the lecture hall, we focus on accuracy. But in the business world, we must consider:
+        </p>
+        <ol>
+            <li>
+                <strong>Explainability (The Trust Factor):</strong> Will this model tell us *why* it made a decision? A bank deciding on a loan or a doctor making a diagnosis needs a high-fidelity explanation. Simple models like Linear Regression or Decision Trees offer high explainability (often called **White Box** models), while Deep Learning models are typically **Black Box** models, demanding more effort to interpret.
+            </li>
+            <li>
+                <strong>Training Cost:</strong> Does the problem justify the massive computational resources (GPUs, time, energy) required for a large transformer model, or can a simple XGBoost model solve 90% of the problem with 1% of the cost?
+            </li>
+            <li>
+                <strong>Latency (The Speed Test):</strong> If the model is deployed in a real-time environment (like an ad bidding system or a video game), it must return a prediction in milliseconds. A tiny, fast model often beats a gigantic, slightly more accurate one that takes seconds to run.
+            </li>
+            <li>
+                <strong>Data Efficiency:</strong> Some models, especially complex ones, demand millions of labeled examples. If you have limited data (e.g., rare medical images), you must choose an algorithm that performs well with less, perhaps favoring transfer learning or simpler statistical methods.
+            </li>
+        </ol>
+
+        <h2 id="blueprint">Chapter 2: The Theoretical Blueprint</h2>
+        <p>
+            Once the algorithm is chosen (let's say we settled on a **Random Forest** for its balance of accuracy and explainability), we move to the theoretical and structural phase.
+        </p>
+
+        <h3 id="definitions">Key Theoretical Definitions</h3>
+        <ul class="list-disc ml-8">
+            <li>
+                <strong>Feature Engineering:</strong> The art of transforming raw data into predictive signals. This is often where the most significant performance gains are found, regardless of the algorithm.
+            </li>
+            <li>
+                <strong>Model Training:</strong> The process where the algorithm iteratively adjusts its internal parameters by minimizing a **Loss Function** (e.g., Mean Squared Error for regression) on the training data. The goal is to find the best mapping between input features and target output.
+            </li>
+            <li>
+                <strong>Validation:</strong> The critical step of testing the model on data it has *never seen* before. This prevents **Overfitting**, a phenomenon where the model memorizes the training data but fails miserably on new, real-world data.
+            </li>
+        </ul>
+
+        <h3 id="architecture">The Architectural Vision</h3>
+        <p>
+            Before deployment, we sketch the infrastructure. This involves more than just the model—it’s the entire data pipeline.
+        </p>
+        <p class="text-center italic text-sm mb-4">
+            
+        </p>
+        <p>
+            This diagram shows the flow: data is ingested, cleaned, and used to train the model, which is then stored in a **Model Registry** to be served to users.
+        </p>
+
+        <h2 id="deployment">Chapter 3: The Great Deployment</h2>
+        <p>
+            The biggest shift from academia to industry is the move to **production**. This is where the model leaves the safe confines of your laptop and starts handling real customer traffic.
+        </p>
+
+        <h3 id="challenges">Deployment Challenges and Solutions</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Challenge</th>
+                    <th>Description</th>
+                    <th>Solutions and Tools</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Model Drift</strong></td>
+                    <td>The real-world data changes over time, causing the deployed model's performance to degrade.</td>
+                    <td>**Monitoring Tools** (e.g., Prometheus, Grafana) to continuously track prediction error and feature distribution. Retrain the model on new data when drift is detected.</td>
+                </tr>
+                <tr>
+                    <td><strong>Latency and Scaling</strong></td>
+                    <td>The model needs to handle hundreds or thousands of prediction requests per second quickly.</td>
+                    <td>**Model Serialization** (e.g., ONNX, TorchScript) for optimized inference. **Cloud Services** (e.g., Google Cloud AI Platform, AWS SageMaker) for automatic scaling and load balancing.</td>
+                </tr>
+                <tr>
+                    <td><strong>Reproducibility</strong></td>
+                    <td>Ensuring that anyone can recreate the exact same model version with the same results, regardless of when or where they run the code.</td>
+                    <td>**Version Control** for code (Git) and **Experiment Tracking** for data and models (e.g., MLflow, DVC).</td>
+                </tr>
+                <tr>
+                    <td><strong>A/B Testing</strong></td>
+                    <td>How do we know the new model is actually better for the business than the old one?</td>
+                    <td>**Canary Deployment** or **Shadow Mode** to test the new model on a small subset of traffic without affecting the main user base.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 id="mlops">The MLOps Pipeline</h3>
+        <p>
+            Deploying an ML model is not a one-time event; it's a continuous loop known as **MLOps (Machine Learning Operations)**. This is the integration of Development (Dev), Operations (Ops), and Machine Learning (ML).
+        </p>
+        <p class="text-center italic text-sm mb-4">
+            
+        </p>
+        <p>
+            The circle never stops. Once your model is in production, monitoring tools constantly check its health. When performance drops (model drift!), the MLOps pipeline triggers an alert, pulls the newest data, retrains a better model, and automatically redeploys it.
+        </p>
+        <p>
+            And that, my friends, is how a theoretical concept—an ML algorithm—becomes a tireless, revenue-generating engine in the real world. Now, let’s talk about the specific tools we use to manage this deployment cycle.
+        </p>
+
+    </main>
+
+</body>
+</html>
 
