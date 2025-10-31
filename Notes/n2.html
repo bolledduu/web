@@ -1,1 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Reinforcement Learning</title>
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Import EB Garamond font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Apply Garamond font and B&W styling */
+        body {
+            font-family: 'EB Garamond', serif;
+            font-weight: 400;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            padding: 1rem;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="max-w-4xl mx-auto p-4">
+
+    <header class="pb-4 mb-6 border-b-2 border-black">
+        <h1 class="text-3xl font-bold">Introduction to Reinforcement Learning (RL)</h1>
+    </header>
+
+    <main class="space-y-8">
+        
+        <!-- Section 1: The Reason for RL -->
+        <section class="border-b border-dashed border-black pb-6">
+            <h2 class="text-2xl font-bold mb-3">Why RL Exists</h2>
+            <p class="text-lg">
+                Reinforcement Learning is necessary when we need a system to make a series of decisions to achieve a long-term goal, especially in complex, dynamic environments where the rules are not always known beforehand. Unlike typical programming where you give the computer explicit instructions, in RL, the computer learns through trial and error—like training a puppy with rewards. The goal is to maximize the total reward accumulated over time, not just the immediate reward.
+            </p>
+        </section>
+
+        <!-- Section 2: Failure of Previous Algorithms -->
+        <section class="border-b border-dashed border-black pb-6">
+            <h2 class="text-2xl font-bold mb-3">How RL Solves New Problems</h2>
+            
+            <h3 class="text-xl font-medium mt-4">The Limitation of Supervised Learning</h3>
+            <p>
+                Supervised Learning (like recognizing cats in pictures) requires a labeled dataset—it only works if you provide the *exact* correct answer for every situation. It cannot figure out a complex sequence of actions, such as how to fly a plane or win a chess game, because there isn't one "correct" move at every step; success depends on future moves.
+            </p>
+
+            <h3 class="text-xl font-medium mt-4">The Limitation of Unsupervised Learning</h3>
+            <p>
+                Unsupervised Learning (like grouping similar customers) finds patterns in data without labels. While useful for organization, it has no concept of "goals" or "success." It can't learn how to drive a car because it has no mechanism to know that crashing is bad (negative reward) and staying on the road is good (positive reward). RL fills this gap by introducing the concepts of time, interaction, and reward signals.
+            </p>
+        </section>
+
+        <!-- Section 3: Key Glossary (3 rows, 10 columns structure) -->
+        <section class="pb-6">
+            <h2 class="text-2xl font-bold mb-4">Key Glossary</h2>
+            <p class="mb-4 text-sm">(Displayed as 10 cards, each containing the three parts of the glossary entry.)</p>
+
+            <!-- The Glossary Grid: Responsive 10-column layout -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4">
+
+                <!-- Glossary Item 1: Agent -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Agent</div>
+                    <div class="text-sm">The learner and decision-maker.</div>
+                    <div class="text-xs italic">Example: The self-driving car itself.</div>
+                </div>
+
+                <!-- Glossary Item 2: Environment -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Environment</div>
+                    <div class="text-sm">Everything the agent interacts with.</div>
+                    <div class="text-xs italic">Example: The road, traffic, and weather.</div>
+                </div>
+                
+                <!-- Glossary Item 3: State -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">State</div>
+                    <div class="text-sm">A specific situation in the environment.</div>
+                    <div class="text-xs italic">Example: Car's speed, location, and nearby objects.</div>
+                </div>
+
+                <!-- Glossary Item 4: Action -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Action</div>
+                    <div class="text-sm">A move the agent can make.</div>
+                    <div class="text-xs italic">Example: Accelerate, brake, or steer left.</div>
+                </div>
+
+                <!-- Glossary Item 5: Reward -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Reward</div>
+                    <div class="text-sm">A feedback signal (positive or negative).</div>
+                    <div class="text-xs italic">Example: +10 for reaching the goal; -5 for hitting a curb.</div>
+                </div>
+                
+                <!-- Glossary Item 6: Policy -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Policy</div>
+                    <div class="text-sm">The agent's strategy, mapping states to actions.</div>
+                    <div class="text-xs italic">Example: The rule: "If speed is X and traffic is Y, then brake."</div>
+                </div>
+
+                <!-- Glossary Item 7: Value Function -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Value Function</div>
+                    <div class="text-sm">Predicts how much total future reward is expected.</div>
+                    <div class="text-xs italic">Example: The long-term goodness of a state.</div>
+                </div>
+
+                <!-- Glossary Item 8: Q-Value -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Q-Value</div>
+                    <div class="text-sm">Predicts the value of taking a specific action in a specific state.</div>
+                    <div class="text-xs italic">Example: How good is it to 'steer left' right now?</div>
+                </div>
+
+                <!-- Glossary Item 9: Episode -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Episode</div>
+                    <div class="text-sm">A single, complete run from start to finish.</div>
+                    <div class="text-xs italic">Example: One entire trip from home to school.</div>
+                </div>
+
+                <!-- Glossary Item 10: Exploration/Exploitation -->
+                <div class="border border-black p-3 space-y-1">
+                    <div class="font-bold border-b border-black pb-1">Exploration/Exploitation</div>
+                    <div class="text-sm">The dilemma of trying new things vs. sticking to known good things.</div>
+                    <div class="text-xs italic">Example: Trying a new street vs. taking the usual, known route.</div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+</body>
+</html>
 
