@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pradeep - Notes</title>
+    <title>Pradeep - Notes Archive</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- Updated font link to include Cormorant Garamond for titles -->
+    <!-- Font links including Inter and Cormorant Garamond -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <style>
         /* New font class for titles (similar to Garamond) */
@@ -17,6 +17,14 @@
         /* Using a sans-serif font for the body */
         body {
             font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s;
+        }
+        /* Style for the back button */
+        .back-button {
+            transition: transform 0.15s, opacity 0.15s;
+        }
+        .back-button:hover {
+            transform: translateX(-4px);
         }
     </style>
 </head>
@@ -31,66 +39,66 @@
         </header>
 
         <main>
-            <!-- Notes List -->
-            <div class="space-y-8">
+            <!-- Note List Container -->
+            <div id="notes-list-container">
+                <div class="space-y-8">
+                    <!-- Note 1 -->
+                    <a href="#" class="note-link block cursor-pointer" data-note-id="n1">
+                        <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h2 class="text-2xl font-title font-bold mb-2 text-gray-900">
+                                <span class="mr-2"></span> A Taxonomy of Reinforcement Learning Algorithms
+                            </h2>
+                            <p class="text-gray-600 mb-4 italic">
+                                A guide to understanding and categorizing the many flavors of reinforcement learning algorithms, from value iteration to PPO.
+                            </p>
+                            <p class="text-sm text-blue-600">
+                                October 2024 · 6 min · 1191 words · Pradeep Bolleddu
+                            </p>
+                        </article>
+                    </a>
 
-                <!-- Note 1 -->
-                <!-- LINK CORRECTION: Removed the unnecessary './' prefix -->
-                <a href="Notes/n1.html" class="block cursor-pointer">
-                    <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <!-- Title now uses the new font-title class -->
-                        <h2 class="text-2xl font-title font-bold mb-2">
-                            <span class="mr-2"></span> A Taxonomy of Reinforcement Learning Algorithms
-                        </h2>
-                        <!-- Description remains italic -->
-                        <p class="text-gray-600 mb-4 italic">
-                            A guide to understanding and categorizing the many flavors of reinforcement learning algorithms, from value iteration to PPO.
-                        </p>
-                        <!-- Metadata now uses 'text-blue-600' -->
-                        <p class="text-sm text-blue-600">
-                            October 2024 · 6 min · 1191 words · Pradeep Bolleddu
-                        </p>
-                    </article>
-                </a>
+                    <!-- Note 2 -->
+                    <a href="#" class="note-link block cursor-pointer" data-note-id="n2">
+                        <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h2 class="text-2xl font-title font-bold mb-2 text-gray-900">
+                                <span class="mr-2"></span> Introduction to RL
+                            </h2>
+                            <p class="text-gray-600 mb-4 italic">
+                                Notes on reinforcement learning from Steve Brunton's Data-Driven Science and Engineering book, covering core RL concepts, mathematical formalism, and key ideas.
+                            </p>
+                            <p class="text-sm text-blue-600">
+                                October 2023 · 12 min · 2130 words · Pradeep Bolleddu
+                            </p>
+                        </article>
+                    </a>
 
-                <!-- Note 2 -->
-                <!-- LINK CORRECTION: Removed the unnecessary './' prefix -->
-                <a href="Notes/n2.html" class="block cursor-pointer">
-                    <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <!-- Title now uses the new font-title class -->
-                        <h2 class="text-2xl font-title font-bold mb-2">
-                            <span class="mr-2"></span> Introduction to RL
-                        </h2>
-                        <!-- Description remains italic -->
-                        <p class="text-gray-600 mb-4 italic">
-                            Notes on reinforcement learning from Steve Brunton's Data-Driven Science and Engineering book, covering core RL concepts, mathematical formalism, and key ideas.
-                        </p>
-                        <!-- Metadata now uses 'text-blue-600' -->
-                        <p class="text-sm text-blue-600">
-                            October 2023 · 12 min · 2130 words · Pradeep Bolleddu
-                        </p>
-                    </article>
-                </a>
+                    <!-- Note 3 -->
+                    <a href="#" class="note-link block cursor-pointer" data-note-id="n3">
+                        <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
+                            <h2 class="text-2xl font-title font-bold mb-2 text-gray-900">
+                                <span class="mr-2"></span> ML at Scale: Pipeline Parallelism
+                            </h2>
+                            <p class="text-gray-600 mb-4 italic">
+                                Pipeline parallelism is a technique for training large ML models, showing how to efficiently partition model layers across devices to optimize distributed training and manage memory constraints.
+                            </p>
+                            <p class="text-sm text-blue-600">
+                                July 2024 · 12 min · 2329 words · Pradeep Bolleddu
+                            </p>
+                        </article>
+                    </a>
+                </div>
+            </div>
 
-                <!-- Note 3 -->
-                <!-- LINK CORRECTION: Removed the unnecessary './' prefix -->
-                <a href="Notes/n3.html" class="block cursor-pointer">
-                    <article class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300">
-                        <!-- Title now uses the new font-title class -->
-                        <h2 class="text-2xl font-title font-bold mb-2">
-                            <span class="mr-2"></span> ML at Scale: Pipeline Parallelism
-                        </h2>
-                        <!-- Description remains italic -->
-                        <p class="text-gray-600 mb-4 italic">
-                            Pipeline parallelism is a technique for training large ML models, showing how to efficiently partition model layers across devices to optimize distributed training and manage memory constraints.
-                        </p>
-                        <!-- Metadata now uses 'text-blue-600' -->
-                        <p class="text-sm text-blue-600">
-                            July 2024 · 12 min · 2329 words · Pradeep Bolleddu
-                        </p>
-                    </article>
-                </a>
-
+            <!-- Note Detail Container (Initially hidden) -->
+            <div id="note-detail-container" class="hidden">
+                <button id="back-button" class="back-button flex items-center text-blue-600 hover:text-blue-800 mb-6 text-lg font-medium">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path></svg>
+                    Back to Archive
+                </button>
+                
+                <article id="note-content" class="bg-white border border-gray-200 rounded-xl p-8 shadow-lg max-w-full prose lg:prose-lg mx-auto">
+                    <!-- Content will be injected here -->
+                </article>
             </div>
         </main>
 
@@ -100,6 +108,185 @@
         </footer>
 
     </div>
+
+    <script>
+        const noteData = {
+            n1: {
+                title: "A Taxonomy of Reinforcement Learning Algorithms",
+                metadata: "October 2024 · 6 min · 1191 words · Pradeep Bolleddu",
+                content: `
+                    <h1 class="text-3xl font-title font-bold mb-4">A Taxonomy of Reinforcement Learning Algorithms</h1>
+                    <p class="text-gray-500 mb-6 italic">A guide to understanding and categorizing the many flavors of reinforcement learning algorithms, from value iteration to PPO.</p>
+                    
+                    <p>Reinforcement Learning (RL) algorithms are broadly categorized based on how they represent and update the agent's knowledge about the environment. Understanding this taxonomy is crucial for selecting the right algorithm for a given task.</p>
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">1. Model-Based vs. Model-Free</h2>
+                    
+                    <p><strong>Model-Based RL:</strong> These algorithms attempt to learn or are provided with a model of the environment's dynamics, meaning they can predict the next state and reward given the current state and action. Classic examples include Dynamic Programming and Monte Carlo Tree Search (MCTS).</p>
+                    <p><strong>Model-Free RL:</strong> These algorithms do not learn the environment model. Instead, they focus solely on optimizing the policy (action-selection strategy) or the value function (expected return). They are simpler to implement but require more interaction with the environment. Examples include Q-learning, SARSA, and Policy Gradients.</p>
+
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">2. Value-Based vs. Policy-Based</h2>
+                    
+                    <p><strong>Value-Based RL:</strong> The agent learns a value function ($Q(s, a)$ or $V(s)$) which estimates the expected return. The policy is implicitly derived from this value function (e.g., choosing the action with the highest Q-value). Q-learning and Deep Q Networks (DQN) fall into this category.</p>
+                    
+                    <p><strong>Policy-Based RL:</strong> The agent directly learns the policy $\pi(a|s)$, which maps states to actions. These methods are preferred for continuous action spaces. Examples include REINFORCE and Actor-Critic methods.</p>
+
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">3. Actor-Critic Methods</h2>
+                    
+                    <p>These methods combine the best of both worlds, using two components: an <strong>Actor</strong> (which updates the policy directly) and a <strong>Critic</strong> (which estimates the value function to help the Actor evaluate its actions). Prominent algorithms here include A2C (Advantage Actor-Critic) and PPO (Proximal Policy Optimization), which are considered state-of-the-art for many control tasks.</p>
+                `,
+            },
+            n2: {
+                title: "Introduction to RL",
+                metadata: "October 2023 · 12 min · 2130 words · Pradeep Bolleddu",
+                content: `
+                    <h1 class="text-3xl font-title font-bold mb-4">Introduction to Reinforcement Learning</h1>
+                    <p class="text-gray-500 mb-6 italic">Core concepts and mathematical formalism from Steve Brunton's Data-Driven Science and Engineering.</p>
+
+                    <p>Reinforcement Learning is framed as a mathematical optimization problem where an agent learns to make sequential decisions in an environment to maximize a cumulative reward. This note summarizes the foundational concepts necessary to approach the field.</p>
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">The Markov Decision Process (MDP)</h2>
+                    
+                    <p>An MDP is the formal framework for sequential decision-making. It is defined by a tuple $(S, A, P, R, \gamma)$:
+                    <ul class="list-disc pl-6 mt-2 space-y-2">
+                        <li>$S$: A set of possible states.</li>
+                        <li>$A$: A set of possible actions.</li>
+                        <li>$P$: The state transition probability distribution, $P(s' | s, a)$.</li>
+                        <li>$R$: The reward function, $R(s, a, s')$.</li>
+                        <li>$\gamma$: The discount factor, $0 \le \gamma \le 1$.</li>
+                    </ul>
+                    </p>
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">Value Functions</h2>
+                    
+                    <p>The **Value Function**, $V^\pi(s)$, represents the expected cumulative discounted reward starting from state $s$ and following policy $\pi$. The **Q-Function** (or Action-Value Function), $Q^\pi(s, a)$, represents the expected cumulative reward starting from state $s$, taking action $a$, and then following policy $\pi$. The relationship between the two is central to solving RL problems, often encapsulated by the Bellman Equations.</p>
+                    
+                    $$
+                    V^\pi(s) = \sum_{a \in A} \pi(a|s) Q^\pi(s, a)
+                    $$
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">The Bellman Optimality Equation</h2>
+                    
+                    <p>The optimal value function, $V^*(s)$, satisfies the Bellman Optimality Equation. This equation states that the optimal value of a state must be equal to the best possible expected return from that state:
+                    
+                    $$
+                    V^*(s) = \max_{a \in A} \left( R(s, a) + \gamma \sum_{s' \in S} P(s' | s, a) V^*(s') \right)
+                    $$
+                    
+                    Solving this equation iteratively (via Value Iteration or Policy Iteration) is the basis for finding the optimal policy $\pi^*$.</p>
+                `,
+            },
+            n3: {
+                title: "ML at Scale: Pipeline Parallelism",
+                metadata: "July 2024 · 12 min · 2329 words · Pradeep Bolleddu",
+                content: `
+                    <h1 class="text-3xl font-title font-bold mb-4">ML at Scale: Pipeline Parallelism</h1>
+                    <p class="text-gray-500 mb-6 italic">A strategy for efficiently partitioning model layers across devices to optimize distributed training.</p>
+
+                    <p>As Machine Learning models continue to grow into the trillions of parameters, fitting them onto a single GPU is impossible. Data parallelism scales out the batch size, but **Model Parallelism** is required when the model itself is too large. Pipeline Parallelism is a specific, highly efficient form of model parallelism.</p>
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">The Problem of Model Size</h2>
+                    
+                    <p>Model parallelism involves splitting the layers of a neural network across multiple devices (GPUs). The key challenge is that each layer depends on the output of the previous layer (forward pass) and the gradient from the next layer (backward pass), leading to severe idle time (known as the "bubble") on the GPUs.</p>
+                    
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">How Pipeline Parallelism Works</h2>
+                    
+                    <p>Pipeline Parallelism (PP) addresses the idle time by dividing the mini-batch into smaller units, called **micro-batches (MBs)**. Instead of waiting for the full forward pass to complete across all devices before starting the backward pass, each device begins processing the next micro-batch in the pipeline as soon as it finishes its current task. This creates a data pipeline:</p>
+                    
+                    <ol class="list-decimal pl-6 mt-2 space-y-2">
+                        <li><strong>Stage Partitioning:</strong> The model is split into $P$ sequential stages, one per device.</li>
+                        <li><strong>Micro-Batching:</strong> The batch $B$ is divided into $M$ micro-batches $MB_i$.</li>
+                        <li><strong>Pipelining:</strong> Once Device 1 finishes the forward pass for $MB_1$ and sends it to Device 2, Device 1 immediately starts the forward pass for $MB_2$. This overlaps computation and communication, drastically reducing the bubble size and increasing GPU utilization.</li>
+                    </ol>
+
+                    <h2 class="text-2xl font-title font-bold mt-8 mb-3">Implementation Note (e.g., GPipe/PipeDream)</h2>
+                    
+                    <p>The efficiency of PP depends heavily on the scheduling policy for micro-batches. Algorithms like GPipe use synchronous mini-batches and require careful recomputation to manage memory, while PipeDream uses asynchronous updates to reduce the bubble further, though it introduces complexity related to weight staleness.</p>
+                `,
+            },
+        };
+
+        const notesListContainer = document.getElementById('notes-list-container');
+        const noteDetailContainer = document.getElementById('note-detail-container');
+        const noteContent = document.getElementById('note-content');
+        const backButton = document.getElementById('back-button');
+        const header = document.querySelector('header');
+
+        /**
+         * Converts plain text content into styled HTML structure for the note detail view.
+         * Note: This function is simplified. In a real application, you might use a Markdown parser.
+         */
+        function renderNoteDetail(note) {
+            // Start the HTML content for the article
+            let htmlContent = `
+                <div class="mb-6 pb-4 border-b border-gray-200">
+                    <h1 class="text-3xl sm:text-4xl font-title font-bold text-gray-900">${note.title}</h1>
+                    <p class="text-sm text-blue-600 mt-2">${note.metadata}</p>
+                </div>
+            `;
+            
+            // Append the pre-formatted content (which already includes H2s and Ps)
+            htmlContent += `<div class="prose max-w-none text-gray-700">${note.content}</div>`;
+
+            noteContent.innerHTML = htmlContent;
+        }
+
+        /**
+         * Switches the view from the list to the detail page.
+         */
+        function showNote(noteId) {
+            const note = noteData[noteId];
+            if (!note) {
+                console.error("Note not found for ID:", noteId);
+                return;
+            }
+
+            renderNoteDetail(note);
+
+            // Hide the header (optional, but cleaner for detail view)
+            header.classList.add('hidden');
+            
+            // Switch view
+            notesListContainer.classList.add('hidden');
+            noteDetailContainer.classList.remove('hidden');
+
+            // Scroll to the top of the note
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /**
+         * Switches the view from the detail page back to the list.
+         */
+        function showList() {
+            // Show the header
+            header.classList.remove('hidden');
+
+            // Switch view
+            noteDetailContainer.classList.add('hidden');
+            notesListContainer.classList.remove('hidden');
+
+            // Scroll to the top of the list
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // --- Event Listeners ---
+
+        // Listener for all note links
+        document.querySelectorAll('.note-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link navigation
+                const noteId = link.getAttribute('data-note-id');
+                showNote(noteId);
+            });
+        });
+
+        // Listener for the back button
+        backButton.addEventListener('click', showList);
+
+        // Optional: Show the list view when the page loads (it's the default state anyway)
+        window.onload = showList;
+
+    </script>
 
 </body>
 </html>
