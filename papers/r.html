@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Research Papers — Pradeep Bolleddu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Cormorant+Garamond:wght@600&family=Lexend&family=Raleway:ital@1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            @apply bg-gray-50 text-gray-800;
+        }
+        .font-garamond {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .text-summary {
+            font-size: 15px;
+            font-family: 'Lexend', sans-serif;
+        }
+        .abstract-text {
+            font-family: 'Raleway', sans-serif;
+            font-style: italic;
+            font-size: 11px;
+            @apply text-gray-700 p-4 rounded-lg border border-gray-300 shadow-md mt-2 bg-gray-100;
+        }
+        /* Reduced gap between items */
+        .research-card {
+            @apply py-4 border-b border-gray-100;
+        }
+        .research-card:last-child {
+            @apply border-b-0;
+        }
+    </style>
+</head>
+<body class="p-6 md:p-12 lg:p-16 max-w-4xl mx-auto">
+    <header class="mb-6">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-extrabold text-gray-900">Research Papers</h1>
+    </header>
+
+    <p class="text-gray-600 mb-8">A curated collection of my recent research contributions and technical whitepapers in the fields of Artificial Intelligence and Data Engineering.</p>
+
+    <div id="research-grid" class="space-y-0">
+        
+        <!-- Paper 1 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">1.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>Controlling Foundation Models via Internal Interventions: A Survey of Inference-Time Methods</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Varnith Chordia, Pradeep Bolleddu, Abhishek Pandir, Karn Tiwari</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">A comprehensive survey exploring how internal interventions during inference can be used to steer and control foundation models effectively.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-1">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-1" class="abstract-text hidden">
+                    This survey provides a detailed overview of inference-time methods for controlling foundation models. We analyze various internal intervention strategies, discussing their theoretical foundations, practical implementations, and the trade-offs involved in steering model behavior without retraining.
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 2 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">2.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>Multimodal GraphRAG with Cross-Modal Alignment: Towards Unified Video Understanding and Knowledge Graph Construction</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Pradeep Bolleddu, Anirudh, Hrishikesh Teldelkar</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">Developing a unified framework for video comprehension through multimodal knowledge graph extraction and cross-modal semantic alignment.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-6">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-6" class="abstract-text hidden">
+                    This research introduces Multimodal GraphRAG, a system designed to improve video understanding by aligning visual features with structured knowledge. We propose a pipeline for constructing dynamic knowledge graphs from video streams and utilizing cross-modal alignment to facilitate more accurate retrieval and reasoning.
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 3 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">3.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>How a SAPIEN Is Born: A Journey to Discover Their Tribe and Latent Traits for Human Behavior Simulation</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Taranveersingh, Aanatraj, Samanvitha, Harvinder, Pradeep Bolleddu</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">Investigating the emergence of latent traits and tribal identities in digital entities for advanced human behavior simulation.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-2">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-2" class="abstract-text hidden">
+                    This work presents a framework for human behavior simulation focusing on 'SAPIEN' entities. We explore the discovery of latent traits and the formation of 'tribes' within simulations to create more realistic and nuanced social dynamics.
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 4 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">4.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>CardioLMBench: A GPU Performance Benchmark for Small Language Models in Cardiovascular Medicine</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Pradeep Bolleddu, Madhurima Vardhan, Sanjai Balasubramainam</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">A performance benchmark focused on the efficiency of small language models (SLMs) running on GPUs within the context of clinical cardiovascular data.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-3">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-3" class="abstract-text hidden">
+                    CardioLMBench addresses the need for domain-specific benchmarking for SLMs. We evaluate GPU performance and inference latency for models specialized in cardiovascular medical terminology, providing a baseline for clinical deployment.
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 5 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">5.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>See Your Medicine Work: Personalized 3D Pharmacological Visualizations</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Pradeep Bolleddu, Lekshmi, Spruthi Moore</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">Using 3D graphics and patient-specific data to visualize pharmaceutical interactions within the human body.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-4">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-4" class="abstract-text hidden">
+                    This project bridges the gap between complex pharmacology and patient understanding through personalized 3D visualizations. We detail a pipeline that transforms medical data into interactive simulations of drug efficacy.
+                </div>
+            </div>
+        </div>
+
+        <!-- Paper 6 -->
+        <div class="research-card">
+            <div class="flex-grow">
+                <h3 class="text-xl font-semibold mb-0.5 text-gray-900 font-garamond leading-tight flex items-start gap-2">
+                    <span class="pt-0.5">6.</span>
+                    <a href="#" class="text-red-600 hover:text-red-800 transition-colors pt-1" title="Download PDF">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                    <span>Compositional Safety Analysis via Interaction Risk Graphs: A Graph Neural Network Framework for Occupational Hazard Prediction</span>
+                </h3>
+                <p class="text-xs text-gray-500 mb-1 font-medium">Authors: Pradeep Bolleddu, Dr. Sushmita, Shanu</p>
+                <p class="text-gray-700 mb-1.5 italic text-summary text-sm leading-relaxed">Applying Graph Neural Networks (GNNs) to model and predict complex risks in workplace environments through interaction analysis.</p>
+                <div class="flex space-x-4 text-xs font-medium">
+                    <button class="toggle-abstract text-blue-600 hover:text-blue-800 transition-colors flex items-center gap-1" data-target="abstract-5">
+                        <i class="fa-solid fa-file-lines"></i>
+                        <span>Abstract</span>
+                    </button>
+                </div>
+                <div id="abstract-5" class="abstract-text hidden">
+                    We propose a GNN-based framework for occupational safety. By constructing interaction risk graphs, our model identifies potential hazards by analyzing the compositional relationships between workplace variables and human factors.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-12 text-center text-sm text-gray-500">
+        © <span id="year"></span> Pradeep Bolleddu — Built with Research Passion
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Handle the click on the Abstract button
+            document.querySelectorAll('.toggle-abstract').forEach(button => {
+                button.addEventListener('click', (event) => {
+                    const targetId = event.currentTarget.dataset.target;
+                    const abstractDiv = document.getElementById(targetId);
+                    abstractDiv.classList.toggle('hidden');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
