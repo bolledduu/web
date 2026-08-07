@@ -7,8 +7,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- D3.js for the interactive force-directed graph -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         /* Base styles from original CSS, adjusted to work with Tailwind */
         html, body {
@@ -28,19 +29,7 @@
             font-size: 16px;
             line-height: 1.6;
         }
-        .experience .job, .experience .job h3, .experience .job-time, .experience li {
-            font-family: 'EB Garamond', serif;
-            font-weight: 600;
-        }
-        .experience .num {
-            font-family: 'EB Garamond', serif;
-            font-weight: 600;
-            font-size: 15px;
-            color: inherit;
-        }
-        .experience .job h3 {
-            font-size: 17.5px;
-        }
+
         /* Tooltip styles */
         .tooltip-container {
             position: relative;
@@ -100,6 +89,7 @@
         }
     </style>
 </head>
+
 <body class="bg-surface text-text font-body">
     <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
@@ -108,6 +98,7 @@
         </div>
     </header>
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
+        
         <!-- LEFT COLUMN -->
         <aside class="flex flex-col items-center justify-start gap-3">
             <!-- Profile Image -->
@@ -115,11 +106,6 @@
             
             <!-- Social Links -->
             <nav class="flex justify-center gap-4 mt-2 text-xl" aria-label="Social links">
-                <a class="text-red-600 hover:text-red-800 transition-colors tooltip-container" href="./assests/pradeep_bolleddu_cv.pdf" target="_blank" rel="noopener" aria-label="CV">
-                    <i class="fas fa-file-pdf"></i>
-                    <span class="tooltip-text">CV</span>
-                </a>
-                <!-- Changed LinkedIn link color from blue to teal -->
                 <a class="text-teal-700 hover:text-teal-900 transition-colors tooltip-container" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
                     <span class="tooltip-text">LinkedIn</span>
@@ -128,10 +114,9 @@
                     <i class="fab fa-github"></i>
                     <span class="tooltip-text">GitHub</span>
                 </a>
-                <!-- Notes link icon removed from here -->
             </nav>
 
-            <!-- NEW: Small Notes Link (before Research Blogs) -->
+            <!-- Small Notes Link -->
             <p class="mt-2 w-full text-center">
                 <a href="https://bolledduu.github.io/web/Notes/Notes.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors font-bold italic text-sm">
                     Read My Notes &rarr;
@@ -140,7 +125,6 @@
 
             <!-- Research Blogs Card -->
             <div class="mt-4 w-full p-0 bg-white rounded-xl shadow-lg border border-gray-100 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl">
-                <!-- Image at the top of the box -->
                 <img class="w-full h-32 object-cover rounded-t-xl" 
                      src="https://raw.githubusercontent.com/bolledduu/web/main/assests/research%20matters.png" 
                      alt="Research Blogs Thumbnail" 
@@ -159,26 +143,17 @@
             <div class="mt-4 w-full">
                 <h3 class="text-lg font-bold text-gray-800 text-center mb-3">Research Interests</h3>
                 <div class="space-y-3">
-                    <!-- Box 1: Reinforcement Learning -->
                     <div class="p-3 bg-teal-50 border border-teal-200 rounded-lg shadow-sm">
                         <h4 class="font-semibold text-teal-800 text-sm">Reinforcement Learning</h4>
-                        <p class="text-xs text-teal-700 mt-1">
-                            Multi-agent Systems, AI Agents, & Agentic Solutions.
-                        </p>
+                        <p class="text-xs text-teal-700 mt-1">Multi-agent Systems, AI Agents, & Agentic Solutions.</p>
                     </div>
-                    <!-- Box 2: Computer Vision & Multimodal AI -->
                     <div class="p-3 bg-orange-50 border border-orange-200 rounded-lg shadow-sm">
                         <h4 class="font-semibold text-orange-800 text-sm">Computer Vision & Multimodal AI</h4>
-                        <p class="text-xs text-orange-700 mt-1">
-                            Multimedia Systems & Vision-Language Models.
-                        </p>
+                        <p class="text-xs text-orange-700 mt-1">Multimedia Systems & Vision-Language Models.</p>
                     </div>
-                    <!-- Box 3: Large Language Models -->
                     <div class="p-3 bg-sky-50 border border-sky-200 rounded-lg shadow-sm">
                         <h4 class="font-semibold text-sky-800 text-sm">Large Language Models (LLMs)</h4>
-                        <p class="text-xs text-sky-700 mt-1">
-                            Alignment, Pre-training, & AI Safety.
-                        </p>
+                        <p class="text-xs text-sky-700 mt-1">Alignment, Pre-training, & AI Safety.</p>
                     </div>
                 </div>
             </div>
@@ -186,10 +161,14 @@
 
         <!-- RIGHT COLUMN -->
         <section>
-            <section class="bio mb-8">
-                <p>I’m <strong>Pradeep Bolleddu</strong>, an Applied Scientist at a stealth AI startup in Seattle, Washington. My research and engineering work spans computer vision, LLM performance modeling, and building scalable ML systems- I have a Strong research background in computer vision and image processing, including multi-cameras, Multiviews 3D computer vision, content-based image/video retrieval, mobile augmented reality, image synthesis and object segmentation.</p>
-                <p class="mb-4">Previously, I was a MSDS Graduate Student at the University of Massachusetts, where my curiosity drew me to generative-AI applications in healthcare under <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/">Prof. Julia Fang</a>. With Julia, I focused on translating generative models into privacy-conscious, clinically relevant workflows that bridge research and practice. After 2nd Semester, partnered with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg.">Prof. Scott Field</a> to scale experiments on high-performance computing (OpenMCP), learning to adapt models and pipelines for distributed training and large datasets at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.cscdr.umassd.edu/">CSCDR Lab</a>. It was wonderful collabrating with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.umassd.edu/directory/vchalivendra/">Prof. Vijaya Chalivendra</a> on several campus projects.</p>
-                <p>Before joining UMass, I've completed my bachelor’s degree at Indian Institute of technology- IIT Ropar, During 6th semester onwards I have worked with <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://mech.iitrpr.ac.in/faculty/ekta-singla">Dr. Ekta Singla</a> on an <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.indiascienceandtechnology.gov.in/node/123808">Autonomous WardBot</a>. I’m passionate about blending research-grade models with production systems - from medical imaging and prognosis models to LLM-powered retrieval systems. I enjoy open-source work, designing experiments, and shipping solutions that make measurable impact.</p>
+            <section class="bio mb-8 text-gray-800">
+                <p class="mb-4">
+                    <span class="italic">I’m <strong>Pradeep Bolleddu</strong>, an Applied AI Engineer at <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.compfly.ai/" target="_blank" rel="noopener">CompFly AI</a>,</span> building scalable MLSecOps platforms and secure governance workflows for production AI agents. Previously, as an Applied Scientist at Oliv AI, I engineered large-scale LLM classification and RAG conversational systems to automate customer workflows. I currently reside in California.
+                </p>
+                
+                <p>
+                    <span class="italic">My academic background includes</span> a Master's in Data Science from the University of Massachusetts, where I focused on healthcare generative models with <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.umassmed.edu/fanglab/members/julia-hua-fang-biography/" target="_blank">Prof. Julia Fang</a> and high-performance computing with <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="http://www.math.umassd.edu/~sfield/?_gl=1*ww1s8d*_gcl_au*Njg2NDk5OTAzLjE3MzYxODc5Mjg." target="_blank">Prof. Scott Field</a> at the <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.cscdr.umassd.edu/" target="_blank">CSCDR Lab</a>. Prior to that, I completed my bachelor’s at IIT Ropar, collaborating with <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://mech.iitrpr.ac.in/faculty/ekta-singla" target="_blank">Dr. Ekta Singla</a> on an <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.indiascienceandtechnology.gov.in/node/123808" target="_blank">Autonomous WardBot</a>. <span class="italic">I am dedicated to turning research insights into robust, production-grade AI applications.</span>
+                </p>
             </section>
             
             <!-- PROJECT ARTICLES Section -->
@@ -200,21 +179,18 @@
                         <li class="mb-2 text-gray-700">
                             Multi-Agent Reinforcement Learning for Real-Time Dynamic Production Scheduling in a Robot Assembly Cell
                             <small class="text-sm ml-2">
-                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href=" " target="_blank" rel="noopener"></a> | 
                                 <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="./assests/Multiagent.pdf" target="_blank" rel="noopener">pdf</a>
                             </small>
                         </li>
                         <li class="mb-2 text-gray-700">
                             Dialogue Diplomats: An End-to-End Multi-Agent RL System for Automated Conflict Resolution and Consensus Building
                             <small class="text-sm ml-2">
-                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="./Project articles/article2.html" target="_blank" rel="noopener"></a> | 
                                 <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="./assests/dialogue_diplamatic.pdf" target="_blank" rel="noopener">pdf</a>
                             </small>
                         </li>
                         <li class="mb-2 text-gray-700">
                             CodeCrew RL: End-to-End Collaborative LLM Agents for Automated Software Development, Testing, and Integration
                             <small class="text-sm ml-2">
-                                <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="./Project articles/article1.html" target="_blank" rel="noopener"></a> | 
                                 <a class="text-orange-600 hover:text-orange-800 hover:underline font-semibold" href="./assests/CodeCrew_RL.pdf" target="_blank" rel="noopener">pdf</a>
                             </small>
                         </li>
@@ -224,58 +200,69 @@
 
             <section class="selected-publications mb-8">
                 <h2 class="text-xl font-bold mb-4">Selected Publications</h2>
-                <div class="flex gap-4 mb-4 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/clustering.webp" alt="publication thumbnail" />
+                
+                <!-- Publication 1 -->
+                <div class="flex gap-4 mb-5 items-start">
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/clustering.webp" alt="publication thumbnail" />
                     <div class="flex flex-col">
-                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
-                        <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-gray-600 mb-2">IJSRCSEIT 2025</div>
+                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
+                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
+                        <div class="text-xs text-gray-500 mb-2 font-medium">Volume 8, Issue 2 (Pg: 52-57)</div>
                         <div class="text-sm">
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">pdf</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="./Project articles/clustering.html" target="_blank" rel="noopener"></a>
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">pdf</a>
                         </div>
                     </div>
                 </div>
-                <div class="flex gap-4 mb-4 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/haddop.png" alt="publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/128x96/f0f0f0/333?text=Hadoop+Pub';" />
-                    <div class="flex flex-col">
-                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop- An Overview of Data Security</a>
-                        <div class="text-sm text-gray-600 mb-1"><strong>Pradeep Bolleddu</strong>*</div>
-                        <div class="text-xs text-gray-600 mb-2">IJSR 2024</div>
-                        <div class="text-sm">
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="./assests/hadoop%20paper.pdf" target="_blank" rel="noopener">pdf</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="./Project articles/hadoop.html" target="_blank" rel="noopener"></a>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section class="experience mb-8">
-                <h2 class="text-xl font-bold mb-4">Work Experience</h2>
-                <article class="mb-6">
-                    <h3>Applied Scientist — <a class="text-orange-600 hover:text-orange-800 hover:underline" href="#">Oliv AI</a></h3>
-                    <p class="job-time text-gray-600 text-sm mb-2">Sep 2024 — Present</p>
-                    <ul class="list-disc pl-5">
-                        <li class="mb-2">
-                            When I joined, the first project I worked on was <strong>Transaction monitoring</strong> - we built a model that cut false positives by <span class="num">62%</span> while maintaining <span class="num">98%</span> recall and sped deployment from <span class="num">6</span> weeks → <span class="num">9</span> days. Later I moved to Cross-domain LLM (RAG), which solved <span class="num">70%</span> of previously unresolved queries and delivered <span class="num">89%</span> first-contact resolution (<span class="num">+49%</span> YoY), reducing handle time by <span class="num">40%</span> (~<span class="num">$500K</span>/year). I also led LLM A/B testing & search optimization (~<span class="num">200</span> experiments), making search the platform’s most engaging surface.
-                        </li>
-                        <li>Now I’m building Churn & Price-sensitivity models (XGBoost/CatBoost) to power targeted retention and pricing.</li>
-                    </ul>
-                </article>
-                <article class="mb-6">
-                    <h3>UMass chan Medical School — Machine learning Researcher</h3>
-                    <p class="job-time text-gray-600 text-sm mb-2">Nov 2023 — May 2024</p>
-                    <ul class="list-disc pl-5">
-                        <li>Advisor: Prof. Hua Fang</li>
-                        <li class="mt-2">I worked on medical imaging and prognosis: first, we implemented image classification on cancer datasets — processing <span class="num">5K+</span> brain MRIs through a cloud ETL pipeline on Google Cloud (Cloud Dataflow) and achieving <span class="num">97%</span> accuracy, which noticeably improved diagnostic precision for oncology teams.</li>
-                        <li class="mt-2">We then developed a Bayesian-optimized ensemble (XGBoost + CNN + Autoencoder) for cancer prognosis that reached an F1 = <span class="num">0.987</span> (≈<span class="num">18%</span> fewer false positives) and enabled personalized treatment plans for <span class="num">20K+</span> patients/year.</li>
-                    </ul>
-                </article>
+                <!-- Publication 2 -->
+                <div class="flex gap-4 mb-5 items-start">
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/haddop.png" alt="publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/256x192/f0f0f0/333?text=Hadoop+Pub';" />
+                    <div class="flex flex-col">
+                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop An Overview of Data Security</a>
+                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>*</div>
+                        <div class="text-xs text-gray-500 mb-2 font-medium">Vol. 11 & Issue 3, March 2022</div>
+                        <div class="text-sm">
+                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="./assests/hadoop%20paper.pdf" target="_blank" rel="noopener">pdf</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="flex gap-4 mb-5 items-start">
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/eef2ff/4f46e5?text=TMLR+2026" alt="TMLR Publication thumbnail" />
+                    <div class="flex flex-col">
+                        <span class="text-teal-600 font-bold leading-tight">Controlling Foundation Models via Internal Interventions: A Survey of Inference-Time Methods</span>
+                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
+                        <div class="text-xs text-gray-500 font-medium">TMLR 2026</div>
+                    </div>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="flex gap-4 mb-5 items-start">
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/fff7ed/ea580c?text=KDD+2026" alt="KDD Publication thumbnail" />
+                    <div class="flex flex-col">
+                        <span class="text-teal-600 font-bold leading-tight">Beyond Preference Matching: Towards Need-Aware Personalized Large Language Models</span>
+                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
+                        <div class="text-xs text-gray-500 font-medium">KDD 2026</div>
+                    </div>
+                </div>
+
+                <!-- Publication 5 -->
+                <div class="flex gap-4 mb-5 items-start">
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/f0fdf4/16a34a?text=AAAI+2026" alt="AAAI Publication thumbnail" />
+                    <div class="flex flex-col">
+                        <span class="text-teal-600 font-bold leading-tight">Graph JailbreakBench: Decomposing Jailbreak Attacks on Large Language Models into Semantic Graphs for Detection, Transferability & Fairness Analysis</span>
+                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
+                        <div class="text-xs text-gray-500 font-medium">In Review AAAI 2026</div>
+                    </div>
+                </div>
             </section>
 
             <!-- Interactive Knowledge Graph Section -->
             <section class="knowledge-graph mb-8" aria-labelledby="knowledge-heading">
                 <h2 id="knowledge-heading" class="text-xl font-bold mb-4">Pradeep's Core AI Competencies</h2>
                 <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-50/50 to-white border-2 border-dashed border-emerald-300 shadow-lg">
-                    <p class="text-sm text-gray-600 mb-3">Drag the central domain nodes (larger circles) or the algorithm nodes to interact with the graph. The nodes are organized by domain knowledge and show key cross-discipline relationships.</p>
+                    <p class="text-sm text-gray-600 mb-3">Drag the central domain nodes (larger circles) or the algorithm nodes to interact with the graph.</p>
                     <div id="knowledge-graph-container" class="w-full" style="height: 350px;">
                         <svg id="knowledge-graph-svg" class="w-full h-full"></svg>
                     </div>
@@ -283,13 +270,14 @@
             </section>
 
             <section class="contact-cta mb-8">
-                <p>If you'd like to collaborate, email me at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="mailto:bolleddu.pradeep1@gmail.com">bolleddu.pradeep1@gmail.com</a>.</p>
+                <p>If you'd like to collaborate, email me at <a class="text-orange-600 hover:text-orange-800 hover:underline" href="mailto:b.bolleddupradeep@gmail.com">b.bolleddupradeep@gmail.com</a>.</p>
             </section>
         </section>
     </main>
     <footer class="text-center py-4 text-sm text-gray-500 border-t border-gray-200">
         © <span id="year"></span>
     </footer>
+
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
