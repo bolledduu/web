@@ -19,7 +19,6 @@
             color: #111;
             background: #fff;
         }
-        /* Added Merriweather for the header for impact */
         .font-name {
             font-family: 'Merriweather', serif;
         }
@@ -75,16 +74,16 @@
         }
 
         .node-text {
-            font-family: 'Roboto Mono', monospace; /* Technical font for concepts */
+            font-family: 'Roboto Mono', monospace;
             font-size: 10px;
-            pointer-events: none; /* Prevents text from blocking drag events on the circle */
-            text-shadow: 0 0 4px white; /* Helps readability over links */
+            pointer-events: none;
+            text-shadow: 0 0 4px white;
             fill: #333;
             font-weight: 600;
         }
 
         .domain-node {
-            stroke: #374151; /* Darker stroke for main nodes */
+            stroke: #374151;
             stroke-width: 2px;
         }
     </style>
@@ -93,10 +92,10 @@
 <body class="bg-surface text-text font-body">
     <header class="bg-white border-b border-gray-200">
         <div class="relative flex items-center justify-center py-3 px-4 sm:px-6 max-w-5xl mx-auto">
-            <!-- Added font-name class to h1 -->
             <h1 class="text-3xl font-name font-bold tracking-tight text-center">Pradeep Bolleddu</h1>
         </div>
     </header>
+    
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
         
         <!-- LEFT COLUMN -->
@@ -205,11 +204,9 @@
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/clustering.webp" alt="publication thumbnail" />
                     <div class="flex flex-col">
-                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
-                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-gray-500 mb-2 font-medium">Volume 8, Issue 2 (Pg: 52-57)</div>
-                        <div class="text-sm">
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">pdf</a>
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">An Analysis of Clustering Techniques</a>
+                            <span class="text-xs text-gray-600 italic"><strong>Pradeep Bolleddu</strong>, ... — Volume 8, Issue 2 (Pg: 52-57) &nbsp;|&nbsp; <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.academia.edu/82398319/An_Analysis_of_Clustering_Techniques" target="_blank" rel="noopener">pdf</a></span>
                         </div>
                     </div>
                 </div>
@@ -218,32 +215,32 @@
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/haddop.png" alt="publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/256x192/f0f0f0/333?text=Hadoop+Pub';" />
                     <div class="flex flex-col">
-                        <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop An Overview of Data Security</a>
-                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>*</div>
-                        <div class="text-xs text-gray-500 mb-2 font-medium">Vol. 11 & Issue 3, March 2022</div>
-                        <div class="text-sm">
-                            <a class="text-orange-600 hover:text-orange-800 hover:underline mr-2" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="./assests/hadoop%20paper.pdf" target="_blank" rel="noopener">pdf</a>
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <a class="text-teal-600 hover:text-teal-800 hover:underline font-bold leading-tight" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">Hadoop An Overview of Data Security</a>
+                            <span class="text-xs text-gray-600 italic"><strong>Pradeep Bolleddu*</strong> — Vol. 11 & Issue 3, March 2022 &nbsp;|&nbsp; <a class="text-orange-600 hover:text-orange-800 hover:underline" href="https://www.researchgate.net/publication/385832357_HADOOP_System_An_Overview_of_Data_Security" target="_blank" rel="noopener">project page</a> | <a class="text-orange-600 hover:text-orange-800 hover:underline" href="./assests/hadoop%20paper.pdf" target="_blank" rel="noopener">pdf</a></span>
                         </div>
                     </div>
                 </div>
 
                 <!-- Publication 3 -->
                 <div class="flex gap-4 mb-5 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/eef2ff/4f46e5?text=TMLR+2026" alt="TMLR Publication thumbnail" />
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/ac4a3fb07ef438e5162f84f3e4782c1a/preprints-213725-g008.png" alt="TMLR Publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/256x192/eef2ff/4f46e5?text=TMLR+2026';" />
                     <div class="flex flex-col">
-                        <span class="text-teal-600 font-bold leading-tight">Controlling Foundation Models via Internal Interventions: A Survey of Inference-Time Methods</span>
-                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-gray-500 font-medium">TMLR 2026</div>
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <span class="text-teal-600 font-bold leading-tight">Controlling Foundation Models via Internal Interventions: A Survey of Inference-Time Methods</span>
+                            <span class="text-xs text-gray-600 italic"><strong>Pradeep Bolleddu</strong>, ... — TMLR 2026</span>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Publication 4 -->
                 <div class="flex gap-4 mb-5 items-start">
-                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/fff7ed/ea580c?text=KDD+2026" alt="KDD Publication thumbnail" />
+                    <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://www.cell.com/cms/10.1016/j.tics.2026.01.003/asset/9b07edfe-b1e0-4aa9-9df9-a2161e338e4e/main.assets/gr1_lrg.jpg" alt="KDD Publication thumbnail" />
                     <div class="flex flex-col">
-                        <span class="text-teal-600 font-bold leading-tight">Beyond Preference Matching: Towards Need-Aware Personalized Large Language Models</span>
-                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-gray-500 font-medium">KDD 2026</div>
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <span class="text-teal-600 font-bold leading-tight">Beyond Preference Matching: Towards Need-Aware Personalized Large Language Models</span>
+                            <span class="text-xs text-gray-600 italic"><strong>Pradeep Bolleddu</strong>, ... — KDD 2026</span>
+                        </div>
                     </div>
                 </div>
 
@@ -251,9 +248,10 @@
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/f0fdf4/16a34a?text=AAAI+2026" alt="AAAI Publication thumbnail" />
                     <div class="flex flex-col">
-                        <span class="text-teal-600 font-bold leading-tight">Graph JailbreakBench: Decomposing Jailbreak Attacks on Large Language Models into Semantic Graphs for Detection, Transferability & Fairness Analysis</span>
-                        <div class="text-sm text-gray-600 mb-1 mt-1"><strong>Pradeep Bolleddu</strong>, ...</div>
-                        <div class="text-xs text-gray-500 font-medium">In Review AAAI 2026</div>
+                        <div class="flex flex-wrap items-baseline gap-x-2">
+                            <span class="text-teal-600 font-bold leading-tight">Graph JailbreakBench: Decomposing Jailbreak Attacks on Large Language Models into Semantic Graphs for Detection, Transferability & Fairness Analysis</span>
+                            <span class="text-xs text-gray-600 italic"><strong>Pradeep Bolleddu</strong>, ... — In Review AAAI 2026</span>
+                        </div>
                     </div>
                 </div>
             </section>
