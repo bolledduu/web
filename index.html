@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Pradeep Bolleddu</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- D3.js for the interactive force-directed graph -->
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&family=EB+Garamond:wght@600&family=Merriweather:wght@400;700&family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
@@ -98,12 +97,9 @@
     
     <main class="container mx-auto px-4 max-w-5xl my-7 md:my-10 grid grid-cols-1 md:grid-cols-[220px_1fr] lg:grid-cols-[250px_1fr] gap-6 items-start">
         
-        <!-- LEFT COLUMN -->
         <aside class="flex flex-col items-center justify-start gap-3">
-            <!-- Profile Image -->
             <img class="w-48 h-64 md:w-56 md:h-72 object-cover rounded-xl shadow-lg transition-transform hover:scale-105" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/website%20photo.jpg" alt="Pradeep Bolleddu" />
             
-            <!-- Social Links -->
             <nav class="flex justify-center gap-4 mt-2 text-xl" aria-label="Social links">
                 <a class="text-teal-700 hover:text-teal-900 transition-colors tooltip-container" href="https://www.linkedin.com/in/pradeep-bolleddu-4745991b2/" target="_blank" rel="noopener" aria-label="LinkedIn">
                     <i class="fab fa-linkedin"></i>
@@ -115,14 +111,12 @@
                 </a>
             </nav>
 
-            <!-- Small Notes Link -->
             <p class="mt-2 w-full text-center">
                 <a href="https://bolledduu.github.io/web/Notes/Notes.html" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 transition-colors font-bold italic text-sm">
                     Read My Notes &rarr;
                 </a>
             </p>
 
-            <!-- Research Blogs Card -->
             <div class="mt-4 w-full p-0 bg-white rounded-xl shadow-lg border border-gray-100 transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl">
                 <img class="w-full h-32 object-cover rounded-t-xl" 
                      src="https://raw.githubusercontent.com/bolledduu/web/main/assests/research%20matters.png" 
@@ -138,7 +132,6 @@
                 </div>
             </div>
 
-            <!-- RESEARCH INTERESTS -->
             <div class="mt-4 w-full">
                 <h3 class="text-lg font-bold text-gray-800 text-center mb-3">Research Interests</h3>
                 <div class="space-y-3">
@@ -158,11 +151,10 @@
             </div>
         </aside>
 
-        <!-- RIGHT COLUMN -->
         <section>
             <section class="bio mb-8 text-gray-800">
                 <p class="mb-4">
-                    <span class="italic">I’m <strong>Pradeep Bolleddu</strong>, an Applied AI Engineer at <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.compfly.ai/" target="_blank" rel="noopener">CompFly AI</a>,</span> building scalable MLSecOps platforms and secure governance workflows for production AI agents. Previously, as an Applied Scientist at Oliv AI, I engineered large-scale LLM classification and RAG conversational systems to automate customer workflows. I currently reside in California.
+                    <span class="italic">I’m <strong>Pradeep Bolleddu</strong>, an Applied AI Engineer at <a class="text-orange-600 hover:text-orange-800 hover:underline font-medium" href="https://www.compfly.ai/" target="_blank" rel="noopener">CompFly AI</a>,</span> building scalable MLSecOps platforms and secure governance workflows for production AI agents. Previously, as an Applied Scientist at Oliv AI, I engineered large-scale LLM classification and RAG conversational systems to automate customer workflows. By connecting agents with real-time monitoring, I study how best to track evidence and decisions for recursive agentic systems and whether durable memory improves agentic assisted scientific discoveries. I currently reside in California.
                 </p>
                 
                 <p>
@@ -170,7 +162,17 @@
                 </p>
             </section>
             
-            <!-- PROJECT ARTICLES Section -->
+            <section class="qualifications mb-8">
+                <h2 class="text-2xl font-bold mb-4 text-gray-900 border-b border-gray-200 pb-2">Qualifications Summary</h2>
+                <ul class="list-disc pl-5 space-y-2 text-gray-800">
+                    <li>Memory systems and observability for long-running, self-improving research agents.</li>
+                    <li>Multi-agent orchestration and AI for Science systems.</li>
+                    <li>Multimodal AI applications for scientific workflows and physical-world experiments.</li>
+                    <li>Project supervision across reasoning, scientific representation learning, and learning tools.</li>
+                    <li>Experience building deployed AI products, research prototypes, and learning platforms.</li>
+                </ul>
+            </section>
+
             <section class="mb-8">
                 <div class="news">
                     <h2 class="text-lg font-bold mb-2">Project Articles</h2>
@@ -200,7 +202,6 @@
             <section class="selected-publications mb-8">
                 <h2 class="text-xl font-bold mb-4">Selected Publications</h2>
                 
-                <!-- Publication 1 -->
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/clustering.webp" alt="publication thumbnail" />
                     <div class="flex flex-col">
@@ -211,7 +212,6 @@
                     </div>
                 </div>
 
-                <!-- Publication 2 -->
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://raw.githubusercontent.com/bolledduu/web/main/assests/haddop.png" alt="publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/256x192/f0f0f0/333?text=Hadoop+Pub';" />
                     <div class="flex flex-col">
@@ -222,7 +222,6 @@
                     </div>
                 </div>
 
-                <!-- Publication 3 -->
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://www.preprints.org/frontend/picture/ms_xml/manuscript/ac4a3fb07ef438e5162f84f3e4782c1a/preprints-213725-g008.png" alt="TMLR Publication thumbnail" onerror="this.onerror=null;this.src='https://placehold.co/256x192/eef2ff/4f46e5?text=TMLR+2026';" />
                     <div class="flex flex-col">
@@ -233,7 +232,6 @@
                     </div>
                 </div>
 
-                <!-- Publication 4 -->
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://www.cell.com/cms/10.1016/j.tics.2026.01.003/asset/9b07edfe-b1e0-4aa9-9df9-a2161e338e4e/main.assets/gr1_lrg.jpg" alt="KDD Publication thumbnail" />
                     <div class="flex flex-col">
@@ -244,7 +242,6 @@
                     </div>
                 </div>
 
-                <!-- Publication 5 -->
                 <div class="flex gap-4 mb-5 items-start">
                     <img class="w-32 h-auto object-cover rounded-md shadow-sm" src="https://placehold.co/256x192/f0fdf4/16a34a?text=AAAI+2026" alt="AAAI Publication thumbnail" />
                     <div class="flex flex-col">
@@ -256,7 +253,6 @@
                 </div>
             </section>
 
-            <!-- Interactive Knowledge Graph Section -->
             <section class="knowledge-graph mb-8" aria-labelledby="knowledge-heading">
                 <h2 id="knowledge-heading" class="text-xl font-bold mb-4">Pradeep's Core AI Competencies</h2>
                 <div class="p-4 rounded-xl bg-gradient-to-br from-emerald-50/50 to-white border-2 border-dashed border-emerald-300 shadow-lg">
